@@ -42,6 +42,8 @@
     <script src="<?= base_url(); ?>/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="<?= base_url(); ?>/js/site.js"></script>
     <script src="<?= base_url(); ?>/js/eva.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/typed/typed.js"></script>
+
 </head>
 
 <body>
@@ -79,7 +81,7 @@
                                 </div>
                                 <div class="text-widget">
                                     <div class="title"><?= $bupati->position ?></div>
-                                    <div class="sub"><?= $bupati->name ?></div>
+                                    <div class="sub"><span id="exampleBupaty"></span></div>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +94,7 @@
                                 </div>
                                 <div class="text-widget">
                                     <div class="title"><?= $wabup->position ?></div>
-                                    <div class="sub"><?= $wabup->name ?></div>
+                                    <div class="sub"><span id="exampleWabub"></span></div>
                                 </div>
                             </div>
                         </div>
@@ -102,49 +104,49 @@
             <!--END CONTENT-->
 
             <nav class="navbar fixed-bottom navbar-light nav-footer">
-            <div class="toolbar mx-lg-auto">
-                <div class="toolbar-grid">
-                    <a href="javascript:void(0);" data-toggle="modal" data-target="#pemerintahanModal">
-                        <div class="toolbar-icon">
-                            <span data-eva="layers-outline"></span>
-                        </div>
-                        <div class="toolbar-text">PEMERINTAHAN</div>
-                    </a>
+                <div class="toolbar mx-lg-auto">
+                    <div class="toolbar-grid">
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#pemerintahanModal">
+                            <div class="toolbar-icon">
+                                <span data-eva="layers-outline"></span>
+                            </div>
+                            <div class="toolbar-text">PEMERINTAHAN</div>
+                        </a>
+                    </div>
+                    <div class="toolbar-grid">
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#gisModal">
+                            <div class="toolbar-icon">
+                                <span data-eva="pin-outline"></span>
+                            </div>
+                            <div class="toolbar-text">WEB GIS</div>
+                        </a>
+                    </div>
+                    <div class="toolbar-grid">
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#programunggulan">
+                            <div class="toolbar-icon">
+                                <span data-eva="grid-outline"></span>
+                            </div>
+                            <div class="toolbar-text">PROGRAM UNGGULAN</div>
+                        </a>
+                    </div>
+                    <div class="toolbar-grid">
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#egov">
+                            <div class="toolbar-icon">
+                                <span data-eva="people-outline"></span>
+                            </div>
+                            <div class="toolbar-text">PELAYANAN PUBLIK</div>
+                        </a>
+                    </div>
+                    <div class="toolbar-grid hide-desktop">
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#sosialmediaModal">
+                            <div class="toolbar-icon">
+                                <span data-eva="browser-outline"></span>
+                            </div>
+                            <div class="toolbar-text">MEDIA SOSIAL</div>
+                        </a>
+                    </div>
                 </div>
-                <div class="toolbar-grid">
-                    <a href="javascript:void(0);" data-toggle="modal" data-target="#gisModal">
-                        <div class="toolbar-icon">
-                            <span data-eva="pin-outline"></span>
-                        </div>
-                        <div class="toolbar-text">WEB GIS</div>
-                    </a>
-                </div>
-                <div class="toolbar-grid">
-                    <a href="javascript:void(0);" data-toggle="modal" data-target="#programunggulan">
-                        <div class="toolbar-icon">
-                            <span data-eva="grid-outline"></span>
-                        </div>
-                        <div class="toolbar-text">PROGRAM UNGGULAN</div>
-                    </a>
-                </div>
-                <div class="toolbar-grid">
-                    <a href="javascript:void(0);" data-toggle="modal" data-target="#egov">
-                        <div class="toolbar-icon">
-                            <span data-eva="people-outline"></span>
-                        </div>
-                        <div class="toolbar-text">PELAYANAN PUBLIK</div>
-                    </a>
-                </div>
-                <div class="toolbar-grid hide-desktop">
-                    <a href="javascript:void(0);" data-toggle="modal" data-target="#sosialmediaModal">
-                        <div class="toolbar-icon">
-                            <span data-eva="browser-outline"></span>
-                        </div>
-                        <div class="toolbar-text">MEDIA SOSIAL</div>
-                    </a>
-                </div>
-            </div>
-        </nav>
+            </nav>
         </div>
         <!--START TOOLBAR-->
         <!--END TOOLBAR-->
@@ -268,7 +270,7 @@
             </div>
         </div>
 
-         <!--Web Gis Modal-->
+        <!--Web Gis Modal-->
         <div class="modal p-0" id="gisModal" tabindex="-1" role="dialog" aria-labelledby="gisModalLabel" aria-hidden="true">
             <div class="modal-portal modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -379,7 +381,7 @@
         </div>
 
         <!--Social Media Modal-->
-         <div class="modal p-0" id="sosialmediaModal" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="mediasosialLabel">
+        <div class="modal p-0" id="sosialmediaModal" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="mediasosialLabel">
             <div class="modal-portal modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -442,15 +444,35 @@
     <script>
         eva.replace();
 
-         $('div[onmodalclose]').each(function (_, self) {
-              var modalclose = $(this).attr('onmodalclose')
-              $(this).on('show.bs.modal', function () {
+        $('div[onmodalclose]').each(function(_, self) {
+            var modalclose = $(this).attr('onmodalclose')
+            $(this).on('show.bs.modal', function() {
                 $('.modal').modal('hide');
-              })
-              $(this).on('hidden.bs.modal', function () {
+            })
+            $(this).on('hidden.bs.modal', function() {
                 $(modalclose).modal('show')
-              })
-            });
+            })
+        });
+
+
+        var bupati = ['<?= $bupati->name ?>'];
+        var typed_bupaty = new Typed('#exampleBupaty', {
+            strings: [
+                bupati[0]
+            ],
+            typeSpeed: 100,
+            backSpeed: 100,
+            loop: true
+        });
+        var wabub = ['<?= $wabup->name ?>'];
+        var typed_wabub = new Typed('#exampleWabub', {
+            strings: [
+                wabub[0]
+            ],
+            typeSpeed: 100,
+            backSpeed: 100,
+            loop: true
+        });
 
         let maps = L.map('map', {
             center: [-1.8647779909219413, 121.53014072928303],
@@ -469,43 +491,43 @@
         let kesehatan = L.icon({
             iconUrl: '<?= base_url('icon/gis/kesehatan.png') ?>',
             iconSize: [15, 28], // size of the icon
-            iconAnchor:  [8, 30],
+            iconAnchor: [8, 30],
             popupAnchor: [-2, -21]
         });
         let pelayanan_public = L.icon({
             iconUrl: '<?= base_url('icon/gis/pelayanan_public.png') ?>',
             iconSize: [15, 28], // size of the icon
-            iconAnchor:  [8, 30],
+            iconAnchor: [8, 30],
             popupAnchor: [-2, -21]
         });
         let pendidikan = L.icon({
             iconUrl: '<?= base_url('icon/gis/pendidikan.png') ?>',
             iconSize: [15, 28], // size of the icon
-            iconAnchor:  [8, 30],
+            iconAnchor: [8, 30],
             popupAnchor: [-2, -21]
         });
         let hotel = L.icon({
             iconUrl: '<?= base_url('icon/gis/hotel.png') ?>',
             iconSize: [15, 28], // size of the icon
-            iconAnchor:  [8, 30],
+            iconAnchor: [8, 30],
             popupAnchor: [-2, -21]
         });
         let kuliner = L.icon({
             iconUrl: '<?= base_url('icon/gis/kuliner.png') ?>',
             iconSize: [15, 28], // size of the icon
-            iconAnchor:  [8, 30],
+            iconAnchor: [8, 30],
             popupAnchor: [-2, -21]
         });
         let wisata = L.icon({
             iconUrl: '<?= base_url('icon/gis/wisata.png') ?>',
             iconSize: [15, 28],
-            iconAnchor:  [8, 30],
+            iconAnchor: [8, 30],
             popupAnchor: [-2, -21]
         });
         let tambang = L.icon({
             iconUrl: '<?= base_url('icon/gis/tambang.png') ?>',
             iconSize: [15, 28],
-            iconAnchor:  [8, 30],
+            iconAnchor: [8, 30],
             popupAnchor: [-2, -21]
         });
         let pabrik = L.icon({
