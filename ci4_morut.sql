@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 03, 2022 at 01:34 PM
--- Server version: 8.0.12
--- PHP Version: 7.4.23
+-- Host: localhost:3306
+-- Waktu pembuatan: 03 Okt 2022 pada 15.04
+-- Versi server: 5.7.33
+-- Versi PHP: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `agenda`
+-- Struktur dari tabel `agenda`
 --
 
 CREATE TABLE `agenda` (
@@ -38,7 +38,7 @@ CREATE TABLE `agenda` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category_gallery`
+-- Struktur dari tabel `category_gallery`
 --
 
 CREATE TABLE `category_gallery` (
@@ -47,7 +47,7 @@ CREATE TABLE `category_gallery` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `category_gallery`
+-- Dumping data untuk tabel `category_gallery`
 --
 
 INSERT INTO `category_gallery` (`category_gallery_id`, `category_name`) VALUES
@@ -57,7 +57,7 @@ INSERT INTO `category_gallery` (`category_gallery_id`, `category_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category_image`
+-- Struktur dari tabel `category_image`
 --
 
 CREATE TABLE `category_image` (
@@ -68,16 +68,16 @@ CREATE TABLE `category_image` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category_news`
+-- Struktur dari tabel `category_news`
 --
 
 CREATE TABLE `category_news` (
   `category_news_id` int(11) NOT NULL,
-  `category_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `category_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `category_news`
+-- Dumping data untuk tabel `category_news`
 --
 
 INSERT INTO `category_news` (`category_news_id`, `category_name`) VALUES
@@ -87,7 +87,7 @@ INSERT INTO `category_news` (`category_news_id`, `category_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `flash_screen`
+-- Struktur dari tabel `flash_screen`
 --
 
 CREATE TABLE `flash_screen` (
@@ -103,7 +103,7 @@ CREATE TABLE `flash_screen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `flash_screen`
+-- Dumping data untuk tabel `flash_screen`
 --
 
 INSERT INTO `flash_screen` (`flash_id`, `name`, `position`, `job_history`, `education_background`, `organization_history`, `address`, `telephone`, `img`) VALUES
@@ -113,7 +113,7 @@ INSERT INTO `flash_screen` (`flash_id`, `name`, `position`, `job_history`, `educ
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gallery`
+-- Struktur dari tabel `gallery`
 --
 
 CREATE TABLE `gallery` (
@@ -124,7 +124,7 @@ CREATE TABLE `gallery` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `gallery`
+-- Dumping data untuk tabel `gallery`
 --
 
 INSERT INTO `gallery` (`gallery_id`, `category_gallery_id`, `option`, `content`) VALUES
@@ -136,7 +136,7 @@ INSERT INTO `gallery` (`gallery_id`, `category_gallery_id`, `option`, `content`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gis_batas_kecamatan`
+-- Struktur dari tabel `gis_batas_kecamatan`
 --
 
 CREATE TABLE `gis_batas_kecamatan` (
@@ -147,7 +147,7 @@ CREATE TABLE `gis_batas_kecamatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `gis_batas_kecamatan`
+-- Dumping data untuk tabel `gis_batas_kecamatan`
 --
 
 INSERT INTO `gis_batas_kecamatan` (`id`, `kecamatan_name`, `geojson_file`, `geojson_color`) VALUES
@@ -165,7 +165,7 @@ INSERT INTO `gis_batas_kecamatan` (`id`, `kecamatan_name`, `geojson_file`, `geoj
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gis_category_facilities`
+-- Struktur dari tabel `gis_category_facilities`
 --
 
 CREATE TABLE `gis_category_facilities` (
@@ -174,7 +174,7 @@ CREATE TABLE `gis_category_facilities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `gis_category_facilities`
+-- Dumping data untuk tabel `gis_category_facilities`
 --
 
 INSERT INTO `gis_category_facilities` (`category_facilities_id`, `category_name`) VALUES
@@ -183,12 +183,14 @@ INSERT INTO `gis_category_facilities` (`category_facilities_id`, `category_name`
 (5, 'hotel'),
 (6, 'kuliner'),
 (7, 'wisata'),
-(9, 'pelayanan-publik');
+(9, 'pelayanan-publik'),
+(10, 'tambang'),
+(11, 'pabrik');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gis_facilities`
+-- Struktur dari tabel `gis_facilities`
 --
 
 CREATE TABLE `gis_facilities` (
@@ -202,7 +204,7 @@ CREATE TABLE `gis_facilities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `gis_facilities`
+-- Dumping data untuk tabel `gis_facilities`
 --
 
 INSERT INTO `gis_facilities` (`facilities_id`, `category_facilities_id`, `title`, `image_name`, `description`, `latitude`, `longitude`) VALUES
@@ -212,12 +214,13 @@ INSERT INTO `gis_facilities` (`facilities_id`, `category_facilities_id`, `title`
 (8, 5, 'Hotel Bogenfil', '1660476058_71788eb8c2cb3bd45f16.jpg', 'Hotel ini berada di kolonodale', '-1.991272543376517', '121.33176141033658'),
 (9, 6, 'Rumah makan enak', '1660476184_261ba8f856bad6d7bc28.jpg', 'warung makan yang menjual ayam', '-1.9842179596643876', '121.33676109118991'),
 (10, 7, 'Wisata Teluk Tomori', '1660477362_f9cc4f7785e2305a7b46.jpg', 'loremloreloremloremlorem', '-1.9446055624022933', '121.36106872737022'),
-(11, 9, 'Polres Morowalli', '1660478837_c14a42b688db7a5e8cac.jpg', 'loremloremlorem', '-2.099805390757554', '121.35277223050504');
+(11, 9, 'Polres Morowalli', '1660478837_c14a42b688db7a5e8cac.jpg', 'loremloremlorem', '-2.099805390757554', '121.35277223050504'),
+(12, 11, 'gnidfdfdfdfdf', '1664809292_4830f044c934ae9a51c0.png', 'dfdfdsafffffff', '-1.7331259180039522', '121.03864193607032');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `image`
+-- Struktur dari tabel `image`
 --
 
 CREATE TABLE `image` (
@@ -229,7 +232,7 @@ CREATE TABLE `image` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lkpj`
+-- Struktur dari tabel `lkpj`
 --
 
 CREATE TABLE `lkpj` (
@@ -242,7 +245,7 @@ CREATE TABLE `lkpj` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `lkpj`
+-- Dumping data untuk tabel `lkpj`
 --
 
 INSERT INTO `lkpj` (`lkpj_id`, `opd_id`, `title`, `file_name`, `year`, `description`) VALUES
@@ -251,7 +254,7 @@ INSERT INTO `lkpj` (`lkpj_id`, `opd_id`, `title`, `file_name`, `year`, `descript
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lppd`
+-- Struktur dari tabel `lppd`
 --
 
 CREATE TABLE `lppd` (
@@ -264,7 +267,7 @@ CREATE TABLE `lppd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `lppd`
+-- Dumping data untuk tabel `lppd`
 --
 
 INSERT INTO `lppd` (`lppd_id`, `opd_id`, `title`, `file_name`, `year`, `description`) VALUES
@@ -273,7 +276,7 @@ INSERT INTO `lppd` (`lppd_id`, `opd_id`, `title`, `file_name`, `year`, `descript
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -287,7 +290,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
@@ -299,24 +302,24 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `news`
+-- Struktur dari tabel `news`
 --
 
 CREATE TABLE `news` (
   `news_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `category_news_id` int(11) NOT NULL,
-  `image_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `image_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `slug` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `content` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `news`
+-- Dumping data untuk tabel `news`
 --
 
 INSERT INTO `news` (`news_id`, `user_id`, `category_news_id`, `image_name`, `title`, `slug`, `content`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -326,7 +329,7 @@ INSERT INTO `news` (`news_id`, `user_id`, `category_news_id`, `image_name`, `tit
 -- --------------------------------------------------------
 
 --
--- Table structure for table `opd`
+-- Struktur dari tabel `opd`
 --
 
 CREATE TABLE `opd` (
@@ -335,7 +338,7 @@ CREATE TABLE `opd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `opd`
+-- Dumping data untuk tabel `opd`
 --
 
 INSERT INTO `opd` (`opd_id`, `opd`) VALUES
@@ -389,7 +392,7 @@ INSERT INTO `opd` (`opd_id`, `opd`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `people_said`
+-- Struktur dari tabel `people_said`
 --
 
 CREATE TABLE `people_said` (
@@ -402,7 +405,7 @@ CREATE TABLE `people_said` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `people_said`
+-- Dumping data untuk tabel `people_said`
 --
 
 INSERT INTO `people_said` (`id`, `name`, `image`, `subject`, `message`, `active`) VALUES
@@ -414,17 +417,17 @@ INSERT INTO `people_said` (`id`, `name`, `image`, `subject`, `message`, `active`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permission`
+-- Struktur dari tabel `permission`
 --
 
 CREATE TABLE `permission` (
   `permission_id` int(11) NOT NULL,
   `permission_description` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `permission_category` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `permission_category` varchar(25) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `permission`
+-- Dumping data untuk tabel `permission`
 --
 
 INSERT INTO `permission` (`permission_id`, `permission_description`, `permission_category`) VALUES
@@ -504,12 +507,16 @@ INSERT INTO `permission` (`permission_id`, `permission_description`, `permission
 (74, 'View Agenda', 'Agenda'),
 (75, 'Create Agenda', 'Agenda'),
 (76, 'Edit Agenda', 'Agenda'),
-(77, 'Delete Agenda', 'Agenda');
+(77, 'Delete Agenda', 'Agenda'),
+(78, 'View Batas Kecamatan', 'Gis Batas Kecamatan'),
+(79, 'Create Batas Kecamatan', 'Gis Batas Kecamatan'),
+(80, 'Edit Batas Kecamatan', 'Gis Batas Kecamatan'),
+(81, 'Delete Batas Kecamatan', 'Gis Batas Kecamatan');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rkpd`
+-- Struktur dari tabel `rkpd`
 --
 
 CREATE TABLE `rkpd` (
@@ -522,7 +529,7 @@ CREATE TABLE `rkpd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `rkpd`
+-- Dumping data untuk tabel `rkpd`
 --
 
 INSERT INTO `rkpd` (`rkpd_id`, `opd_id`, `title`, `file_name`, `year`, `description`) VALUES
@@ -531,7 +538,7 @@ INSERT INTO `rkpd` (`rkpd_id`, `opd_id`, `title`, `file_name`, `year`, `descript
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Struktur dari tabel `role`
 --
 
 CREATE TABLE `role` (
@@ -541,7 +548,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `role`
+-- Dumping data untuk tabel `role`
 --
 
 INSERT INTO `role` (`role_id`, `role_name`, `is_hidden`) VALUES
@@ -552,7 +559,7 @@ INSERT INTO `role` (`role_id`, `role_name`, `is_hidden`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role_permission`
+-- Struktur dari tabel `role_permission`
 --
 
 CREATE TABLE `role_permission` (
@@ -562,7 +569,7 @@ CREATE TABLE `role_permission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `role_permission`
+-- Dumping data untuk tabel `role_permission`
 --
 
 INSERT INTO `role_permission` (`id`, `role_id`, `permission_id`) VALUES
@@ -717,12 +724,20 @@ INSERT INTO `role_permission` (`id`, `role_id`, `permission_id`) VALUES
 (233, 1, 76),
 (234, 2, 76),
 (235, 1, 77),
-(236, 2, 77);
+(236, 2, 77),
+(237, 1, 78),
+(238, 2, 78),
+(239, 1, 79),
+(240, 2, 79),
+(241, 1, 80),
+(242, 2, 80),
+(243, 1, 81),
+(244, 2, 81);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rpjmd`
+-- Struktur dari tabel `rpjmd`
 --
 
 CREATE TABLE `rpjmd` (
@@ -735,7 +750,7 @@ CREATE TABLE `rpjmd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `rpjmd`
+-- Dumping data untuk tabel `rpjmd`
 --
 
 INSERT INTO `rpjmd` (`rpjmd_id`, `opd_id`, `title`, `file_name`, `year`, `description`) VALUES
@@ -744,7 +759,7 @@ INSERT INTO `rpjmd` (`rpjmd_id`, `opd_id`, `title`, `file_name`, `year`, `descri
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rpjpd`
+-- Struktur dari tabel `rpjpd`
 --
 
 CREATE TABLE `rpjpd` (
@@ -757,7 +772,7 @@ CREATE TABLE `rpjpd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `rpjpd`
+-- Dumping data untuk tabel `rpjpd`
 --
 
 INSERT INTO `rpjpd` (`rpjpd_id`, `opd_id`, `title`, `file_name`, `year`, `description`) VALUES
@@ -766,7 +781,7 @@ INSERT INTO `rpjpd` (`rpjpd_id`, `opd_id`, `title`, `file_name`, `year`, `descri
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sakip`
+-- Struktur dari tabel `sakip`
 --
 
 CREATE TABLE `sakip` (
@@ -779,7 +794,7 @@ CREATE TABLE `sakip` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `sakip`
+-- Dumping data untuk tabel `sakip`
 --
 
 INSERT INTO `sakip` (`sakip_id`, `opd_id`, `title`, `file_name`, `year`, `description`) VALUES
@@ -788,7 +803,7 @@ INSERT INTO `sakip` (`sakip_id`, `opd_id`, `title`, `file_name`, `year`, `descri
 -- --------------------------------------------------------
 
 --
--- Table structure for table `setting`
+-- Struktur dari tabel `setting`
 --
 
 CREATE TABLE `setting` (
@@ -812,7 +827,7 @@ CREATE TABLE `setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `setting`
+-- Dumping data untuk tabel `setting`
 --
 
 INSERT INTO `setting` (`setting_id`, `background`, `banner1`, `banner2`, `banner3`, `logo`, `facebook`, `twitter`, `instagram`, `youtube`, `address`, `contact`, `email`, `work_day`, `hour`, `quotes`, `motto`) VALUES
@@ -821,14 +836,14 @@ INSERT INTO `setting` (`setting_id`, `background`, `banner1`, `banner2`, `banner
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
-  `username` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `is_hidden` int(11) NOT NULL DEFAULT '0',
   `is_active` int(1) NOT NULL DEFAULT '0',
   `role_id` int(11) NOT NULL,
@@ -837,7 +852,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`user_id`, `username`, `name`, `password`, `is_hidden`, `is_active`, `role_id`, `created_at`, `updated_at`) VALUES
@@ -850,273 +865,309 @@ INSERT INTO `user` (`user_id`, `username`, `name`, `password`, `is_hidden`, `is_
 --
 
 --
--- Indexes for table `agenda`
+-- Indeks untuk tabel `agenda`
 --
 ALTER TABLE `agenda`
   ADD PRIMARY KEY (`agenda_id`);
 
 --
--- Indexes for table `category_gallery`
+-- Indeks untuk tabel `category_gallery`
 --
 ALTER TABLE `category_gallery`
   ADD PRIMARY KEY (`category_gallery_id`);
 
 --
--- Indexes for table `category_image`
+-- Indeks untuk tabel `category_image`
 --
 ALTER TABLE `category_image`
   ADD PRIMARY KEY (`category_image_id`);
 
 --
--- Indexes for table `category_news`
+-- Indeks untuk tabel `category_news`
 --
 ALTER TABLE `category_news`
   ADD PRIMARY KEY (`category_news_id`),
   ADD UNIQUE KEY `category_name` (`category_name`);
 
 --
--- Indexes for table `flash_screen`
+-- Indeks untuk tabel `flash_screen`
 --
 ALTER TABLE `flash_screen`
   ADD PRIMARY KEY (`flash_id`);
 
 --
--- Indexes for table `gallery`
+-- Indeks untuk tabel `gallery`
 --
 ALTER TABLE `gallery`
   ADD PRIMARY KEY (`gallery_id`);
 
 --
--- Indexes for table `image`
+-- Indeks untuk tabel `gis_batas_kecamatan`
+--
+ALTER TABLE `gis_batas_kecamatan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `gis_category_facilities`
+--
+ALTER TABLE `gis_category_facilities`
+  ADD PRIMARY KEY (`category_facilities_id`);
+
+--
+-- Indeks untuk tabel `gis_facilities`
+--
+ALTER TABLE `gis_facilities`
+  ADD PRIMARY KEY (`facilities_id`);
+
+--
+-- Indeks untuk tabel `image`
 --
 ALTER TABLE `image`
   ADD PRIMARY KEY (`image_id`);
 
 --
--- Indexes for table `lkpj`
+-- Indeks untuk tabel `lkpj`
 --
 ALTER TABLE `lkpj`
   ADD PRIMARY KEY (`lkpj_id`);
 
 --
--- Indexes for table `lppd`
+-- Indeks untuk tabel `lppd`
 --
 ALTER TABLE `lppd`
   ADD PRIMARY KEY (`lppd_id`);
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `news`
+-- Indeks untuk tabel `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`news_id`);
 
 --
--- Indexes for table `opd`
+-- Indeks untuk tabel `opd`
 --
 ALTER TABLE `opd`
   ADD PRIMARY KEY (`opd_id`),
   ADD UNIQUE KEY `opd` (`opd`);
 
 --
--- Indexes for table `people_said`
+-- Indeks untuk tabel `people_said`
 --
 ALTER TABLE `people_said`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `permission`
+-- Indeks untuk tabel `permission`
 --
 ALTER TABLE `permission`
   ADD PRIMARY KEY (`permission_id`);
 
 --
--- Indexes for table `rkpd`
+-- Indeks untuk tabel `rkpd`
 --
 ALTER TABLE `rkpd`
   ADD PRIMARY KEY (`rkpd_id`);
 
 --
--- Indexes for table `role`
+-- Indeks untuk tabel `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`role_id`),
   ADD UNIQUE KEY `role_name` (`role_name`);
 
 --
--- Indexes for table `role_permission`
+-- Indeks untuk tabel `role_permission`
 --
 ALTER TABLE `role_permission`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `rpjmd`
+-- Indeks untuk tabel `rpjmd`
 --
 ALTER TABLE `rpjmd`
   ADD PRIMARY KEY (`rpjmd_id`);
 
 --
--- Indexes for table `rpjpd`
+-- Indeks untuk tabel `rpjpd`
 --
 ALTER TABLE `rpjpd`
   ADD PRIMARY KEY (`rpjpd_id`);
 
 --
--- Indexes for table `sakip`
+-- Indeks untuk tabel `sakip`
 --
 ALTER TABLE `sakip`
   ADD PRIMARY KEY (`sakip_id`);
 
 --
--- Indexes for table `setting`
+-- Indeks untuk tabel `setting`
 --
 ALTER TABLE `setting`
   ADD PRIMARY KEY (`setting_id`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`),
   ADD KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `agenda`
+-- AUTO_INCREMENT untuk tabel `agenda`
 --
 ALTER TABLE `agenda`
   MODIFY `agenda_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `category_gallery`
+-- AUTO_INCREMENT untuk tabel `category_gallery`
 --
 ALTER TABLE `category_gallery`
-  MODIFY `category_gallery_id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `category_gallery_id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `category_image`
+-- AUTO_INCREMENT untuk tabel `category_image`
 --
 ALTER TABLE `category_image`
   MODIFY `category_image_id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `category_news`
+-- AUTO_INCREMENT untuk tabel `category_news`
 --
 ALTER TABLE `category_news`
   MODIFY `category_news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `flash_screen`
+-- AUTO_INCREMENT untuk tabel `flash_screen`
 --
 ALTER TABLE `flash_screen`
   MODIFY `flash_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `gallery`
+-- AUTO_INCREMENT untuk tabel `gallery`
 --
 ALTER TABLE `gallery`
   MODIFY `gallery_id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `image`
+-- AUTO_INCREMENT untuk tabel `gis_batas_kecamatan`
+--
+ALTER TABLE `gis_batas_kecamatan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT untuk tabel `gis_category_facilities`
+--
+ALTER TABLE `gis_category_facilities`
+  MODIFY `category_facilities_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT untuk tabel `gis_facilities`
+--
+ALTER TABLE `gis_facilities`
+  MODIFY `facilities_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT untuk tabel `image`
 --
 ALTER TABLE `image`
   MODIFY `image_id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `lkpj`
+-- AUTO_INCREMENT untuk tabel `lkpj`
 --
 ALTER TABLE `lkpj`
   MODIFY `lkpj_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `lppd`
+-- AUTO_INCREMENT untuk tabel `lppd`
 --
 ALTER TABLE `lppd`
   MODIFY `lppd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `news`
+-- AUTO_INCREMENT untuk tabel `news`
 --
 ALTER TABLE `news`
   MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `opd`
+-- AUTO_INCREMENT untuk tabel `opd`
 --
 ALTER TABLE `opd`
   MODIFY `opd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT for table `people_said`
+-- AUTO_INCREMENT untuk tabel `people_said`
 --
 ALTER TABLE `people_said`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `permission`
+-- AUTO_INCREMENT untuk tabel `permission`
 --
 ALTER TABLE `permission`
-  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
--- AUTO_INCREMENT for table `rkpd`
+-- AUTO_INCREMENT untuk tabel `rkpd`
 --
 ALTER TABLE `rkpd`
   MODIFY `rkpd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `role`
+-- AUTO_INCREMENT untuk tabel `role`
 --
 ALTER TABLE `role`
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `role_permission`
+-- AUTO_INCREMENT untuk tabel `role_permission`
 --
 ALTER TABLE `role_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=245;
 
 --
--- AUTO_INCREMENT for table `rpjmd`
+-- AUTO_INCREMENT untuk tabel `rpjmd`
 --
 ALTER TABLE `rpjmd`
   MODIFY `rpjmd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `rpjpd`
+-- AUTO_INCREMENT untuk tabel `rpjpd`
 --
 ALTER TABLE `rpjpd`
   MODIFY `rpjpd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `sakip`
+-- AUTO_INCREMENT untuk tabel `sakip`
 --
 ALTER TABLE `sakip`
   MODIFY `sakip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `setting`
+-- AUTO_INCREMENT untuk tabel `setting`
 --
 ALTER TABLE `setting`
   MODIFY `setting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
