@@ -125,7 +125,7 @@ class NewsModel extends Model
     public function dataArchive()
     {
         $this->builder = $this->db->table($this->table . ' AS n');
-        $this->builder->select('distinct DATE_FORMAT(n.created_at, "%m-%Y") as archive');
+        $this->builder->select('distinct DATE_FORMAT(n.updated_at, "%m-%Y") as archive');
 
         $query = $this->builder->get();
         return $query->getResult();
@@ -135,7 +135,7 @@ class NewsModel extends Model
     {
         $this->builder = $this->db->table($this->table . ' AS n');
         $this->builder->select('n.title AS title, n.news_id AS news_id, n.user_id AS user_id, n.image_name AS image_name, n.content AS content, u.name AS user_name,cn.category_news_id AS category_news_id, cn.category_name AS category_name, n.updated_at AS created_at, n.slug AS slug');
-        $this->builder->where('DATE_FORMAT(n.created_at, "%m-%Y")', $arc);
+        $this->builder->where('DATE_FORMAT(n.updated_at, "%m-%Y")', $arc);
         $this->builder->join('user as u', 'u.user_id = n.user_id', 'left');
         $this->builder->join('category_news as cn', 'cn.category_news_id = n.category_news_id', 'left');
 

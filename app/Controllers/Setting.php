@@ -64,94 +64,6 @@ class Setting extends BaseController
         return view('dashboard/setting/contact/contact', $data);
     }
 
-    public function create()
-    {
-        if (!user_can('edit-setting')) {
-            return redirect()->to(base_url('/dashboard/invalid'));
-        }
-
-        //load helper form and URL
-        helper(['form', 'url']);
-
-        if (check_token('token_image', $this->request->getVar('token'))) {
-            //define validation
-            $validation = [
-                'background' => [
-                    'rules' => 'uploaded[background]|max_size[background,2024]|is_image[background]|mime_in[background,image/jpg,image/jpeg,image/png]',
-                    'errors' => [
-                        'uploaded' => 'No Image Selected',
-                        'max_size' => 'Background size Maximum 2 MB',
-                        'is_image' => 'Background file type must be JPG, JPEG, PNG',
-                        'mime_in' => 'Background file type must be JPG, JPEG, PNG',
-                    ],
-                ],
-                'banner1' => [
-                    'rules' => 'uploaded[banner1]|max_size[banner1,2024]|is_image[banner1]|mime_in[banner1,image/jpg,image/jpeg,image/png]',
-                    'errors' => [
-                        'uploaded' => 'No Image Selected',
-                        'max_size' => 'Banner 1 size Maximum 2 MB',
-                        'is_image' => 'Banner 1 file type must be JPG, JPEG, PNG',
-                        'mime_in' => 'Banner 1 file type must be JPG, JPEG, PNG',
-                    ],
-                ],
-                'banner2' => [
-                    'rules' => 'uploaded[banner2]|max_size[banner2,2024]|is_image[banner2]|mime_in[banner2,image/jpg,image/jpeg,image/png]',
-                    'errors' => [
-                        'uploaded' => 'No Image Selected',
-                        'max_size' => 'Banner 2 size Maximum 2 MB',
-                        'is_image' => 'Banner 2 file type must be JPG, JPEG, PNG',
-                        'mime_in' => 'Banner 2 file type must be JPG, JPEG, PNG',
-                    ],
-                ],
-                'banner3' => [
-                    'rules' => 'uploaded[banner3]|max_size[banner3,2024]|is_image[banner3]|mime_in[banner3,image/jpg,image/jpeg,image/png]',
-                    'errors' => [
-                        'uploaded' => 'No Image Selected',
-                        'max_size' => 'Banner 3 size Maximum 2 MB',
-                        'is_image' => 'Banner 3 file type must be JPG, JPEG, PNG',
-                        'mime_in' => 'Banner 3 file type must be JPG, JPEG, PNG',
-                    ],
-                ],
-            ];
-
-            if (!$this->validate($validation)) {
-                return redirect()->back()->withInput();
-            } else {
-                $imgPathBg = $this->request->getFile('background');
-                $imgNameBg = $imgPathBg->getRandomName();
-
-                $imgPathBn1 = $this->request->getFile('banner1');
-                $imgNameBn1 = $imgPathBn1->getRandomName();
-
-                $imgPathBn2 = $this->request->getFile('banner2');
-                $imgNameBn2 = $imgPathBn2->getRandomName();
-
-                $imgPathBn3 = $this->request->getFile('banner3');
-                $imgNameBn3 = $imgPathBn3->getRandomName();
-
-                $data = [
-                    'background' => $imgNameBg,
-                    'banner1' => $imgNameBn1,
-                    'banner2' => $imgNameBn2,
-                    'banner3' => $imgNameBn3,
-                ];
-
-                $simpan = $this->setting_model->insert($data);
-                if ($simpan) {
-                    // Image manipulation
-                    $imgPathBg->move(FCPATH.'img/setting', $imgNameBg);
-                    $imgPathBn1->move(FCPATH.'img/setting', $imgNameBn1);
-                    $imgPathBn2->move(FCPATH.'img/setting', $imgNameBn2);
-                    $imgPathBn3->move(FCPATH.'img/setting', $imgNameBn3);
-                }
-            }
-
-            return redirect()->to(base_url('/setting'));
-        } else {
-            return redirect()->to(base_url('/dashboard/err404'));
-        }
-    }
-
     public function update($id)
     {
         if (!user_can('edit-setting')) {
@@ -180,6 +92,39 @@ class Setting extends BaseController
                         'mime_in' => 'Banner 1 file type must be JPG, JPEG, PNG',
                     ],
                 ],
+                'title1' => [
+                    'rules' => 'required|min_length[8]|max_length[50]',
+                    'errors' => [
+                        'required' => 'Title field is required',
+                        'min_length' => 'Title Minimum 8 Character',
+                        'max_length' => 'Title Maximum 50 Character',
+                    ]
+                ],
+                'description1' => [
+                    'rules' => 'required|min_length[8]|max_length[200]',
+                    'errors' => [
+                        'required' => 'Description field is required',
+                        'min_length' => 'Description Minimum 8 Character',
+                        'max_length' => 'Description Maximum 200 Character',
+                    ]
+                ],
+                'url1' => [
+                    'rules' => 'required|valid_url|min_length[8]|max_length[50]',
+                    'errors' => [
+                        'required' => 'Url field is required',
+                        'valid_url' => 'Url is not valid',
+                        'min_length' => 'Url Minimum 8 Character',
+                        'max_length' => 'Url Maximum 50 Character',
+                    ]
+                ],
+                'url_tag1' => [
+                    'rules' => 'required|min_length[8]|max_length[50]',
+                    'errors' => [
+                        'required' => 'Url Tag field is required',
+                        'min_length' => 'Url Tag Minimum 8 Character',
+                        'max_length' => 'Url Tag Maximum 50 Character',
+                    ]
+                ],
                 'banner2' => [
                     'rules' => 'max_size[banner2,2024]|is_image[banner2]|mime_in[banner2,image/jpg,image/jpeg,image/png]',
                     'errors' => [
@@ -188,6 +133,39 @@ class Setting extends BaseController
                         'mime_in' => 'Banner 2 file type must be JPG, JPEG, PNG',
                     ],
                 ],
+                'title2' => [
+                    'rules' => 'required|min_length[8]|max_length[50]',
+                    'errors' => [
+                        'required' => 'Title field is required',
+                        'min_length' => 'Title Minimum 8 Character',
+                        'max_length' => 'Title Maximum 50 Character',
+                    ]
+                ],
+                'description2' => [
+                    'rules' => 'required|min_length[8]|max_length[200]',
+                    'errors' => [
+                        'required' => 'Description field is required',
+                        'min_length' => 'Description Minimum 8 Character',
+                        'max_length' => 'Description Maximum 200 Character',
+                    ]
+                ],
+                'url2' => [
+                    'rules' => 'required|valid_url|min_length[8]|max_length[50]',
+                    'errors' => [
+                        'required' => 'Url field is required',
+                        'valid_url' => 'Url is not valid',
+                        'min_length' => 'Url Minimum 8 Character',
+                        'max_length' => 'Url Maximum 50 Character',
+                    ]
+                ],
+                'url_tag2' => [
+                    'rules' => 'required|min_length[8]|max_length[50]',
+                    'errors' => [
+                        'required' => 'Url Tag field is required',
+                        'min_length' => 'Url Tag Minimum 8 Character',
+                        'max_length' => 'Url Tag Maximum 50 Character',
+                    ]
+                ],
                 'banner3' => [
                     'rules' => 'max_size[banner3,2024]|is_image[banner3]|mime_in[banner3,image/jpg,image/jpeg,image/png]',
                     'errors' => [
@@ -195,6 +173,39 @@ class Setting extends BaseController
                         'is_image' => 'Banner 3 file type must be JPG, JPEG, PNG',
                         'mime_in' => 'Banner 3 file type must be JPG, JPEG, PNG',
                     ],
+                ],
+                'title3' => [
+                    'rules' => 'required|min_length[8]|max_length[50]',
+                    'errors' => [
+                        'required' => 'Title field is required',
+                        'min_length' => 'Title Minimum 8 Character',
+                        'max_length' => 'Title Maximum 50 Character',
+                    ]
+                ],
+                'description3' => [
+                    'rules' => 'required|min_length[8]|max_length[200]',
+                    'errors' => [
+                        'required' => 'Description field is required',
+                        'min_length' => 'Description Minimum 8 Character',
+                        'max_length' => 'Description Maximum 200 Character',
+                    ]
+                ],
+                'url3' => [
+                    'rules' => 'required|valid_url|min_length[8]|max_length[50]',
+                    'errors' => [
+                        'required' => 'Url field is required',
+                        'valid_url' => 'Url is not valid',
+                        'min_length' => 'Url Minimum 8 Character',
+                        'max_length' => 'Url Maximum 50 Character',
+                    ]
+                ],
+                'url_tag3' => [
+                    'rules' => 'required|min_length[8]|max_length[50]',
+                    'errors' => [
+                        'required' => 'Url Tag field is required',
+                        'min_length' => 'Url Tag Minimum 8 Character',
+                        'max_length' => 'Url Tag Maximum 50 Character',
+                    ]
                 ],
                  'logo' => [
                     'rules' => 'max_size[logo,2024]|is_image[logo]|mime_in[banner3,image/jpg,image/jpeg,image/png]',
@@ -280,11 +291,38 @@ class Setting extends BaseController
                         ->save(FCPATH . '/img/setting/' . $imgNameLogo);
                 }
 
+                $title1 = $this->request->getVar('title1');
+                $description1 = $this->request->getVar('description1');
+                $url1 = $this->request->getVar('url1');
+                $url_tag1 = $this->request->getVar('url_tag1');
+
+                $title2 = $this->request->getVar('title2');
+                $description2 = $this->request->getVar('description2');
+                $url2 = $this->request->getVar('url2');
+                $url_tag2 = $this->request->getVar('url_tag2');
+
+                $title3 = $this->request->getVar('title3');
+                $description3 = $this->request->getVar('description3');
+                $url3 = $this->request->getVar('url3');
+                $url_tag3 = $this->request->getVar('url_tag3');
+
                 $data = [
                     'background' => $imgNameBg,
                     'banner1' => $imgNameBn1,
                     'banner2' => $imgNameBn2,
                     'banner3' => $imgNameBn3,
+                    'title1' => $title1,
+                    'description1' => $description1,
+                    'url1' => $url1,
+                    'url_tag1' => $url_tag1,
+                    'title2' => $title2,
+                    'description2' => $description2,
+                    'url2' => $url2,
+                    'url_tag2' => $url_tag2,
+                    'title3' => $title3,
+                    'description3' => $description3,
+                    'url3' => $url3,
+                    'url_tag3' => $url_tag3,
                     'logo' => $imgNameLogo,
                 ];
 

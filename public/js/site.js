@@ -1,30 +1,3 @@
-(function($) {
-    "use strict";
-    $(".trigger-modal-detail").click(function(){
-        var self = $(this);
-        $("#pemerintahanModal").modal('hide');
-        setTimeout(function(){
-            $(self.attr('data-target')).modal('show');
-        }, 500);
-    });
-
-    $(".has-parent").click(function (e) {
-        var target = $(this).attr('data-target');
-        if (target) {
-            var parent = $(this).attr('data-parent');
-            $('#' + parent).modal('hide');
-        }
-    });
-
-    $(".back").click(function(){
-        $($(this).closest('[role=dialog]')).modal('hide');
-        setTimeout(function(){
-            $("#pemerintahanModal").modal('show');
-        }, 500);
-    });
-
-})(window.jQuery);
-
 /* IE11 Fix for SP2010 */
 if (!Array.from) {
     Array.from = (function () {

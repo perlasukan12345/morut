@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Waktu pembuatan: 03 Okt 2022 pada 15.04
--- Versi server: 5.7.33
--- Versi PHP: 7.4.19
+-- Host: localhost
+-- Generation Time: Oct 04, 2022 at 08:33 PM
+-- Server version: 8.0.12
+-- PHP Version: 7.4.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,21 +24,53 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `agenda`
+-- Table structure for table `about`
 --
 
-CREATE TABLE `agenda` (
-  `agenda_id` int(11) NOT NULL,
-  `title` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `slug` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `category` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
-  `agenda` text COLLATE utf8_unicode_ci NOT NULL
+CREATE TABLE `about` (
+  `about_id` int(11) NOT NULL,
+  `history` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `geografi` text COLLATE utf8_unicode_ci NOT NULL,
+  `demografi` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `about`
+--
+
+INSERT INTO `about` (`about_id`, `history`, `geografi`, `demografi`) VALUES
+(1, '<p>Secara geografis, Kabupaten Morowali Utara terletak pada 1&deg;31&prime; &ndash; 3&deg;04&prime; Lintang Selatan dan 121&deg;02&prime; &ndash; 123&deg;15&prime; Bujur Timur.</p>\r\n<p>Kabupaten Morowali Utara (bahasa Inggris: North Morowali Regency), adalah sebuah kabupaten di provinsi Sulawesi Tengah, Indonesia. Ibu kota kabupaten sekaligus pusat administrasi terletak di kota Kolonodale. Morowali Utara merupakan hasil pemekaran dari Kabupaten Morowali yang disahkan dalam sidang paripurna DPR RI pada 12 April 2013 di gedung DPR RI tentang Rancangan UU Daerah Otonomi Baru (DOB). Kabupaten Morowali Utara mempunyai batas-batas wilayah: Sebelah utara berbatasan dengan Desa Buyuntaripa, Desa Korondoda, Desa Bugi Kecamatan Tojo dan Desa Rompi Kecamatan Ulubongka Kabupaten Tojo Una-Una.</p>\r\n<p>Sebelah timur berbatasan dengan Desa Rata, Desa Gunung Kramat, Desa Matawa, Desa Mangkapa Kecamatan Toili Barat Kabupaten Banggai, dan Laut Banda; Sebelah selatan berbatasan dengan Desa Solonsa Kecamatan Wita Ponda Kabupaten Morowali dan Desa Nuha, Desa Matano, dan Desa Sorowako Kecamatan Nuha Kabupaten Luwu Timur Provinsi Sulawesi Selatan; dan Sebelah barat berbatasan dengan Desa Uelene, Desa Mayasari Kecamatan Pamona Selatan dan Desa Pancasila, Desa Kamba, Desa Matialemba, Desa Kancu&rsquo;u dan Desa Masewe Kecamatan Pamona Timur Kabupaten Poso.</p>', '<p>Secara geografis, Kabupaten Morowali Utara terletak pada 1&deg;31&prime; &ndash; 3&deg;04&prime; Lintang Selatan dan 121&deg;02&prime; &ndash; 123&deg;15&prime; Bujur Timur</p>', '<p>Kabupaten Morowali Utara (bahasa Inggris: North Morowali Regency), adalah sebuah kabupaten di provinsi Sulawesi Tengah, Indonesia. Ibu kota kabupaten sekaligus pusat administrasi terletak di kota Kolonodale. Morowali Utara merupakan hasil pemekaran dari Kabupaten Morowali yang disahkan dalam sidang paripurna DPR RI pada 12 April 2013 di gedung DPR RI tentang Rancangan UU Daerah Otonomi Baru (DOB). Kabupaten Morowali Utara mempunyai batas-batas wilayah: Sebelah utara berbatasan dengan Desa Buyuntaripa, Desa Korondoda, Desa Bugi Kecamatan Tojo dan Desa Rompi Kecamatan Ulubongka Kabupaten Tojo Una-Una.</p>\r\n<p>Sebelah timur berbatasan dengan Desa Rata, Desa Gunung Kramat, Desa Matawa, Desa Mangkapa Kecamatan Toili Barat Kabupaten Banggai, dan Laut Banda; Sebelah selatan berbatasan dengan Desa Solonsa Kecamatan Wita Ponda Kabupaten Morowali dan Desa Nuha, Desa Matano, dan Desa Sorowako Kecamatan Nuha Kabupaten Luwu Timur Provinsi Sulawesi Selatan; dan Sebelah barat berbatasan dengan Desa Uelene, Desa Mayasari Kecamatan Pamona Selatan dan Desa Pancasila, Desa Kamba, Desa Matialemba, Desa Kancu&rsquo;u dan Desa Masewe Kecamatan Pamona Timur Kabupaten Poso.</p>');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `category_gallery`
+-- Table structure for table `agenda`
+--
+
+CREATE TABLE `agenda` (
+  `agenda_id` int(11) NOT NULL,
+  `title` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `slug` varchar(400) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `category` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `agenda` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `agenda`
+--
+
+INSERT INTO `agenda` (`agenda_id`, `title`, `slug`, `category`, `agenda`) VALUES
+(1, 'Senam Masal ', 'senam-masal', 'Kabupaten / Pemerintahan', '<p>Senam Masal \"INDONESIA MERDEKA\" Dalam Rangka Memeriahkan Peringatan Hari Ulang Tahun Proklamasi Kemerdekaan RI ke - 77 Tahun&nbsp;</p>\r\n<table style=\"border-collapse: collapse; width: 52.2892%;\" border=\"1\"><colgroup><col style=\"width: 13.6309%;\"><col style=\"width: 86.3691%;\"></colgroup>\r\n<tbody>\r\n<tr>\r\n<td>Tempat</td>\r\n<td>: Start Kantor Bupati Morowali Utara</td>\r\n</tr>\r\n<tr>\r\n<td>Hari</td>\r\n<td>: Selasa</td>\r\n</tr>\r\n<tr>\r\n<td>Waktu</td>\r\n<td>: 13.00 Wita - Selsai</td>\r\n</tr>\r\n</tbody>\r\n</table>'),
+(2, 'Lomba Gerak Jalan 17 Km', 'lomba-gerak-jalan-17-km', 'Kabupaten / Pemerintahan', '<p>Lomba Gerak Jalan 17 Km Dalam Rangka Memeriahkan Peringatan Hari Ulang Tahun Proklamasi Kemerdekaan RI ke - 77 Tahun 2022</p>\r\n<table border=\"0\">\r\n<tbody>\r\n<tr>\r\n<td>Tempat</td>\r\n<td>&nbsp;: Start Depan Kantor Bupati Morowali Utara</td>\r\n</tr>\r\n<tr>\r\n<td>Hari</td>\r\n<td>&nbsp;: 2022-08-20 s/d 2022-08-20</td>\r\n</tr>\r\n<tr>\r\n<td>Waktu</td>\r\n<td>&nbsp;: 13.00 Wita - Selesai</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<p>&nbsp;</p>'),
+(3, 'Gejar Jalan 8 Km', 'gejar-jalan-8-km', 'Kabupaten / Pemerintahan', '<p>Gerak Jalan 8 Km Dalam Rangka Memeriahkan Peringatan Hari Ulang Tahun Proklamasi Kemerdekaan RI ke - 77 Tahun 2022</p>\r\n<table border=\"0\">\r\n<tbody>\r\n<tr>\r\n<td>Tempat</td>\r\n<td>&nbsp;: Start Jl. Bahontula</td>\r\n</tr>\r\n<tr>\r\n<td>Hari</td>\r\n<td>&nbsp;: 2022-08-13 s/d 2022-08-13</td>\r\n</tr>\r\n<tr>\r\n<td>Waktu</td>\r\n<td>&nbsp;: 06.30 WITA - Selesai</td>\r\n</tr>\r\n</tbody>\r\n</table>'),
+(4, 'Pelatihan Keterampilan bagi Pemuda Tahun 2019', 'pelatihan-keterampilan-bagi-pemuda-tahun-2019', 'Masyarakat', '<p>Pelatihan Keterampilan bagi Pemuda Tahun 2019 yang diikuti oleh 100 peserta dari unsur pemuda usia 16-30 tahun yang belum mempunyai usaha atau usaha pemula</p>\r\n<table border=\"0\">\r\n<tbody>\r\n<tr>\r\n<td>Tempat</td>\r\n<td>&nbsp;: Gedung Moroka</td>\r\n</tr>\r\n<tr>\r\n<td>Hari</td>\r\n<td>&nbsp;: 2019-11-25 s/d 2019-11-26</td>\r\n</tr>\r\n<tr>\r\n<td>Waktu</td>\r\n<td>&nbsp;: 08.00 WITA - selesai</td>\r\n</tr>\r\n</tbody>\r\n</table>'),
+(5, 'FKUB Gelar Dialog Bersama dengan Tema ', 'fkub-gelar-dialog-bersama-dengan-tema', 'Masyarakat', '<div class=\"mt-3 w-100 h-50\">Gelar Dialog Bersama dengan Tema \"Jangan Pernah Lelah Mencintai Indonesia\". Acara dihadiri Bupati Moroali Utara dan masyarakat Morowali Utara</div>\r\n<div class=\"mt-3 w-100 h-50\">&nbsp;</div>\r\n<table border=\"0\">\r\n<tbody>\r\n<tr>\r\n<td>Tempat</td>\r\n<td>&nbsp;: Gedung Morokoa</td>\r\n</tr>\r\n<tr>\r\n<td>Hari</td>\r\n<td>&nbsp;: 2019-11-23 s/d 2019-11-23</td>\r\n</tr>\r\n<tr>\r\n<td>Waktu</td>\r\n<td>&nbsp;: 09.00 WITA s/d selesai</td>\r\n</tr>\r\n</tbody>\r\n</table>'),
+(6, 'Lomba Mewarnai Gerabah Tingkat TK/RA dan SD/MI', 'lomba-mewarnai-gerabah-tingkat-tkra-dan-sdmi', 'Masyarakat', '<p>Lomba Mewarnai Tingkat TK/RA dan SD/MI dalam rangka Festival Mewarnai 2019. Lomba ini gratis/tidak dipungut biaya.</p>\r\n<table border=\"0\">\r\n<tbody>\r\n<tr>\r\n<td>Tempat</td>\r\n<td>&nbsp;: Gedung Morokoa</td>\r\n</tr>\r\n<tr>\r\n<td>Hari</td>\r\n<td>&nbsp;: 2019-04-27 s/d 2019-04-27</td>\r\n</tr>\r\n<tr>\r\n<td>Waktu</td>\r\n<td>&nbsp;: 08.00 WITA - selesai</td>\r\n</tr>\r\n</tbody>\r\n</table>');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category_gallery`
 --
 
 CREATE TABLE `category_gallery` (
@@ -47,7 +79,7 @@ CREATE TABLE `category_gallery` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `category_gallery`
+-- Dumping data for table `category_gallery`
 --
 
 INSERT INTO `category_gallery` (`category_gallery_id`, `category_name`) VALUES
@@ -57,7 +89,7 @@ INSERT INTO `category_gallery` (`category_gallery_id`, `category_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `category_image`
+-- Table structure for table `category_image`
 --
 
 CREATE TABLE `category_image` (
@@ -68,16 +100,16 @@ CREATE TABLE `category_image` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `category_news`
+-- Table structure for table `category_news`
 --
 
 CREATE TABLE `category_news` (
   `category_news_id` int(11) NOT NULL,
-  `category_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+  `category_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `category_news`
+-- Dumping data for table `category_news`
 --
 
 INSERT INTO `category_news` (`category_news_id`, `category_name`) VALUES
@@ -87,7 +119,7 @@ INSERT INTO `category_news` (`category_news_id`, `category_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `flash_screen`
+-- Table structure for table `flash_screen`
 --
 
 CREATE TABLE `flash_screen` (
@@ -98,22 +130,22 @@ CREATE TABLE `flash_screen` (
   `education_background` text COLLATE utf8_unicode_ci NOT NULL,
   `organization_history` text COLLATE utf8_unicode_ci NOT NULL,
   `address` text COLLATE utf8_unicode_ci NOT NULL,
-  `telephone` varchar(18) COLLATE utf8_unicode_ci NOT NULL,
+  `birth` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `img` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `flash_screen`
+-- Dumping data for table `flash_screen`
 --
 
-INSERT INTO `flash_screen` (`flash_id`, `name`, `position`, `job_history`, `education_background`, `organization_history`, `address`, `telephone`, `img`) VALUES
-(1, 'Bupati Morowali Utara', 'Bupati Morowali Utara', '<p>Bupati Morowali Utara</p>', '<p>Bupati Morowali Utara</p>', '<p>Bupati Morowali Utara</p>', 'Bupati Morowali Utara', '08539423xxxx', 'bupati.jpg'),
-(2, 'Wakil Bupati Morowali Utara', 'Wakil Bupati Morowali Utara', '<p>Wakil Bupati Morowali Utara</p>', '<p>Wakil Bupati Morowali Utara</p>', '<p>Wakil Bupati Morowali Utara</p>', 'Wakil Bupati Morowali Utara', '08539423xxxx', 'wabup.jpg');
+INSERT INTO `flash_screen` (`flash_id`, `name`, `position`, `job_history`, `education_background`, `organization_history`, `address`, `birth`, `img`) VALUES
+(1, 'DR. Dr. Delis Julkarson Hehi, MARS', 'Bupati Morowali Utara', '<ol>\r\n<li>Tenaga Dokter PT. PELNI, Jakarta, 2002-2003</li>\r\n<li>Kepala Puskesmas Bualemo, Kab. Banggai, 2003-2004</li>\r\n<li>Kepala Puskesmas Tomata, Tomata, 2005-2008</li>\r\n<li>Anggota DPD-RI dapil Sulteng, 2014-2019</li>\r\n</ol>', '<ol>\r\n<li>SD Negeri I Lembo, Beteleme, 1982-1988</li>\r\n<li>SMP Negeri I Lembo, Beteleme, 1988-1991</li>\r\n<li>SMA Katolik St. Theresia, Poso, 1991-1994</li>\r\n<li>Universitas Hasanuddin, Makassar, 1995-1999</li>\r\n</ol>', '<ol>\r\n<li>Ketua OSIS SMA Katolik St. Theresia, Poso, 1993-1994</li>\r\n<li>Ketua Persekutuan Mahasiswa Kristen, Fakultas Kedokteran UNHAS 1997-1999</li>\r\n<li>Sekretaris GMKI Komisariat FK-UNHAS, Makassar, 1997-1999</li>\r\n<li>Pengurus Senat Mahasiswa FK-UNHAS, Makassar, 1997-1999</li>\r\n<li>Koordinator Leader Comitee Platinum, PT. Melianature Indonesia, Palu, 2008-2013</li>\r\n<li>Anggota Lions Club, Makassar, 2010-2013</li>\r\n</ol>', 'Desa Ronta, Kecamatan Lembo Raya Kabupaten Morowali Utara, Sulawesi Tengah.', 'Beteleme, 25 Juli 1976', 'bupati.jpg'),
+(2, 'H. Djira. K, S. Pd. M. Pd', 'Wakil Bupati Morowali Utara', '<ol>\r\n<li>Guru SMAN Kolonodale,</li>\r\n<li>Pengawas SMA,</li>\r\n<li>Kepala Seksi,</li>\r\n<li>Kepala Bidang,</li>\r\n<li>Kepala Dinas Dikjar,</li>\r\n<li>Sekretaris DPRD,</li>\r\n<li>Asisten Pemerintahan Setkab Morut.</li>\r\n<li>Kepala Dinas Dikbud.</li>\r\n</ol>', '<ol>\r\n<li>SDN Kolobawah,</li>\r\n<li>SMPN Bungku,</li>\r\n<li>SMA KORPRI Bungku,</li>\r\n<li>UNTAD (S 1),</li>\r\n<li>UNIMA Manado ( S 2)</li>\r\n</ol>', '<p>--------</p>', 'Kolobawah', 'Kolobawah, 24 Februari 1965', 'wabup.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gallery`
+-- Table structure for table `gallery`
 --
 
 CREATE TABLE `gallery` (
@@ -124,7 +156,7 @@ CREATE TABLE `gallery` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `gallery`
+-- Dumping data for table `gallery`
 --
 
 INSERT INTO `gallery` (`gallery_id`, `category_gallery_id`, `option`, `content`) VALUES
@@ -136,7 +168,7 @@ INSERT INTO `gallery` (`gallery_id`, `category_gallery_id`, `option`, `content`)
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gis_batas_kecamatan`
+-- Table structure for table `gis_batas_kecamatan`
 --
 
 CREATE TABLE `gis_batas_kecamatan` (
@@ -147,7 +179,7 @@ CREATE TABLE `gis_batas_kecamatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `gis_batas_kecamatan`
+-- Dumping data for table `gis_batas_kecamatan`
 --
 
 INSERT INTO `gis_batas_kecamatan` (`id`, `kecamatan_name`, `geojson_file`, `geojson_color`) VALUES
@@ -165,7 +197,7 @@ INSERT INTO `gis_batas_kecamatan` (`id`, `kecamatan_name`, `geojson_file`, `geoj
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gis_category_facilities`
+-- Table structure for table `gis_category_facilities`
 --
 
 CREATE TABLE `gis_category_facilities` (
@@ -174,7 +206,7 @@ CREATE TABLE `gis_category_facilities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `gis_category_facilities`
+-- Dumping data for table `gis_category_facilities`
 --
 
 INSERT INTO `gis_category_facilities` (`category_facilities_id`, `category_name`) VALUES
@@ -190,7 +222,7 @@ INSERT INTO `gis_category_facilities` (`category_facilities_id`, `category_name`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gis_facilities`
+-- Table structure for table `gis_facilities`
 --
 
 CREATE TABLE `gis_facilities` (
@@ -204,7 +236,7 @@ CREATE TABLE `gis_facilities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `gis_facilities`
+-- Dumping data for table `gis_facilities`
 --
 
 INSERT INTO `gis_facilities` (`facilities_id`, `category_facilities_id`, `title`, `image_name`, `description`, `latitude`, `longitude`) VALUES
@@ -220,7 +252,25 @@ INSERT INTO `gis_facilities` (`facilities_id`, `category_facilities_id`, `title`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `image`
+-- Table structure for table `goverment`
+--
+
+CREATE TABLE `goverment` (
+  `goverment_id` int(11) NOT NULL,
+  `visi_misi` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `goverment`
+--
+
+INSERT INTO `goverment` (`goverment_id`, `visi_misi`) VALUES
+(1, '<p style=\"text-align: center;\"><span style=\"font-size: 18pt; font-family: impact, sans-serif;\">Visi</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-size: 14pt; font-family: \'comic sans ms\', sans-serif;\">Terwujudnya Masyarakat Morowali Utara</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-size: 14pt; font-family: \'comic sans ms\', sans-serif;\">Yang Sehat, Cerdas, Sejahtera</span></p>\r\n<p style=\"text-align: center;\">&nbsp;</p>\r\n<p style=\"text-align: center;\"><span style=\"font-size: 18pt; font-family: impact, sans-serif;\">Misi</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-size: 14pt; font-family: \'comic sans ms\', sans-serif;\">Meningkatkan Aksesibilitas dan Mutu Pelayawan;</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-size: 14pt; font-family: \'comic sans ms\', sans-serif;\">Meningkatkan Aksesibilitas dan Mutu Pendidikan Untuk Menghasilkan Sumber Daya Yang Unggul dan Berdaya Saing;</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-size: 14pt; font-family: \'comic sans ms\', sans-serif;\">Meningkatkan Kesejahteraan Masyarakat Berbasis Potensi Wilayah;</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-size: 14pt; font-family: \'comic sans ms\', sans-serif;\">Meningkatkan Infrastruktur dan Sarana Untuk Menunjang Konektivitas dan Penataan Wilayah;</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-size: 14pt; font-family: \'comic sans ms\', sans-serif;\">Meningkatkan Profesionalisme dan Kinerja Penyelenggaraan Pemerintah Daerah Dalam Rangka Tata Kelola Pemerintahan yang Baik;</span></p>');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `image`
 --
 
 CREATE TABLE `image` (
@@ -232,7 +282,7 @@ CREATE TABLE `image` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `lkpj`
+-- Table structure for table `lkpj`
 --
 
 CREATE TABLE `lkpj` (
@@ -245,7 +295,7 @@ CREATE TABLE `lkpj` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `lkpj`
+-- Dumping data for table `lkpj`
 --
 
 INSERT INTO `lkpj` (`lkpj_id`, `opd_id`, `title`, `file_name`, `year`, `description`) VALUES
@@ -254,7 +304,7 @@ INSERT INTO `lkpj` (`lkpj_id`, `opd_id`, `title`, `file_name`, `year`, `descript
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `lppd`
+-- Table structure for table `lppd`
 --
 
 CREATE TABLE `lppd` (
@@ -267,7 +317,7 @@ CREATE TABLE `lppd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `lppd`
+-- Dumping data for table `lppd`
 --
 
 INSERT INTO `lppd` (`lppd_id`, `opd_id`, `title`, `file_name`, `year`, `description`) VALUES
@@ -276,7 +326,7 @@ INSERT INTO `lppd` (`lppd_id`, `opd_id`, `title`, `file_name`, `year`, `descript
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -290,7 +340,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
@@ -302,34 +352,37 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `news`
+-- Table structure for table `news`
 --
 
 CREATE TABLE `news` (
   `news_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `category_news_id` int(11) NOT NULL,
-  `image_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `image_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `slug` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `content` text COLLATE utf8_unicode_ci NOT NULL,
+  `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `news`
+-- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`news_id`, `user_id`, `category_news_id`, `image_name`, `title`, `slug`, `content`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, '1659457965_e623f10712e21626fcd4.jpg', 'Pembersihan Lapangan', 'pembersihan-lapangan', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint soluta, similique quidem fuga vel voluptates amet doloremque corrupti. Perferendis totam voluptates eius error fuga cupiditate dolorum? Adipisci mollitia quod labore aut natus nobis. Rerum perferendis, nobis hic adipisci vel inventore facilis rem illo, tenetur ipsa voluptate dolorem, cupiditate temporibus laudantium quidem recusandae expedita dicta cum eum. Quae laborum repellat a ut, voluptatum ipsa eum. Culpa fugiat minus laborum quia nam!<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, praesentium, dicta. Dolorum inventore molestias velit possimus, dolore labore aliquam aperiam architecto quo reprehenderit excepturi ipsum ipsam accusantium nobis ducimus laudantium.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum est aperiam voluptatum id cupiditate quae corporis ex. Molestias modi mollitia neque magni voluptatum, omnis repudiandae aliquam quae veniam error! Eligendi distinctio, ab eius iure atque ducimus id deleniti, vel alias sint similique perspiciatis saepe necessitatibus non eveniet, quo nisi soluta.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt beatae nemo quaerat, doloribus obcaecati odio!</p>', '2022-08-02 11:32:45', '2022-10-01 10:49:28', '0000-00-00 00:00:00'),
-(2, 2, 2, '1659458016_39391f9435b56db1eb5a.jpg', 'Latihan persiapan lomba agustus-an', 'latihan-persiapan-lomba-agustus-an', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint soluta, similique quidem fuga vel voluptates amet doloremque corrupti. Perferendis totam voluptates eius error fuga cupiditate dolorum? Adipisci mollitia quod labore aut natus nobis. Rerum perferendis, nobis hic adipisci vel inventore facilis rem illo, tenetur ipsa voluptate dolorem, cupiditate temporibus laudantium quidem recusandae expedita dicta cum eum. Quae laborum repellat a ut, voluptatum ipsa eum. Culpa fugiat minus laborum quia nam!<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Et, praesentium, dicta. Dolorum inventore molestias velit possimus, dolore labore aliquam aperiam architecto quo reprehenderit excepturi ipsum ipsam accusantium nobis ducimus laudantium.<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum est aperiam voluptatum id cupiditate quae corporis ex. Molestias modi mollitia neque magni voluptatum, omnis repudiandae aliquam quae veniam error! Eligendi distinctio, ab eius iure atque ducimus id deleniti, vel alias sint similique perspiciatis saepe necessitatibus non eveniet, quo nisi soluta.<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt beatae nemo quaerat, doloribus obcaecati odio!', '2022-09-02 11:33:36', '2022-09-02 11:33:36', '0000-00-00 00:00:00');
+(1, 1, 1, '1664902965_a518d0c553f1a831582f.jpg', 'WABUP MORUT INGATKAN PENTINGNYA PERCEPATAN PENGGUNAAN PRODUK DALAM NEGERI DI LINGKUNGAN PEMDA', 'wabup-morut-ingatkan-pentingnya-percepatan-penggunaan-produk-dalam-negeri-di-lingkungan-pemda', '<p>Kolonodale, MCDD &ndash; Wakil Bupati Morowali Utara H. Djira K mengemukakan perkembangan teknologi yang terjadi saat ini ikut mendorong perubahan yang mendasar dalam teknologi pengadaan barang/jasa pemerintah.<br>&ldquo;Sebagai bagian dari pelayanan umum, pengadaan barang/jasa pemerintah merupakan salah satu aktivitas yang sering mendapat sorotan. Namun belakangan ini sorotan tersebut mulai berkurang dengan diberlakukannya sistem pengadaan secara elektronik,&rdquo; jelasnya.<br>Hal tersebut disampaikan Wabup saat membuka Sosialisasi Percepatan Penggunaan Produk Dalam Negeri, Pengelolaan Toko Daring/Katalog Lokal, Siswas P3DN, Pengelolaan Pengadaan Barang dan Jasa di Desa serta Sistem Informasi UKPBJ yang dilaksanakan di Ruang Pola Kantor Bupati, Senin (8/8/2022).<br>Kegiatan itu dilaksanakan Bagian Pengadaan Barang dan Jasa Kantor Bupati Morut, dengan menghadirkan pemateri dari BPKP Perwakilan Sulteng, Biro Pengadaan Barang dan Jasa Provinsi Sulteng, serta Kadin Morut.<br>Terkait Gerakan Nasional Bangga Buatan Indonesia pada pengadaan barang/jasa di lingkungan Pemda, Wabup Djira mengingatkan kepada semua perangkat daerah untuk mengimplementasikan program P3DN (Peningkatan Penggunaan Produk Dalam Negeri).<br>Selain itu, sesegera mungkin membentuk tim P3DN, melakukan pengisian RUP dan SIRUP, serta melakukan proses E-Purchasing dan E-Kontrak.<br>&ldquo;Yang terpenting adalah meningkatkan penggunaan produk dalam negeri oleh pemerintah, badan usaha dan masyarakat,&rdquo; ujarnya.<br>Pada kesempatan tersebut, Wabup juga menginstruksikan kepada seluruh perangkat daerah Morut untuk menambahkan layanan pendaftaran bagi pelaku usaha sebagai penyedia barang/jasa pemerintah (SPSE dan SIKAP) pada pelayanan publik di Morut.<br>Sebelumnya, Kepala Bagian Pengadaan Barang dan Jasa Pemda Morut M. Ridho Hamzah, melaporkan sosialisasi ini dilaksanakan dalam rangka mendukung Instruksi Presiden Nomor 2 Tahun 2022 tentang Percepatan Peningkatan Penggunaan Produk Dalam Negeri dan Produk Usaha Mikro, Usaha Kecil, dan Koperasi dalam rangka menyukseskan Gerakan Nasional Bangga Buatan Indonesia pada pelaksanaan pengadaan barang dan jasa pemerintah.<br>Peserta sosialisasi terdiri dari para Pejabat Pembuat Komitmen (PPK), Pejabat Pengadaan dan Pokja Pengadaan, serta pada admin di setiap unit kerja pengadaan barang dan jasa. (Ale/Ryo)<br>#pressrelease #sosialisasi #bpbj #pemdamorut #hajidjira #morowaliutara<br>&copy;Media Center Delis &amp; Djira</p>', '2022-08-02 11:32:45', '2022-10-04 12:02:45', '0000-00-00 00:00:00'),
+(2, 2, 2, '1664903038_edb64fb424ef4ac6343c.jpg', 'WAKIL BUPATI MOROWALI UTARA MEMBUKA PELATIHAN DASAR CPNS TAHUN 2022', 'wakil-bupati-morowali-utara-membuka-pelatihan-dasar-cpns-tahun-2022', '<p>Bertempat di Gedung Pola Sekretariat Daerah Kabupaten Morowali Utara, Jumat 5 Agustus 2022, Wakil Bupati Morowali Utara membuka secara resmi Pelaksanaan Pelatihan Dasar CPNS Kabupaten Morowali Utara Tahun 2022.<br>Kepala Bidang Pengembangan dan Penilaian Kinerja Aparatur, Wartus Lampaga, SE., dalam laporannya menyampaikan bahwa Pelatihan Dasar CPNS Pemerintah Kabupaten Morowali Utara Tahun 2022 ini diikuti oleh 257 CPNS, dilaksanakan oleh Pemerintah Kabupaten Morowali Utara dengan pola kerjasama dengan BPSDMD Provinsi Sulawesi Tengah.<br>Kepala BPSDMD Provinsi Sulawesi Tengah Dr. Drs. Adidjoyo Dauda, M.Si menyampaikan apresiasi kepada Pemerintah Kabupaten Morowali Utara yang untuk kesekian kalinya melaksanakan Pelatihan Dasar CPNS dengan pola kerjasama ini. BPSDMD Sulawesi Tengah sebagai lembaga pelatihan terakreditasi akan melaksanakan penjaminan mutu atas pelaksanaan Pelatihan Dasar CPNS di Kabupaten Morowali Utara ini.<br>Wakil Bupati Morowali Utara H.Djira K, S.Pd., M.Pd dalam sambutannya mengatakan bahwa dalam upaya membentuk sosok PNS yang berkompeten maka perlu dilakukan pembinaan, salah satunya melalui jalur Pendidikan dan Pelatihan (Diklat) yang mengarah kepada upaya peningkatan sikap dan semangat pengabdian yang berorientasi pada kepentingan masyarakat, bangsa, negara dan tanah air.<br>Kompetensi teknis, manajerial, sosial kultural serta efisiensi, efektivitas dan kualitas pelaksanaan tugas yang dilakukan dengan semangat kerjasama dan tanggung jawab sesuai dengan tugas dan fungsinya.<br>Pelatihan Dasar CPNS ini, di samping sebagai syarat untuk diangkat menjadi PNS, juga merupakan tempat penggodokan sikap, perilaku, mental, dan mindset serta untuk mewujudkan profesionalisme CPNS.<br>Melalui Pelatihan Dasar CPNS ini diharapkan para peserta tidak saja akan menjadi aparat yang cerdas dan profesional, namun juga memiliki pemahaman tentang hak dan kewajibannya, sehingga dapat melaksanakan tugas dan tanggung jawab sesuai dengan koridor peraturan yang berlaku, termasuk kedisiplinan serta moral untuk membentuk aparat Pemerintah Kabupaten Morowali Utara yang berkualitas dan profesional.<br>Demikian pula harus ditanamkan dan ditumbuhkembangkan sikap loyal dan bertanggung jawab penuh atas setiap tugas yang telah diberikan untuk bisa menjalankan peran sebagai seorang abdi masyarakat.<br>Selaku Kepala Daerah saya merespon positif kegiatan ini dan menghimbau bahwa PNS adalah mahluk sosial yang ketika bermedia sosial PNS menjadi penyejuk dan mempunyai etika dalam mengelola media sosial. Yang paling penting dihimbau kepada adik-adik CPNS ini agar tidak ada yang mengajukan mutasi keluar daerah.<br>&ldquo;Beberapa waktu lalu ada Bupati dari daerah Sulsel, Jawa dan Sumatera yang menyurat kepada Bupati Morowali Utara untuk disetujui pindah tugas adik-adik. Sebenarnya disetujui, namun belum diikhlaskan, sehingga saya himbau untuk tidak ada yang mengajukan mutasi keluar daerah&rdquo; ujar Wabup.<br>Pelatihan Dasar CPNS ini dilaksanakan selama &plusmn;108 hari, dan dimulai pada hari ini 5 Agustus 2022 s/d 19 November 2022 yang dilaksanakan pada Kantor Diklat BKPSDM Kabupaten Morowali Utara Jalan trans Sulawesi km 5 Desa Tompira, Kecamatan Petasia Timur.<br>Hadir mendampingi Wabup, Forkopimda Kabupaten Morowali Utara, Kepala BPSDMD Provinsi Sulteng Dr. Drs. Adidjoyo Dauda, M.Si., Para Asisten, Kepala Perangkat Daerah Lingkup Pemda Morut, Para Widyaiswara/Instruktur, Para Mentor dan Evaluator, Panitia Penyelenggara BKPSDM Kabupaten Morowali Utara serta hadir seluruh peserta Latsar CPNS Kabupaten Morowali Utara.<br>Tim Liputan Media Kominfo Morut_</p>', '2022-09-02 11:33:36', '2022-10-04 12:03:59', '0000-00-00 00:00:00'),
+(3, 1, 1, '1664903102_b93d44ce4d9249422ee1.jpg', 'PEMKAB MORUT GANDENG UNTAD BAHAS PENDIRIAN PERSERODA MORUT.', 'pemkab-morut-gandeng-untad-bahas-pendirian-perseroda-morut', '<p>Kolonodale, MCDD &ndash; Sebuah tim dari Universitas Tadulako (Untad) Palu hadir di Kolonodale, Senin (1/8) untuk membahas rencana pendirian Badan Usaha Milik Daerah (BUMD) atau Perusahaan Perseroan Daerah (Perseroda) bersama para pejabat terkait Pemkab Morut.<br>Pertemuan ini dipimpin Wabub Morut H. Djira, K, S.Pd, M.Pd didampingi Sekda Morut dan sejumlah pejabat terkait.<br>Sedengkan tim ahli dari Untaf dipimpin Prof Dr Patta Tope, Guru Besar Fakultas Ekonomi Untad dan mantan Kepala Bappeda Sulteng.<br>Prof Patta Tope didampingi para doktor seperti Muh. Yumi, Nina Yusnita, Moh. Ichwan Tandju dan Haerul Anam.<br>Wabup Morut H Djira mengemukakan bahwa pembentukan Perseroda Morut berbentuk perseroan ini mendesak dilakukan untuk menangani bidang-bidang usaha tertentu untuk mengakselerasi pertumbuhan ekonomi dan kesejahteraan rakyat.<br>Tiga bidang usaha prioritas yang akan ditangani Perseroda Morut adalah pertama bidang kepelabubanan, terutama dalam penyesiaan jasa-jasa kepelabuhanan.<br>Kedua bidang pertambangan dimana Perseroda akan mengambil peran dalam pemenuhan kebutuhan-kebutuhan usaha pertambangan.<br>Ketiga, pengembangan program Pajeko (pengembangan jenis-jenis komoditas) unggulan yang saat ini sudah diterapkan pada komoditi jagung.<br>Ia berharap Perseroda Morut bisa segera terwujud untul kepentingan pembangunan ekonomi daerah yang lebih cepat guna mewujudkan Morut yang sehat, cerdas dan sejahtera. (RoMa/Ryo)<br>#pressrelease #pemdamorut #perseroda #delisdjira #morowaliutara<br>&copy;Media Center Delis &amp; Djira</p>', '2022-10-04 12:05:02', '2022-10-04 12:05:02', '0000-00-00 00:00:00'),
+(4, 2, 2, '1664903173_a94b8d04dc2aec657e6a.jpg', 'KABAR BAIK UNTUK MASYARAKAT BUNTA, LISTRIK PLN SEGERA MASUK BUNGINI DAN TAMBAOLE', 'kabar-baik-untuk-masyarakat-bunta-listrik-pln-segera-masuk-bungini-dan-tambaole', '<p>Kolonodale, MCDD &ndash; PT.PLN (Persero) langsung merespon permintaan Pemerintah Kabupaten Morowali Utara untuk memenuhi kebutuhan listrik di beberapa desa/dusun di daerah ini.<br>&ldquo;Tahun ini, dua dusun di Desa Bunta sudah akan menikmati aliran listrik PLN,&rdquo; kata Bupati Morowali Utara Delis J. Hehi yang dihubungi media ini, Kamis.<br>Dua dusun yang akan menikmati listrik pedesaan tersebut adalah Dusun Bungini dan Dusun Tambaole di Desa Bunta, Kecamatan Petasia Timur.<br>&ldquo;Kami sudah menerima laporan dari PLN Area Palu bahwa pemasangan tiang dan jaringan kabel listrik untuk dua dusun itu sedang dalam persiapan,&rdquo; kata Delis.<br>Beberapa waktu lalu, kata Delis yang baru setahun memimpin Morut itu, pihaknya telah menyurati PLN untuk membantu melistriki sejumlah desa dan dusun yang sampai saat ini belum menerima layanan listrik PLN.<br>&ldquo;Kita bersyukur bahwa tahun ini, PLN telah mengalokasikan dana lewat Proyek Listrik Pedesaan (Lisdes) untuk kedua dusun tersebut,&rdquo; katanya.<br>Menurut bupati, masih ada beberapa dusun lagi yang menanti layanan listrik di Sulteng seperti Mokoto di Bungku Utara. Untuk beberapa dusun, Pemkab berharap bisa dilayani dengan listrik tenaga surya karena jaraknya jauh dan medannya cukup berat untuk membangun jaringan interkoneksi.<br>Manager Manager Unit Pelaksana Pelayanan Pelanggan (UP3) Palu Agus Tasya pada kesempatan terpisah membenarkan bahwa Proyek Lisdes PLN akan segera memabngun jaringan distribusi listrik ke Bungini dan Tambaole.<br>&ldquo;Sudah ada Surat Penunjukkan Penyedia Barang dan Jasa (SPPBJ) untuk Bungini dan Tambaole. Penyedia jasanya sedang bersiap untuk melaksanakan pekerjaan itu,&rdquo; ujarnya saat berkunjung ke Morut awal pekan ini.<br>Keterangan lain yang diperoleh dari Desa Bunta menyebutkan bahwa ada ratusan warga di Dusun 5 Desa Bunta yang meliputi Bungini dan Tambaole ini yang menantikan penyambungan listrik PLN.<br>&ldquo;Syukur alhamdulillah, bila PLN kali ini bisa memenuhi kebutuhan listrik warga Desa Bunta dalam waktu dekat ini,&rdquo; ujar seorang tokoh masyarakat Bunta.<br>Desa Bunta merupakan salah satu desa yang paling ramai dimasuki pemukim-pemukim baru dari berbagai tempat di dalam maupun di luar kabupaten Morut, bahkan dari luar Provinsi Sulteng, untuk mencari pekerjaan dan berusaha sehubungan dengan pembangunan insdutri nikel skala besar yang dimotori PT. Gunbuster Nickle Industri (GNI).<br>Dewasa ini banyak sekali tumbuh usaha-usaha kecil menengah dan rumah-rumah kos yang sangat membutuhkan layanan listrik PLN.<br>Pihak PLN Unit Layanan Pelanggan (ULP) Kolonodale mengakui bahwa saat ini mereka melayani permintaan sambungan baru listrik rata-rata 1.000 pelanggan setiap bulan. (RoMa)<br>#pressrelease #pln #lisdes #morowaliutara<br>&copy;Media Center Delis &amp; Djira</p>', '2022-10-04 12:06:13', '2022-10-04 12:06:13', '0000-00-00 00:00:00'),
+(5, 1, 1, '1664903314_d2fecc48d8867e7d72de.jpg', 'BUPATI MOROWALI UTARA DIWAKILI OLEH WAKIL BUPATI MOROWALI UTARA H. DJIRA K. S.PD, M.PD SERAHKAN DOKUMEN KUA-PPAS TAHUN 2023 KEPADA KETUA DPRD KABUPATEN MOROWALI UTARA.', 'bupati-morowali-utara-diwakili-oleh-wakil-bupati-morowali-utara-h-djira-k-spd-mpd-serahkan-dokumen-k', '<p>Hal ini dilakukan saat Kegiatan Rapat Paripurna Penyampaian Bupati terhadap Kebijakan Umum Anggaran dan Prioritas Plafon Anggaran Sementara (KUA-PPAS) Tahun 2023 di Ruang Rapat Paripurna DPRD Kabupaten Morowali Utara pada hari Kamis (28/07/2022)<br>Rapat ini dipimpin oleh langsung Ketua DPRD Kabupaten Morowali Utara Hj. Megawati Ambo Asa S.Ip. dan dihadiri oleh para Wakil Ketua, sejumlah Anggota DPRD serta beberapa Pejabat Lingkup Pemda Morut.<br>Sebelum menyerahkan dokumen KUA-PPAS Wakil Bupati menyampaikan sedikit sambutan dimana beliau berharap di Tahun 2023 mendatang, seluruh program kerja yang telah disusun dapat dilaksanakan dengan baik dalam rangka mewujudkan visi misi Kabupaten Morowali Utara yang sehat, cerdas, dan sejahtera.<br>&ldquo;Dokumen KUA-PPAS yang akan diserahkan nantinya, berisi detail anggaran serta output yg akan dijadikan dasar untuk mewujudkan Visi Misi Kabupaten Morowali Utara di Tahun 2023 mendatang&rdquo;, ujarnya<br>Dalam rapat tersebut, Wakil Ketua II DPRD Kabupaten Morowali Utara Moh. Safri M.Pdi memberikan sedikit masukan dimana Pemerintah Daerah diminta untuk membangun komitmen serta komunikasi bersama DPRD perihal kehadiran ketua Tim Anggaran Pemerintah Daerah (TAPD) dalam Rapat Badan Anggaran (Banggar). Hal ini dimaksudkan agar rapat dapat berjalan dengan lancar mengingat Ketua TAPD beserta Kepala OPD bertindak sebagai pengambli keputusan atas kebijakan yang akan dilaksanakan.<br>Media Kominfo Morut</p>', '2022-10-04 12:08:34', '2022-10-04 12:08:34', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `opd`
+-- Table structure for table `opd`
 --
 
 CREATE TABLE `opd` (
@@ -338,7 +391,7 @@ CREATE TABLE `opd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `opd`
+-- Dumping data for table `opd`
 --
 
 INSERT INTO `opd` (`opd_id`, `opd`) VALUES
@@ -392,7 +445,7 @@ INSERT INTO `opd` (`opd_id`, `opd`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `people_said`
+-- Table structure for table `people_said`
 --
 
 CREATE TABLE `people_said` (
@@ -405,29 +458,29 @@ CREATE TABLE `people_said` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `people_said`
+-- Dumping data for table `people_said`
 --
 
 INSERT INTO `people_said` (`id`, `name`, `image`, `subject`, `message`, `active`) VALUES
-(1, 'Minter Puchan', '1664647585_a116f477a2170dd95c37.png', 'Percobaan saja', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut\r\n                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitoa tion ullamco laboris\r\n                      nisi ut commodo consequat.', 1),
-(2, 'Weldon Cash', '1664647718_c43b26408dfa95f748d6.jpg', 'Percobaan saja 2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut\r\n                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitoa tion ullamco laboris\r\n                      nisi aliquip consequat.', 1),
-(3, 'Gabriel Denis', '1664647804_fcda625b3f7f85b3e9db.jpg', 'Percobaan saja 3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut\r\n                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitoa tion ullamco laboris\r\n                      nisi aliquip consequat.', 1),
-(4, 'Peterson Smith', '1664648472_046eefd4cc60f3b97a28.jpg', 'Percobaan saja 4', 'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.', 1);
+(1, 'Minter Puchan', '1664647585_a116f477a2170dd95c37.png', 'Percobaan saja', 'Pemerintah seharusnya dapat mencari sebuah solusi untuk mengendalikan harga BBM yang terus menerus naik.', 1),
+(2, 'Weldon Cash', '1664647718_c43b26408dfa95f748d6.jpg', 'Percobaan saja 2', 'SIM seharusnya diberlakukan seumur hidup agar masyarakat tidak lagi perlu untuk direpotkan dengan urusan mengenai perpanjangan SIM setiap lima tahun sekali.', 1),
+(3, 'Gabriel Denis', '1664647804_fcda625b3f7f85b3e9db.jpg', 'Percobaan saja 3', 'Pemerintah seharusnya memberikan jaminan sosial yang adil kepada setiap masyarakatnya karena itu merupakan hak setiap orang.', 1),
+(4, 'Peterson Smith', '1664648472_046eefd4cc60f3b97a28.jpg', 'Percobaan saja 4', 'Pemerintah seharusnya memikirkan keadaan masyarakat dengan menaikkan tarif iuran BPJS yang berpeluang besar diberatkan dengan keputusan tersebut.', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `permission`
+-- Table structure for table `permission`
 --
 
 CREATE TABLE `permission` (
   `permission_id` int(11) NOT NULL,
   `permission_description` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `permission_category` varchar(25) COLLATE utf8_unicode_ci NOT NULL
+  `permission_category` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `permission`
+-- Dumping data for table `permission`
 --
 
 INSERT INTO `permission` (`permission_id`, `permission_description`, `permission_category`) VALUES
@@ -511,12 +564,16 @@ INSERT INTO `permission` (`permission_id`, `permission_description`, `permission
 (78, 'View Batas Kecamatan', 'Gis Batas Kecamatan'),
 (79, 'Create Batas Kecamatan', 'Gis Batas Kecamatan'),
 (80, 'Edit Batas Kecamatan', 'Gis Batas Kecamatan'),
-(81, 'Delete Batas Kecamatan', 'Gis Batas Kecamatan');
+(81, 'Delete Batas Kecamatan', 'Gis Batas Kecamatan'),
+(82, 'View About', 'About'),
+(83, 'Edit About', 'About'),
+(84, 'View Goverment', 'Goverment'),
+(85, 'Edit Goverment', 'Goverment');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rkpd`
+-- Table structure for table `rkpd`
 --
 
 CREATE TABLE `rkpd` (
@@ -529,7 +586,7 @@ CREATE TABLE `rkpd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `rkpd`
+-- Dumping data for table `rkpd`
 --
 
 INSERT INTO `rkpd` (`rkpd_id`, `opd_id`, `title`, `file_name`, `year`, `description`) VALUES
@@ -538,7 +595,7 @@ INSERT INTO `rkpd` (`rkpd_id`, `opd_id`, `title`, `file_name`, `year`, `descript
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role`
+-- Table structure for table `role`
 --
 
 CREATE TABLE `role` (
@@ -548,7 +605,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `role`
+-- Dumping data for table `role`
 --
 
 INSERT INTO `role` (`role_id`, `role_name`, `is_hidden`) VALUES
@@ -559,7 +616,7 @@ INSERT INTO `role` (`role_id`, `role_name`, `is_hidden`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role_permission`
+-- Table structure for table `role_permission`
 --
 
 CREATE TABLE `role_permission` (
@@ -569,7 +626,7 @@ CREATE TABLE `role_permission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `role_permission`
+-- Dumping data for table `role_permission`
 --
 
 INSERT INTO `role_permission` (`id`, `role_id`, `permission_id`) VALUES
@@ -732,12 +789,20 @@ INSERT INTO `role_permission` (`id`, `role_id`, `permission_id`) VALUES
 (241, 1, 80),
 (242, 2, 80),
 (243, 1, 81),
-(244, 2, 81);
+(244, 2, 81),
+(245, 1, 82),
+(246, 2, 82),
+(247, 1, 83),
+(248, 2, 83),
+(249, 1, 84),
+(250, 2, 84),
+(251, 1, 85),
+(252, 2, 85);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rpjmd`
+-- Table structure for table `rpjmd`
 --
 
 CREATE TABLE `rpjmd` (
@@ -750,7 +815,7 @@ CREATE TABLE `rpjmd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `rpjmd`
+-- Dumping data for table `rpjmd`
 --
 
 INSERT INTO `rpjmd` (`rpjmd_id`, `opd_id`, `title`, `file_name`, `year`, `description`) VALUES
@@ -759,7 +824,7 @@ INSERT INTO `rpjmd` (`rpjmd_id`, `opd_id`, `title`, `file_name`, `year`, `descri
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rpjpd`
+-- Table structure for table `rpjpd`
 --
 
 CREATE TABLE `rpjpd` (
@@ -772,7 +837,7 @@ CREATE TABLE `rpjpd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `rpjpd`
+-- Dumping data for table `rpjpd`
 --
 
 INSERT INTO `rpjpd` (`rpjpd_id`, `opd_id`, `title`, `file_name`, `year`, `description`) VALUES
@@ -781,7 +846,7 @@ INSERT INTO `rpjpd` (`rpjpd_id`, `opd_id`, `title`, `file_name`, `year`, `descri
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sakip`
+-- Table structure for table `sakip`
 --
 
 CREATE TABLE `sakip` (
@@ -794,7 +859,7 @@ CREATE TABLE `sakip` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `sakip`
+-- Dumping data for table `sakip`
 --
 
 INSERT INTO `sakip` (`sakip_id`, `opd_id`, `title`, `file_name`, `year`, `description`) VALUES
@@ -803,15 +868,27 @@ INSERT INTO `sakip` (`sakip_id`, `opd_id`, `title`, `file_name`, `year`, `descri
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `setting`
+-- Table structure for table `setting`
 --
 
 CREATE TABLE `setting` (
   `setting_id` int(11) NOT NULL,
   `background` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `banner1` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `title1` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `description1` text COLLATE utf8_unicode_ci NOT NULL,
+  `url1` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `url_tag1` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `banner2` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `title2` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `description2` text COLLATE utf8_unicode_ci NOT NULL,
+  `url2` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `url_tag2` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `banner3` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `title3` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `description3` text COLLATE utf8_unicode_ci NOT NULL,
+  `url3` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `url_tag3` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `logo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `facebook` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `twitter` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -827,23 +904,23 @@ CREATE TABLE `setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `setting`
+-- Dumping data for table `setting`
 --
 
-INSERT INTO `setting` (`setting_id`, `background`, `banner1`, `banner2`, `banner3`, `logo`, `facebook`, `twitter`, `instagram`, `youtube`, `address`, `contact`, `email`, `work_day`, `hour`, `quotes`, `motto`) VALUES
-(1, '1663869348_862ab22a0daad788bce8.jpg', '1663869962_4f624cc47a789d40ac3f.jpg', '1663869348_e83870434318a9f99a43.jpg', '1663869348_687ffe6d1c09e94d659b.jpeg', '1664794563_3afa25253912aa8c52e3.jpg', 'febrian.rampalemba.9', 'febrian.rampalemba.9', 'febrian.rampalemba.9', 'UCKJKKhh8hl8UwgAJjTu_gzQ', 'Jl. Bumi Nangka Kompleks Perkantoran Bupati', '08539423xxxx', 'diskominfo@morowaliutarakab.go.id', 'Senin – Jumat', '07.30 – 16.00', 'Tepo Asa Aroa', 'Morowali Utara Sehat, Cerdas, Sejahtera');
+INSERT INTO `setting` (`setting_id`, `background`, `banner1`, `title1`, `description1`, `url1`, `url_tag1`, `banner2`, `title2`, `description2`, `url2`, `url_tag2`, `banner3`, `title3`, `description3`, `url3`, `url_tag3`, `logo`, `facebook`, `twitter`, `instagram`, `youtube`, `address`, `contact`, `email`, `work_day`, `hour`, `quotes`, `motto`) VALUES
+(1, '1663869348_862ab22a0daad788bce8.jpg', '1663869962_4f624cc47a789d40ac3f.jpg', 'Percobaan 1', 'Description 1', 'http://pemkabmorut.pr/home/news', 'Berita 1', '1663869348_e83870434318a9f99a43.jpg', 'Percobaan 2', 'Description 2', 'http://pemkabmorut.pr/home/news', 'Berita 2', '1663869348_687ffe6d1c09e94d659b.jpeg', 'Percobaan 3', 'Deskripsi 3', 'http://pemkabmorut.pr/home/news', 'Berita 3', '1664794563_3afa25253912aa8c52e3.jpg', 'febrian.rampalemba.9', 'febrian.rampalemba.9', 'febrian.rampalemba.9', 'UCKJKKhh8hl8UwgAJjTu_gzQ', 'Jl. Bumi Nangka Kompleks Perkantoran Bupati', '08539423xxxx', 'diskominfo@morowaliutarakab.go.id', 'Senin – Jumat', '07.30 – 16.00', 'Tepo Asa Aroa', 'Morowali Utara Sehat, Cerdas, Sejahtera');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
-  `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `is_hidden` int(11) NOT NULL DEFAULT '0',
   `is_active` int(1) NOT NULL DEFAULT '0',
   `role_id` int(11) NOT NULL,
@@ -852,11 +929,11 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `username`, `name`, `password`, `is_hidden`, `is_active`, `role_id`, `created_at`, `updated_at`) VALUES
-(1, 'administrator', 'System Administrator', '$2y$10$U68eg.BfjpmPFZzxXDJUouR2SYFweu.UG1smgfTG9KhaSYWU2pJpu', 0, 0, 1, '2022-07-31 07:26:48', '2022-10-03 06:39:31'),
+(1, 'administrator', 'System Administrator', '$2y$10$U68eg.BfjpmPFZzxXDJUouR2SYFweu.UG1smgfTG9KhaSYWU2pJpu', 0, 0, 1, '2022-07-31 07:26:48', '2022-10-04 15:33:09'),
 (2, 'admin', 'Administrator', '$2y$10$XmFxndYxmf6YryNQFj1Qg.wMicapebf/U8Ffj4jXLSVKU9YSB.XFa', 0, 0, 2, '2022-08-02 10:05:30', '2022-08-07 13:35:28'),
 (4, 'user', 'User', '$2y$10$8qq5mruZe78skOPJAKoNQeO.phgoxyGd152JzIxb7zMU5lJ0bZ1Wa', 0, 0, 6, '2022-08-07 12:58:33', '2022-10-01 11:32:03');
 
@@ -865,309 +942,333 @@ INSERT INTO `user` (`user_id`, `username`, `name`, `password`, `is_hidden`, `is_
 --
 
 --
--- Indeks untuk tabel `agenda`
+-- Indexes for table `about`
+--
+ALTER TABLE `about`
+  ADD PRIMARY KEY (`about_id`);
+
+--
+-- Indexes for table `agenda`
 --
 ALTER TABLE `agenda`
   ADD PRIMARY KEY (`agenda_id`);
 
 --
--- Indeks untuk tabel `category_gallery`
+-- Indexes for table `category_gallery`
 --
 ALTER TABLE `category_gallery`
   ADD PRIMARY KEY (`category_gallery_id`);
 
 --
--- Indeks untuk tabel `category_image`
+-- Indexes for table `category_image`
 --
 ALTER TABLE `category_image`
   ADD PRIMARY KEY (`category_image_id`);
 
 --
--- Indeks untuk tabel `category_news`
+-- Indexes for table `category_news`
 --
 ALTER TABLE `category_news`
   ADD PRIMARY KEY (`category_news_id`),
   ADD UNIQUE KEY `category_name` (`category_name`);
 
 --
--- Indeks untuk tabel `flash_screen`
+-- Indexes for table `flash_screen`
 --
 ALTER TABLE `flash_screen`
   ADD PRIMARY KEY (`flash_id`);
 
 --
--- Indeks untuk tabel `gallery`
+-- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
   ADD PRIMARY KEY (`gallery_id`);
 
 --
--- Indeks untuk tabel `gis_batas_kecamatan`
+-- Indexes for table `gis_batas_kecamatan`
 --
 ALTER TABLE `gis_batas_kecamatan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `gis_category_facilities`
+-- Indexes for table `gis_category_facilities`
 --
 ALTER TABLE `gis_category_facilities`
   ADD PRIMARY KEY (`category_facilities_id`);
 
 --
--- Indeks untuk tabel `gis_facilities`
+-- Indexes for table `gis_facilities`
 --
 ALTER TABLE `gis_facilities`
   ADD PRIMARY KEY (`facilities_id`);
 
 --
--- Indeks untuk tabel `image`
+-- Indexes for table `goverment`
+--
+ALTER TABLE `goverment`
+  ADD PRIMARY KEY (`goverment_id`);
+
+--
+-- Indexes for table `image`
 --
 ALTER TABLE `image`
   ADD PRIMARY KEY (`image_id`);
 
 --
--- Indeks untuk tabel `lkpj`
+-- Indexes for table `lkpj`
 --
 ALTER TABLE `lkpj`
   ADD PRIMARY KEY (`lkpj_id`);
 
 --
--- Indeks untuk tabel `lppd`
+-- Indexes for table `lppd`
 --
 ALTER TABLE `lppd`
   ADD PRIMARY KEY (`lppd_id`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `news`
+-- Indexes for table `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`news_id`);
 
 --
--- Indeks untuk tabel `opd`
+-- Indexes for table `opd`
 --
 ALTER TABLE `opd`
   ADD PRIMARY KEY (`opd_id`),
   ADD UNIQUE KEY `opd` (`opd`);
 
 --
--- Indeks untuk tabel `people_said`
+-- Indexes for table `people_said`
 --
 ALTER TABLE `people_said`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `permission`
+-- Indexes for table `permission`
 --
 ALTER TABLE `permission`
   ADD PRIMARY KEY (`permission_id`);
 
 --
--- Indeks untuk tabel `rkpd`
+-- Indexes for table `rkpd`
 --
 ALTER TABLE `rkpd`
   ADD PRIMARY KEY (`rkpd_id`);
 
 --
--- Indeks untuk tabel `role`
+-- Indexes for table `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`role_id`),
   ADD UNIQUE KEY `role_name` (`role_name`);
 
 --
--- Indeks untuk tabel `role_permission`
+-- Indexes for table `role_permission`
 --
 ALTER TABLE `role_permission`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `rpjmd`
+-- Indexes for table `rpjmd`
 --
 ALTER TABLE `rpjmd`
   ADD PRIMARY KEY (`rpjmd_id`);
 
 --
--- Indeks untuk tabel `rpjpd`
+-- Indexes for table `rpjpd`
 --
 ALTER TABLE `rpjpd`
   ADD PRIMARY KEY (`rpjpd_id`);
 
 --
--- Indeks untuk tabel `sakip`
+-- Indexes for table `sakip`
 --
 ALTER TABLE `sakip`
   ADD PRIMARY KEY (`sakip_id`);
 
 --
--- Indeks untuk tabel `setting`
+-- Indexes for table `setting`
 --
 ALTER TABLE `setting`
   ADD PRIMARY KEY (`setting_id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`),
   ADD KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `agenda`
+-- AUTO_INCREMENT for table `about`
+--
+ALTER TABLE `about`
+  MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `agenda`
 --
 ALTER TABLE `agenda`
-  MODIFY `agenda_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `agenda_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `category_gallery`
+-- AUTO_INCREMENT for table `category_gallery`
 --
 ALTER TABLE `category_gallery`
-  MODIFY `category_gallery_id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `category_gallery_id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `category_image`
+-- AUTO_INCREMENT for table `category_image`
 --
 ALTER TABLE `category_image`
   MODIFY `category_image_id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `category_news`
+-- AUTO_INCREMENT for table `category_news`
 --
 ALTER TABLE `category_news`
   MODIFY `category_news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `flash_screen`
+-- AUTO_INCREMENT for table `flash_screen`
 --
 ALTER TABLE `flash_screen`
   MODIFY `flash_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `gallery`
+-- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
   MODIFY `gallery_id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `gis_batas_kecamatan`
+-- AUTO_INCREMENT for table `gis_batas_kecamatan`
 --
 ALTER TABLE `gis_batas_kecamatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `gis_category_facilities`
+-- AUTO_INCREMENT for table `gis_category_facilities`
 --
 ALTER TABLE `gis_category_facilities`
-  MODIFY `category_facilities_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `category_facilities_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `gis_facilities`
+-- AUTO_INCREMENT for table `gis_facilities`
 --
 ALTER TABLE `gis_facilities`
   MODIFY `facilities_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `image`
+-- AUTO_INCREMENT for table `goverment`
+--
+ALTER TABLE `goverment`
+  MODIFY `goverment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
   MODIFY `image_id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `lkpj`
+-- AUTO_INCREMENT for table `lkpj`
 --
 ALTER TABLE `lkpj`
   MODIFY `lkpj_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `lppd`
+-- AUTO_INCREMENT for table `lppd`
 --
 ALTER TABLE `lppd`
   MODIFY `lppd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `news`
+-- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `opd`
+-- AUTO_INCREMENT for table `opd`
 --
 ALTER TABLE `opd`
   MODIFY `opd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT untuk tabel `people_said`
+-- AUTO_INCREMENT for table `people_said`
 --
 ALTER TABLE `people_said`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `permission`
+-- AUTO_INCREMENT for table `permission`
 --
 ALTER TABLE `permission`
-  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
--- AUTO_INCREMENT untuk tabel `rkpd`
+-- AUTO_INCREMENT for table `rkpd`
 --
 ALTER TABLE `rkpd`
   MODIFY `rkpd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `role`
+-- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `role_permission`
+-- AUTO_INCREMENT for table `role_permission`
 --
 ALTER TABLE `role_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=245;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=253;
 
 --
--- AUTO_INCREMENT untuk tabel `rpjmd`
+-- AUTO_INCREMENT for table `rpjmd`
 --
 ALTER TABLE `rpjmd`
   MODIFY `rpjmd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `rpjpd`
+-- AUTO_INCREMENT for table `rpjpd`
 --
 ALTER TABLE `rpjpd`
   MODIFY `rpjpd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `sakip`
+-- AUTO_INCREMENT for table `sakip`
 --
 ALTER TABLE `sakip`
   MODIFY `sakip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `setting`
+-- AUTO_INCREMENT for table `setting`
 --
 ALTER TABLE `setting`
   MODIFY `setting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;

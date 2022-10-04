@@ -56,6 +56,12 @@ class Filters extends BaseConfig
                     'welcome/index',
                     'peoplesaid/index',
                     'peoplesaid/create',
+                    'agenda/kabupaten',
+                    'agenda/masyarakat',
+                    'about/history',
+                    'about/geografi',
+                    'about/demografi',
+                    'goverment/visi_misi',
                 ]
             ]
         ],

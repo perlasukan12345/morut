@@ -12,6 +12,7 @@ use App\Models\GisfacilitiesModel;
 use App\Models\SettingModel;
 use App\Models\PeoplesaidModel;
 use App\Models\OpdModel;
+use App\Models\AgendaModel;
 
 class Home extends BaseController
 {
@@ -25,6 +26,7 @@ class Home extends BaseController
     public $setting_model;
     public $peoplesaid_model;
     public $opd_model;
+    public $agenda_model;
 
 
     public function __construct()
@@ -39,6 +41,7 @@ class Home extends BaseController
         $this->setting_model = new SettingModel();
         $this->peoplesaid_model = new PeoplesaidModel();
         $this->opd_model = new OpdModel();
+        $this->agenda_model = new AgendaModel();
     }
 
     public function index()
@@ -48,6 +51,8 @@ class Home extends BaseController
         $data['category'] = $this->category_gallery->findAll();
         $data['data_gallery_video'] = $this->gallery_model->gt_dataLimitVideo(6);
         $data['people_said'] = $this->peoplesaid_model->gt_findLimit(12);
+        $data['agenda_kab'] = $this->agenda_model->gt_findLimit(3,'Kabupaten / Pemerintahan');
+        $data['agenda_mas'] = $this->agenda_model->gt_findLimit(3,'Masyarakat');
         $data['setting'] = $this->setting_model->first();
         $data['validation'] = \Config\Services::validation();
         return view('home/index', $data);

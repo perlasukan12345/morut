@@ -17,7 +17,7 @@
 
 <!-- Favicon
 ================================================== -->
-<link rel="icon" type="image/png" href="<?= base_url(); ?>/img/logo.jpg">
+<link rel="icon" type="image/png" href="<?= base_url(); ?>/img/morut.png">
 
 <!-- CSS
 ================================================== -->

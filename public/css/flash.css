@@ -5,8 +5,8 @@
 body {
     color: #463E3E;
     font-family: "Montserrat", sans-serif;
-    background: rgb(107, 172, 177);
-    background: linear-gradient(180deg, rgba(107, 172, 177, 1) 0%, rgba(143, 206, 159, 1) 100%);
+    background: rgb(107,172,177);
+    background: linear-gradient(180deg, rgba(107,172,177,1) 0%, rgba(143,206,159,1) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -16,6 +16,12 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
+    /*background: rgb(107,172,177);*/
+   /* background: linear-gradient(180deg, rgba(107,172,177,1) 0%, rgba(143,206,159,1) 100%);*/
+}
+
+.map {
+    background: none !important;
 }
 
 .content {

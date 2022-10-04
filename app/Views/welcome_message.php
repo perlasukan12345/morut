@@ -21,15 +21,15 @@
 
     <!-- Favicon
     ================================================== -->
-    <link rel="icon" type="image/png" href="<?= base_url(); ?>/img/logo.jpg">
+    <link rel="icon" type="image/png" href="<?= base_url(); ?>/img/morut.png">
 
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/bootstrap/css/bootstrap.min.css" />
     <!-- leaflet css -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/leaflet/leaflet.css" />
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/datatables/DataTables-1.12.1/css/dataTables.bootstrap4.min.css" />
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/datatables/Responsive-2.3.0/css/responsive.bootstrap4.min.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>/css/splash.css" />
-    <link rel="stylesheet" href="<?= base_url(); ?>/css/animate_splash.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>/css/flash.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>/css/animate_flash.css" />
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/fontawesome-free/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -59,8 +59,12 @@
                 </a>
                 <span class="text-center layout-btn-web">
                     <span class="navbar-text">
-                        <span class="navbar-text-site">Portal Resmi</span>
-                        <span class="navbar-text-brand">PEMKAB MOROWALI UTARA</span>
+                        <span class="navbar-text-brand">
+                            PEMKAB MOROWALI UTARA<br>
+                        </span>
+                        <span class="navbar-text-title" style="text-transform: uppercase;">
+                            <p><?= $setting->motto ?></p>
+                        </span>
                     </span>
                 </span>
                 <span class="navbar-brand text-lg-right">
@@ -85,7 +89,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-6 col-xl-6 px-lg-0" id="map" style="height: 450px; background-color:#F9F9F9">
+                        <div class="col-12 col-lg-6 col-xl-6 px-lg-0 map" id="map" style="height: 450px">
                         </div>
                         <div class="col-12 col-lg-3 col-xl-3" data-toggle="modal" data-target="#wakilModal" style="cursor: pointer;">
                             <div class="circle-widget">
@@ -102,7 +106,6 @@
                 </div>
             </div>
             <!--END CONTENT-->
-
             <nav class="navbar fixed-bottom navbar-light nav-footer">
                 <div class="toolbar mx-lg-auto">
                     <div class="toolbar-grid">
@@ -130,7 +133,7 @@
                         </a>
                     </div>
                     <div class="toolbar-grid">
-                        <a href="javascript:void(0);" data-toggle="modal" data-target="#egov">
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#pelayananModal">
                             <div class="toolbar-icon">
                                 <span data-eva="people-outline"></span>
                             </div>
@@ -178,6 +181,16 @@
                                     <th><?= $bupati->name ?></th>
                                 </tr>
                                 <tr>
+                                    <th>Lahir</th>
+                                    <th>:</th>
+                                    <th><?= $bupati->birth ?></th>
+                                </tr>
+                                <tr>
+                                    <th>Alamat</th>
+                                    <th>:</th>
+                                    <th><?= $bupati->address ?></th>
+                                </tr>
+                                <tr>
                                     <th>Jabatan</th>
                                     <th>:</th>
                                     <th><?= $bupati->position ?></th>
@@ -196,16 +209,6 @@
                                     <th>Riwayat Organisasi</th>
                                     <th>:</th>
                                     <th><?= $bupati->organization_history ?></th>
-                                </tr>
-                                <tr>
-                                    <th>Alamat</th>
-                                    <th>:</th>
-                                    <th><?= $bupati->address ?></th>
-                                </tr>
-                                <tr>
-                                    <th>Telepon</th>
-                                    <th>:</th>
-                                    <th><?= $bupati->telephone ?></th>
                                 </tr>
                             </table>
                         </div>
@@ -234,9 +237,19 @@
                                     <th><?= $wabup->name ?></th>
                                 </tr>
                                 <tr>
+                                    <th>Lahir</th>
+                                    <th>:</th>
+                                    <th><?= $wabup->birth ?></th>
+                                </tr>
+                                <tr>
+                                    <th>Alamat</th>
+                                    <th>:</th>
+                                    <th><?= $wabup->address ?></th>
+                                </tr>
+                                <tr>
                                     <th>Jabatan</th>
                                     <th>:</th>
-                                    <th><?= $wabup->name ?></th>
+                                    <th><?= $wabup->position ?></th>
                                 </tr>
                                 <tr>
                                     <th>Riwayat Jabatan</th>
@@ -252,16 +265,6 @@
                                     <th>Riwayat Organisasi</th>
                                     <th>:</th>
                                     <th><?= $wabup->organization_history ?></th>
-                                </tr>
-                                <tr>
-                                    <th>Alamat</th>
-                                    <th>:</th>
-                                    <th><?= $wabup->address ?></th>
-                                </tr>
-                                <tr>
-                                    <th>Telepon</th>
-                                    <th>:</th>
-                                    <th><?= $wabup->telephone ?></th>
                                 </tr>
                             </table>
                         </div>
@@ -439,8 +442,124 @@
                 </div>
             </div>
         </div>
+
+        <!--Pelayanan Modal-->
+        <div class="modal p-0" id="pelayananModal" tabindex="-1" role="dialog" aria-labelledby="pelayananModalLabel" aria-hidden="true">
+            <div class="modal-portal modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="w-100 text-center">
+                            <h2 class="modal-title" id="pelayananModalLabel">PELAYANAN UMUM</h2>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-3 col-6 px-4">
+                                <a href="javascript:void(0);" data-target="#badanDetail" class="trigger-modal-detail">
+                                    <div class="card-medium">
+                                        <span class="fa fa-building"></span>
+                                        <div class="card-medium-text">
+                                            PELAYANAN DAERAH
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-6 px-4">
+                                <a href="#" target="_blank">
+                                    <div class="card-medium">
+                                        <span class="fa fa-window-maximize"></span>
+                                        <div class="card-medium-text small-text">
+                                            LPSE
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                             <div class="col-lg-3 col-6 px-4">
+                                <a href="#" target="_blank">
+                                    <div class="card-medium">
+                                        <span class="fa fa-window-maximize"></span>
+                                        <div class="card-medium-text small-text">
+                                            SIRUP
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                             <div class="col-lg-3 col-6 px-4">
+                                <a href="#" target="_blank">
+                                    <div class="card-medium">
+                                        <span class="fa fa-window-maximize"></span>
+                                        <div class="card-medium-text small-text">
+                                            SIPD
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-6 px-4">
+                                <a href="#" target="_blank">
+                                    <div class="card-medium">
+                                        <span class="fa fa-window-maximize"></span>
+                                        <div class="card-medium-text small-text">
+                                            JDIH KABUPATEN MOROWAI UTARA
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-6 px-4">
+                                <a href="#" target="_blank">
+                                    <div class="card-medium">
+                                        <span class="fa fa-window-maximize"></span>
+                                        <div class="card-medium-text small-text">
+                                            JDIH DPRD MOROWAI UTARA
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <div class="modal p-0" id="badanDetail" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-portal" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close back" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="w-100 text-center">
+                        <h2 class="modal-title" id="detailPemerintahanModalLabel">BADAN DAN INSPEKTORAT KABUPATEN MOROWALI UTARA</h2>
+                    </div>
+                </div>
+                <div class="modal-body pt-0">
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="list-pemerintahan">
+                                <?php foreach ($opd as $op): ?>
+                                    <li>
+                                    <a href="#" target="_blank">
+                                        <div class="row">
+                                            <div class="col-lg-1 col-2 text-center">
+                                                <span data-eva="arrow-right-outline"></span>
+                                            </div>
+                                            <div class="col-lg-9 col-10">
+                                                <?= $op->opd ?>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    </li>
+                                <?php endforeach ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         eva.replace();
 
@@ -452,6 +571,29 @@
             $(this).on('hidden.bs.modal', function() {
                 $(modalclose).modal('show')
             })
+        });
+
+        $(".trigger-modal-detail").click(function(){
+            var self = $(this);
+            $("#pelayananModal").modal('hide');
+            setTimeout(function(){
+                $(self.attr('data-target')).modal('show');
+            }, 500);
+        });
+
+        $(".has-parent").click(function (e) {
+            var target = $(this).attr('data-target');
+            if (target) {
+                var parent = $(this).attr('data-parent');
+                $('#' + parent).modal('hide');
+            }
+        });
+
+        $(".back").click(function(){
+            $($(this).closest('[role=dialog]')).modal('hide');
+            setTimeout(function(){
+                $("#pelayananModal").modal('show');
+            }, 500);
         });
 
 

@@ -38,10 +38,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <label for="telephone">Telephone</label>
-                                    <input type="text" class="form-control <?= ($validation->hasError('telephone')) ? 'is-invalid' : ''; ?>" id="telephone" name="telephone" value="<?= $bupati->telephone ?>">
+                                    <label for="birthday">Birthday</label>
+                                    <input type="text" class="form-control <?= ($validation->hasError('birth')) ? 'is-invalid' : ''; ?>" id="birth" name="birth" value="<?= $bupati->birth ?>">
                                     <div class="invalid-feedback">
-                                        <?= $validation->getError('telephone'); ?>
+                                        <?= $validation->getError('birth'); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">

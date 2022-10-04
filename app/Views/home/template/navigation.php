@@ -66,9 +66,9 @@
                             <li class="dropdown-submenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tentang Kabupaten</a>
                                 <ul class="dropdown-menu">
-                                  <li><a href="#">Sejarah</a></li>
-                                  <li><a href="#">Geografi</a></li>
-                                  <li><a href="#">Demografi</a></li>
+                                  <li><a href="<?= base_url('about/history') ?>">Sejarah</a></li>
+                                  <li><a href="<?= base_url('about/geografi') ?>">Geografi</a></li>
+                                  <li><a href="<?= base_url('about/demografi') ?>">Demografi</a></li>
                                   <li><a href="#">Sosial Ekonomi</a></li>
                                   <li><a href="#">Prestasi / Penghargaan</a></li>
                                 </ul>
@@ -77,7 +77,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pemerintah Kabupaten</a>
                                 <ul class="dropdown-menu">
                                   <li><a href="#">Kinerja Pemerintah</a></li>
-                                  <li><a href="#">Visi dan Misi</a></li>
+                                  <li><a href="<?= base_url('goverment/visi_misi') ?>">Visi dan Misi</a></li>
                                   <li><a href="#">Legislatif</a></li>
                                   <li><a href="#">Info Pejabat</a></li>
                                 </ul>
@@ -172,8 +172,8 @@
                       <li class="nav-item dropdown">
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Agenda <i class="fa fa-angle-down"></i></a>
                           <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Agenda Kabupaten/Pemerintah</a></li>
-                            <li><a href="#">Agenda Masyarakat</a></li>
+                            <li><a href="<?= base_url('agenda/kabupaten'); ?>">Agenda Kabupaten/Pemerintah</a></li>
+                            <li><a href="<?= base_url('agenda/masyarakat'); ?>">Agenda Masyarakat</a></li>
                           </ul>
                       </li>
                       <li class="nav-item dropdown">

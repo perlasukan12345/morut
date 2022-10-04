@@ -113,6 +113,29 @@
 
      <!-- Heading -->
      <div class="sidebar-heading">
+         Profile Management
+     </div>
+
+     <!-- Nav Item - Category Galery -->
+     <?php if (user_can('view-about')) : ?>
+         <li class="nav-item">
+             <a class="nav-link" href="<?= base_url('about') ?>">
+                 <i class="fas fa-info-circle"></i>
+                 <span>About</span></a>
+         </li>
+     <?php endif ?>
+
+     <!-- Nav Item - Galery -->
+     <?php if (user_can('view-goverment')) : ?>
+         <li class="nav-item">
+             <a class="nav-link" href="<?= base_url('goverment') ?>">
+                 <i class="fas fa-info-circle"></i>
+                 <span>Goverment</span></a>
+         </li>
+     <?php endif ?>
+
+     <!-- Heading -->
+     <div class="sidebar-heading">
          Gis Management
      </div>
 

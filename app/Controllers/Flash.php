@@ -47,119 +47,6 @@ class Flash extends BaseController
         return view('dashboard/setting/flash_screen/wabup', $data);
     }
 
-    public function create()
-    {
-        if (!user_can('edit-flash')) {
-            return redirect()->to(base_url('/dashboard/invalid'));
-        }
-
-        //load helper form and URL
-        helper(['form', 'url']);
-
-        if (check_token('token_bupati', $this->request->getVar('token_bupati'))) {
-            //define validation
-            $validation = [
-                'image_file' => [
-                    'rules' => 'uploaded[image_file]|max_size[image_file,2024]|is_image[image_file]|mime_in[image_file,image/jpg,image/jpeg,image/png]',
-                    'errors' => [
-                        'uploaded' => 'No Image Selected',
-                        'max_size' => 'Image size Maximum 2 MB',
-                        'is_image' => 'Image file type must be JPG, JPEG, PNG',
-                        'mime_in' => 'Image file type must be JPG, JPEG, PNG',
-                    ],
-                ],
-                'name' => [
-                    'rules' => 'required|min_length[8]|max_length[100]',
-                    'errors' => [
-                        'required' => 'Name field is required',
-                        'min_length' => 'Name Minimum 8 Character',
-                        'max_length' => 'Name Maximum 100 Character',
-                    ]
-                ],
-                'position' => [
-                    'rules' => 'required|min_length[6]|max_length[100]',
-                    'errors' => [
-                        'required' => 'Position field is required',
-                        'min_length' => 'Position Minimum 6 Character',
-                        'max_length' => 'Position Maximum 100 Character',
-                    ]
-                ],
-                'job_history' => [
-                    'rules'  => 'required|min_length[8]',
-                    'errors' => [
-                        'required' => 'Job History field is required',
-                        'min_length' => 'Job History Minimum 8 Character',
-                    ]
-                ],
-                'education_background' => [
-                    'rules'  => 'required|min_length[8]',
-                    'errors' => [
-                        'required' => 'Education Background field is required',
-                        'min_length' => 'Education Background Minimum 8 Character',
-                    ]
-                ],
-                'organization_history' => [
-                    'rules'  => 'required|min_length[8]',
-                    'errors' => [
-                        'required' => 'Organization History field is required',
-                        'min_length' => 'Organization History Minimum 8 Character',
-                    ]
-                ],
-                'address' => [
-                    'rules'  => 'required|min_length[8]',
-                    'errors' => [
-                        'required' => 'Address History field is required',
-                        'min_length' => 'Address Minimum 8 Character',
-                    ]
-                ],
-                'telephone' => [
-                    'rules' => 'required|min_length[8]|max_length[18]',
-                    'errors' => [
-                        'required' => 'Telephone field is required',
-                        'min_length' => 'Telephone Minimum 8 Character',
-                        'max_length' => 'Telephone Maximum 18 Character',
-                    ]
-                ],
-            ];
-
-            if (!$this->validate($validation)) {
-                return redirect()->back()->withInput();
-            } else {
-                $imgPath = $this->request->getFile('image_file');
-                $name = $this->request->getVar('name');
-                $position = $this->request->getVar('position');
-                $job_history = $this->request->getVar('job_history');
-                $education_background = $this->request->getVar('education_background');
-                $organization_history = $this->request->getVar('organization_history');
-                $address = $this->request->getVar('address');
-                $telephone = $this->request->getVar('telephone');
-               
-                $imgName = $imgPath->getName();
-
-                $data = [
-                    'name' => $name,
-                    'position' => $position,
-                    'job_history' => $job_history,
-                    'education_background' => $education_background,
-                    'organization_history' => $organization_history,
-                    'address' => $address,
-                    'telephone' => $telephone,
-                    'img' => $imgName,
-                ];
-
-                $simpan = $this->flash_model->insert($data);
-                if ($simpan) {
-                    // Image manipulation
-                    $imgPath->move(FCPATH.'img/setting', $imgName);
-                }
-            }
-
-            return redirect()->to(base_url('/flash'));
-        } else {
-            return redirect()->to(base_url('/dashboard/err404'));
-        }
-    }
-
     public function update($id)
     {
         if (!user_can('edit-flash')) {
@@ -216,12 +103,12 @@ class Flash extends BaseController
                         'min_length' => 'Address Minimum 8 Character',
                     ]
                 ],
-                'telephone' => [
-                    'rules' => 'required|min_length[8]|max_length[18]',
+                'birth' => [
+                    'rules' => 'required|min_length[8]|max_length[100]',
                     'errors' => [
-                        'required' => 'Telephone field is required',
-                        'min_length' => 'Telephone Minimum 8 Character',
-                        'max_length' => 'Telephone Maximum 18 Character',
+                        'required' => 'Birthday field is required',
+                        'min_length' => 'Birthday Minimum 8 Character',
+                        'max_length' => 'Birthday Maximum 100 Character',
                     ]
                 ],
             ];
@@ -237,7 +124,7 @@ class Flash extends BaseController
                 $education_background = $this->request->getVar('education_background');
                 $organization_history = $this->request->getVar('organization_history');
                 $address = $this->request->getVar('address');
-                $telephone = $this->request->getVar('telephone');
+                $birth = $this->request->getVar('birth');
 
                 if ($imgPath->getError() == 4) {
                     $imgName = $imgOld;
@@ -256,7 +143,7 @@ class Flash extends BaseController
                     'education_background' => $education_background,
                     'organization_history' => $organization_history,
                     'address' => $address,
-                    'telephone' => $telephone,
+                    'birth' => $birth,
                     'img' => $imgName,
                 ];
 
@@ -327,12 +214,12 @@ class Flash extends BaseController
                         'min_length' => 'Address Minimum 8 Character',
                     ]
                 ],
-                'telephone' => [
-                    'rules' => 'required|min_length[8]|max_length[18]',
+                'birth' => [
+                    'rules' => 'required|min_length[8]|max_length[100]',
                     'errors' => [
-                        'required' => 'Telephone field is required',
-                        'min_length' => 'Telephone Minimum 8 Character',
-                        'max_length' => 'Telephone Maximum 18 Character',
+                        'required' => 'Birthday field is required',
+                        'min_length' => 'Birthday Minimum 8 Character',
+                        'max_length' => 'Birthday Maximum 100 Character',
                     ]
                 ],
             ];
@@ -348,7 +235,7 @@ class Flash extends BaseController
                 $education_background = $this->request->getVar('education_background');
                 $organization_history = $this->request->getVar('organization_history');
                 $address = $this->request->getVar('address');
-                $telephone = $this->request->getVar('telephone');
+                $birth = $this->request->getVar('birth');
 
                 if ($imgPath->getError() == 4) {
                     $imgName = $imgOld;
@@ -367,7 +254,7 @@ class Flash extends BaseController
                     'education_background' => $education_background,
                     'organization_history' => $organization_history,
                     'address' => $address,
-                    'telephone' => $telephone,
+                    'birth' => $birth,
                     'img' => $imgName,
                 ];
 

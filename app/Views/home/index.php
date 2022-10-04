@@ -10,12 +10,11 @@
     <div class="container">
         <div class="box-slider-content">
           <div class="box-slider-text">
-              <h2 class="box-slide-title">17 Years Of Excellence In</h2>
-              <h3 class="box-slide-sub-title">Construction Industry</h3>
-              <p class="box-slide-description">You have ideas, goals, and dreams. We have a culturally diverse, forward
-                thinking team looking for talent like.</p>
+              <h2 class="box-slide-title"></h2>
+              <h3 class="box-slide-sub-title"><?= $setting->title1 ?></h3>
+              <p class="box-slide-description"><?= $setting->description1 ?></p>
               <p>
-                <a href="services.html" class="slider btn btn-primary">Our Service</a>
+                <a href="<?= $setting->url1 ?>" class="slider btn btn-primary"><?= $setting->url_tag1 ?></a>
               </p>
           </div>
         </div>
@@ -27,11 +26,12 @@
         <div class="container">
           <div class="box-slider-content">
               <div class="box-slider-text">
-                <h2 class="box-slide-title">When Services Matters</h2>
-                <h3 class="box-slide-sub-title">Your Choice is Simple</h3>
-                <p class="box-slide-description">You have ideas, goals, and dreams. We have a culturally diverse, forward
-                    thinking team looking for talent like.</p>
-                <p><a href="about.html" class="slider btn btn-primary" aria-label="about-us">Know Us</a></p>
+                <h2 class="box-slide-title"></h2>
+              <h3 class="box-slide-sub-title"><?= $setting->title2 ?></h3>
+              <p class="box-slide-description"><?= $setting->description2 ?></p>
+              <p>
+                <a href="<?= $setting->url2 ?>" class="slider btn btn-primary"><?= $setting->url_tag2 ?></a>
+              </p>
               </div>
           </div>
         </div>
@@ -43,11 +43,12 @@
         <div class="container">
           <div class="box-slider-content">
               <div class="box-slider-text">
-                <h2 class="box-slide-title">When Services Matters</h2>
-                <h3 class="box-slide-sub-title">Your Choice is Simple</h3>
-                <p class="box-slide-description">You have ideas, goals, and dreams. We have a culturally diverse, forward
-                    thinking team looking for talent like.</p>
-                <p><a href="about.html" class="slider btn btn-primary" aria-label="about-us">Know Us</a></p>
+               <h2 class="box-slide-title"></h2>
+              <h3 class="box-slide-sub-title"><?= $setting->title3 ?></h3>
+              <p class="box-slide-description"><?= $setting->description3 ?></p>
+              <p>
+                <a href="<?= $setting->url3 ?>" class="slider btn btn-primary"><?= $setting->url_tag3 ?></a>
+              </p>
               </div>
           </div>
         </div>
@@ -223,6 +224,50 @@
   </div>
   <!--/ Container end -->
 </section><!-- Service end -->
+
+<section id="main-container" class="main-container">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-lg-12">
+        <h2 class="section-title">Agenda Morowali Utara</h2>
+        <h3 class="section-sub-title">Dafta Agenda</h3>
+      </div>
+    </div>
+    <!--/ Title row end -->
+    <div class="row">
+
+      <div class="col-lg-6">
+        <h3 class="column-title">Kabupaten / Peerintahan</h3>
+
+        <?php foreach ($agenda_kab as $akab): ?>
+          <h4 class="text-success"><a href="<?= base_url('agenda/kabupaten/'.$akab->slug) ?>"><?= $akab->title ?></a></h4>
+          <p><?= substr($akab->agenda, 0, 100).' ...'; ?></p>
+        <?php endforeach ?>
+
+        <div class="general-btn text-center">
+          <a class="btn btn-primary" href="<?= base_url('agenda/kabupaten') ?>">Lihat Semua</a>
+        </div>
+      </div>
+      <!--/ Col end -->
+
+      <div class="col-lg-6">
+
+        <h3 class="column-title">Masyarakat</h3>
+
+        <?php foreach ($agenda_mas as $amas): ?>
+          <h4 class="text-success"><a href="<?= base_url('agenda/masyarakat/'.$amas->slug) ?>"><?= $amas->title ?></a></h4>
+          <p><?= substr($amas->agenda, 0, 100).' ...'; ?></p>
+        <?php endforeach ?>
+
+        <div class="general-btn text-center">
+          <a class="btn btn-primary" href="<?= base_url('agenda/masyarakat') ?>">Lihat Semua</a>
+        </div>
+      </div>
+      <!--/ Col end -->
+
+    </div><!-- Content row 1 -->
+  </div><!-- Container end -->
+</section><!-- Main container end -->
 
 <section id="project-area" class="project-area">
   <div class="container">

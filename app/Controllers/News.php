@@ -75,11 +75,11 @@ class News extends BaseController
                     ],
                 ],
                 'title' => [
-                    'rules' => 'required|min_length[8]|max_length[100]',
+                    'rules' => 'required|min_length[8]|max_length[500]',
                     'errors' => [
                         'required' => 'Title field is required',
                         'min_length' => 'Title Minimum 8 Character',
-                        'max_length' => 'Title Maximum 100 Character',
+                        'max_length' => 'Title Maximum 500 Character',
                     ]
                 ],
                 'user' => [
@@ -109,7 +109,7 @@ class News extends BaseController
                 $imgPath = $this->request->getFile('image_file');
                 $title = $this->request->getVar('title');
                 $slug = url_title($title, '-', TRUE);
-                $content = nl2br($this->request->getVar('content'));
+                $content = $this->request->getVar('content');
 
                 $imgName = $imgPath->getRandomName();
             
@@ -196,11 +196,11 @@ class News extends BaseController
                     ],
                 ],
                 'title' => [
-                    'rules' => 'required|min_length[8]|max_length[100]',
+                    'rules' => 'required|min_length[8]|max_length[500]',
                     'errors' => [
                         'required' => 'Title field is required',
                         'min_length' => 'Title Minimum 8 Character',
-                        'max_length' => 'Title Maximum 100 Character',
+                        'max_length' => 'Title Maximum 500 Character',
                     ]
                 ],
                 'user' => [
@@ -253,7 +253,7 @@ class News extends BaseController
 
                 $title = $this->request->getVar('title');
                 $slug = url_title($title, '-', TRUE);
-                $content = nl2br($this->request->getVar('content'));
+                $content = $this->request->getVar('content');
                 $user = $this->request->getVar('user');
                 $category = $this->request->getVar('category');
 

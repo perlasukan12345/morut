@@ -11,7 +11,7 @@ class FlashModel extends Model
     protected $table = "flash_screen";
     protected $primaryKey = "flash_id";
     protected $returnType = "object";
-    protected $allowedFields = ['flash_id', 'name', 'position', 'job_history', 'education_background', 'organization_history', 'address', 'telephone', 'img'];
+    protected $allowedFields = ['flash_id', 'name', 'position', 'job_history', 'education_background', 'organization_history', 'address', 'birth', 'img'];
 
     public function __construct()
     {
