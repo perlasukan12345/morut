@@ -2,7 +2,7 @@
 
 use phpDocumentor\Reflection\PseudoTypes\False_;
 
- echo $this->extend('dashboard/template/index'); ?>
+echo $this->extend('dashboard/template/index'); ?>
 
 <?php echo $this->section('page-content'); ?>
 <!-- Begin Page Content -->
@@ -19,6 +19,11 @@ use phpDocumentor\Reflection\PseudoTypes\False_;
             <form action="<?php echo base_url('gis_facilities/create') ?>" method="post" enctype="multipart/form-data">
                <input type="hidden" name="token" value="<?= generate_token('facilities_add'); ?>">
                <div class="card-body">
+                  <div class="row">
+                     <div class="col-12">
+                        <div id="mapid" style="height: 350px;"></div>
+                     </div>
+                  </div>
                   <div class="form-group">
                      <div class="row">
                         <div class="col-sm-12">
@@ -64,14 +69,14 @@ use phpDocumentor\Reflection\PseudoTypes\False_;
                      <div class="row">
                         <div class="col-sm-6">
                            <label for="latitude">Latitude</label>
-                           <input type="text" class="form-control <?= ($validation->hasError('latitude')) ? 'is-invalid' : ''; ?>" id="latitude" name="latitude" value="<?= old('latitude') ?>">
+                           <input type="text" id="Latitude" class="form-control <?= ($validation->hasError('latitude')) ? 'is-invalid' : ''; ?>" id="latitude" name="latitude" value="<?= old('latitude') ?>">
                            <div class="invalid-feedback">
                               <?= $validation->getError('latitude'); ?>
                            </div>
                         </div>
                         <div class="col-sm-6">
                            <label for="longitude">Longitude</label>
-                           <input type="text" class="form-control <?= ($validation->hasError('longitude')) ? 'is-invalid' : ''; ?>" id="longitude" name="longitude" value="<?= old('longitude') ?>">
+                           <input type="text" id="Longitude" class="form-control <?= ($validation->hasError('longitude')) ? 'is-invalid' : ''; ?>" id="longitude" name="longitude" value="<?= old('longitude') ?>">
                            <div class="invalid-feedback">
                               <?= $validation->getError('longitude'); ?>
                            </div>
@@ -121,5 +126,41 @@ use phpDocumentor\Reflection\PseudoTypes\False_;
    $(document).ready(function() {
       $("#category").selectpicker();
    });
+
+   var curLocation = [0, 0];
+   if (curLocation[0] == 0 && curLocation[1] == 0) {
+      curLocation = [-1.9824700660937014, 121.33821728088598];
+   }
+
+   var mymap = L.map('mapid').setView([-1.9824700660937014, 121.33821728088598], 14);
+   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      id: 'mapbox/satellite-v9'
+   }).addTo(mymap);
+
+   mymap.attributionControl.setPrefix(false);
+   var marker = new L.marker(curLocation, {
+      draggable: 'true'
+   });
+
+   marker.on('dragend', function(event) {
+      var position = marker.getLatLng();
+      marker.setLatLng(position, {
+         draggable: 'true'
+      }).bindPopup(position).update();
+      $("#Latitude").val(position.lat);
+      $("#Longitude").val(position.lng).keyup();
+   });
+
+   $("#Latitude, #Longitude").change(function() {
+      var position = [parseInt($("#Latitude").val()), parseInt($("#Longitude").val())];
+      marker.setLatLng(position, {
+         draggable: 'true'
+      }).bindPopup(position).update();
+      mymap.panTo(position);
+   });
+   mymap.addLayer(marker);
 </script>
 <?php echo $this->endSection(); ?>

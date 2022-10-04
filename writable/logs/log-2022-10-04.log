@@ -1,0 +1,11 @@
+CRITICAL - 2022-10-04 16:32:09 --> Undefined property: stdClass::$birth
+in APPPATH\Views\welcome_message.php on line 186.
+ 1 APPPATH\Views\welcome_message.php(186): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$birth', 'APPPATH\\Views\\welcome_message.php', 186, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\welcome_message.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('welcome_message', [], true)
+ 5 APPPATH\Controllers\Welcome.php(37): view('welcome_message', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Welcome->index()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Welcome))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
