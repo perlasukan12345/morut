@@ -175,7 +175,7 @@
         </div><!-- Col end -->
 
         <div class="col-lg-4 text-center">
-          <img loading="lazy" class="img-fluid" src="<?= base_url(); ?>/img/morut.jpg ?>" alt="service-avater-image">
+          <img loading="lazy" class="img-fluid" src="<?= base_url('img/morut.png'); ?>" alt="service-avater-image">
         </div><!-- Col end -->
 
         <div class="col-lg-4 mt-5 mt-lg-0 mb-4 mb-lg-0">

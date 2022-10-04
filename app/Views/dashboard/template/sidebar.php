@@ -20,6 +20,15 @@
          </li>
      <?php endif ?>
 
+     <!-- Nav Item - Agenda -->
+     <?php if (user_can('view-agenda')) : ?>
+         <li class="nav-item">
+             <a class="nav-link" href="<?= base_url('agenda') ?>">
+                 <i class="fas fa-newspaper"></i>
+                 <span>Agenda</span></a>
+         </li>
+     <?php endif ?>
+
      <!-- Divider -->
      <hr class="sidebar-divider">
 

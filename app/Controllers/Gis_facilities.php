@@ -52,7 +52,7 @@ class Gis_facilities extends BaseController
       $data['category'] = $this->category_facilities->findAll();
       $data['validation'] = \Config\Services::validation();
 
-      return view('dashboard/gis/Facilities/add', $data);
+      return view('dashboard/gis/facilities/add', $data);
    }
 
    public function create()
