@@ -190,6 +190,7 @@
                             <li><a href="<?= base_url('home/galleryfoto'); ?>">Galeri Kota</a></li>
                             <li><a href="<?= base_url('home/galleryvideo'); ?>">Galeri Video</a></li>
                             <li><a href="<?= base_url('peoplesaid/index'); ?>">Suara Rakyat</a></li>
+                            <li><a href="webmail.morowaliutarakab.go.id/">Email</a></li>
                           </ul>
                       </li>
                       <li class="nav-item dropdown">
