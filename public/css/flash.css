@@ -5,10 +5,20 @@
 body {
     color: #463E3E;
     font-family: "Montserrat", sans-serif;
-    background: rgb(107,172,177);
-    background: linear-gradient(180deg, rgba(107,172,177,1) 0%, rgba(143,206,159,1) 100%);
+    background: rgb(107, 172, 177);
+    background: linear-gradient(180deg, rgba(107, 172, 177, 1) 0%, rgba(143, 206, 159, 1) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+.label-poligon {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    z-index: -100 ;
+    color: rgb(14, 11, 11);
+    font-weight: bold;
+    /* text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, -1px -1px 1px #000, -1px -1px 1px #000; */
 }
 
 .portal {
@@ -17,7 +27,7 @@ body {
     padding: 0;
     width: 100%;
     /*background: rgb(107,172,177);*/
-   /* background: linear-gradient(180deg, rgba(107,172,177,1) 0%, rgba(143,206,159,1) 100%);*/
+    /* background: linear-gradient(180deg, rgba(107,172,177,1) 0%, rgba(143,206,159,1) 100%);*/
 }
 
 .map {
@@ -586,25 +596,30 @@ ul.list-pemerintahan .eva {
 }
 
 .show-desktop-only {
-    display: none!important;
+    display: none !important;
 }
 
 @media (min-width: 992px) and (min-aspect-ratio: 8/5) {
-     :root {
+    :root {
         font-size: 12.5px;
     }
+
     body {
         background: #F9F9F9;
     }
+
     .portal {
         padding: 0 2em;
     }
+
     .content {
         display: block;
     }
+
     #map {
         transform: scale(1.04);
     }
+
     .nav-header .navbar-brand-left,
     .nav-header .navbar-brand-right,
     .toolbar-text,
@@ -616,12 +631,14 @@ ul.list-pemerintahan .eva {
         bottom: unset;
         left: unset;
     }
+
     .nav-header .navbar-text,
     .social-media,
     .toolbar,
     .toolbar-grid a {
         display: inline-block;
     }
+
     .nav-header {
         display: flex;
         background: transparent;
@@ -629,6 +646,7 @@ ul.list-pemerintahan .eva {
         text-align: left;
         justify-content: space-between;
     }
+
     .nav-header .navbar-brand,
     .layout-btn-web,
     .navbar-brand-right {
@@ -637,40 +655,50 @@ ul.list-pemerintahan .eva {
         flex: 0 0 25%;
         max-width: 25%;
     }
+
     .nav-header .navbar-text {
         vertical-align: middle;
     }
+
     .nav-header .navbar-brand-right>img {
         width: 8em;
     }
+
     .nav-header .navbar-text-site,
     .nav-header .navbar-text-brand {
         color: #463E3E !important;
     }
+
     .btn-web {
         transform: unset;
         -webkit-box-shadow: 7px 7px 10px 0px rgba(239, 81, 86, 0.281);
         -moz-box-shadow: 7px 7px 10px 0px rgba(239, 81, 86, 0.281);
         box-shadow: 7px 7px 10px 0px rgba(239, 81, 86, 0.281);
     }
+
     .pattern {
         display: none;
     }
+
     .nav-footer {
         position: fixed;
         display: flex;
         margin: 0;
     }
+
     .social-media {
         position: absolute;
         width: unset;
     }
+
     .social-media a {
         color: #463E3E;
     }
+
     .toolbar-grid {
         float: left;
     }
+
     .toolbar-grid a {
         transition: all 0.3s;
         width: 8em;
@@ -681,9 +709,11 @@ ul.list-pemerintahan .eva {
         padding: 1em 0em;
         border-radius: 0;
     }
+
     .toolbar-grid a:hover {
         transform: scale(1.225);
     }
+
     .toolbar-icon {
         display: inline-block;
         background: rgba(82, 201, 91, 1);
@@ -692,11 +722,13 @@ ul.list-pemerintahan .eva {
         padding: 2em;
         border-radius: 50%;
     }
+
     .toolbar-icon .eva {
         fill: #FFFFFF;
         width: 2.25em;
         height: 2.25em;
     }
+
     .toolbar-text {
         height: 2em;
         margin-top: 1em;
@@ -704,46 +736,57 @@ ul.list-pemerintahan .eva {
         justify-content: center;
         align-items: center;
     }
+
     .modal-portal.modal-lg {
         max-width: 1090px;
     }
+
     .modal-wisata.modal-lg {
         max-width: 700px;
     }
+
     .modal-portal .modal-body {
         min-height: 65vh;
         padding: 1.2em 8em;
         z-index: 11;
     }
+
     .modal-wisata .modal-body {
         min-height: 40vh !important;
     }
+
     .modal-portal .modal-title,
     .modal-wisata .modal-title {
         font-size: 1.8em;
         font-weight: bold;
     }
+
     .modal-portal .modal-title::before,
     .modal-wisata .modal-title::before {
         width: 3rem;
         height: 0.2em;
     }
+
     .modal-wisata .modal-body {
         padding: 1.2em 3em !important;
     }
+
     .modal-wisata .modal-body>div {
         margin: 2rem 0rem;
         line-height: 1.8;
     }
+
     .card-medium {
         border-radius: 1.1rem;
         margin: 1rem 0rem;
         padding-top: 3rem;
     }
+
     .card-medium .eva {
         width: 5em;
         height: 5em;
     }
+
     /* Update icon */
     .card-medium .fa,
     .card-medium .fas,
@@ -753,6 +796,7 @@ ul.list-pemerintahan .eva {
         font-size: 3em;
         padding: 0.35em 0em;
     }
+
     /* End update icon */
     .card-medium-text {
         margin-top: 3rem;
@@ -761,12 +805,15 @@ ul.list-pemerintahan .eva {
         border-bottom-left-radius: 1.1rem;
         border-bottom-right-radius: 1.1rem;
     }
+
     .small-text {
         font-size: 0.8em;
     }
+
     ul.list-pemerintahan>li>a {
         font-size: 1rem;
     }
+
     .change-language {
         position: absolute;
         right: 1em;
@@ -774,61 +821,74 @@ ul.list-pemerintahan .eva {
         border-radius: 0.5em;
         background: #F1F1F1;
     }
+
     .language {
         margin-right: 2em;
         color: #463E3E;
     }
+
     .language.active {
         color: #5BBC72;
     }
+
     .language img {
         display: inline-block;
     }
+
     .video-player {
         width: 30em;
         height: 19em;
     }
+
     .wrap {
         clear: right;
         float: left;
     }
+
     .hide-desktop {
         display: none;
     }
+
     .show-desktop-only {
-        display: block!important;
+        display: block !important;
     }
 }
 
 @media (min-width: 1900px) {
-     :root {
+    :root {
         font-size: 16px;
     }
+
     .modal-portal .modal-body,
     .modal-wisata .modal-body {
         min-height: 75vh;
         padding: 1.2em 5em;
         z-index: 11;
     }
+
     .card-medium {
         padding-top: 2rem;
     }
+
     .card-medium-text {
         margin-top: 2rem;
     }
+
     .circle-widget {
         padding: 0 3em;
     }
 }
 
 @media (min-width: 2500px) {
-     :root {
+    :root {
         font-size: 18px;
     }
+
     .portal {
         width: 2450px;
         margin: 0 auto;
     }
+
     .circle-widget {
         padding: 0 3em;
     }

@@ -16,6 +16,11 @@
                <input type="hidden" name="token" value="<?= generate_token('facilities_edit'); ?>">
                <input type="hidden" name="imgOld" value="<?= $facilities->image_name; ?>">
                <div class="card-body">
+                  <div class="row">
+                     <div class="col-12">
+                        <div id="mapid" style="height: 350px;"></div>
+                     </div>
+                  </div>
                   <div class="form-group">
                      <div class="row">
                         <div class="col-sm-12">
@@ -61,14 +66,14 @@
                      <div class="row">
                         <div class="col-sm-6">
                            <label for="latitude">Latitude</label>
-                           <input type="text" class="form-control <?= ($validation->hasError('latitude')) ? 'is-invalid' : ''; ?>" id="latitude" name="latitude" value="<?= old('title', $facilities->latitude); ?>">
+                           <input type="text" id="Latitude" class="form-control <?= ($validation->hasError('latitude')) ? 'is-invalid' : ''; ?>" id="latitude" name="latitude" value="<?= old('title', $facilities->latitude); ?>">
                            <div class="invalid-feedback">
                               <?= $validation->getError('latitude'); ?>
                            </div>
                         </div>
                         <div class="col-sm-6">
                            <label for="longitude">Longitude</label>
-                           <input type="text" class="form-control <?= ($validation->hasError('longitude')) ? 'is-invalid' : ''; ?>" id="longitude" name="longitude" value="<?= old('longitude', $facilities->longitude); ?>">
+                           <input type="text" id="Longitude" class="form-control <?= ($validation->hasError('longitude')) ? 'is-invalid' : ''; ?>" id="longitude" name="longitude" value="<?= old('longitude', $facilities->longitude); ?>">
                            <div class="invalid-feedback">
                               <?= $validation->getError('longitude'); ?>
                            </div>
@@ -114,5 +119,41 @@
    $(document).ready(function() {
       $("#category").selectpicker();
    });
+
+   var curLocation = [0, 0];
+   if (curLocation[0] == 0 && curLocation[1] == 0) {
+      curLocation = [<?= $facilities->latitude ?>, <?= $facilities->longitude ?>];
+   }
+
+   var mymap = L.map('mapid').setView([<?= $facilities->latitude ?>, <?= $facilities->longitude ?>], 14);
+   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      id: 'mapbox/satellite-v9'
+   }).addTo(mymap);
+
+   mymap.attributionControl.setPrefix(false);
+   var marker = new L.marker(curLocation, {
+      draggable: 'true'
+   });
+
+   marker.on('dragend', function(event) {
+      var position = marker.getLatLng();
+      marker.setLatLng(position, {
+         draggable: 'true'
+      }).bindPopup(position).update();
+      $("#Latitude").val(position.lat);
+      $("#Longitude").val(position.lng).keyup();
+   });
+
+   $("#Latitude, #Longitude").change(function() {
+      var position = [parseInt($("#Latitude").val()), parseInt($("#Longitude").val())];
+      marker.setLatLng(position, {
+         draggable: 'true'
+      }).bindPopup(position).update();
+      mymap.panTo(position);
+   });
+   mymap.addLayer(marker);
 </script>
 <?php echo $this->endSection(); ?>

@@ -477,7 +477,7 @@
                                     </div>
                                 </a>
                             </div>
-                             <div class="col-lg-3 col-6 px-4">
+                            <div class="col-lg-3 col-6 px-4">
                                 <a href="#" target="_blank">
                                     <div class="card-medium">
                                         <span class="fa fa-window-maximize"></span>
@@ -487,7 +487,7 @@
                                     </div>
                                 </a>
                             </div>
-                             <div class="col-lg-3 col-6 px-4">
+                            <div class="col-lg-3 col-6 px-4">
                                 <a href="#" target="_blank">
                                     <div class="card-medium">
                                         <span class="fa fa-window-maximize"></span>
@@ -539,18 +539,18 @@
                     <div class="row">
                         <div class="col-12">
                             <ul class="list-pemerintahan">
-                                <?php foreach ($opd as $op): ?>
+                                <?php foreach ($opd as $op) : ?>
                                     <li>
-                                    <a href="#" target="_blank">
-                                        <div class="row">
-                                            <div class="col-lg-1 col-2 text-center">
-                                                <span data-eva="arrow-right-outline"></span>
+                                        <a href="#" target="_blank">
+                                            <div class="row">
+                                                <div class="col-lg-1 col-2 text-center">
+                                                    <span data-eva="arrow-right-outline"></span>
+                                                </div>
+                                                <div class="col-lg-9 col-10">
+                                                    <?= $op->opd ?>
+                                                </div>
                                             </div>
-                                            <div class="col-lg-9 col-10">
-                                                <?= $op->opd ?>
-                                            </div>
-                                        </div>
-                                    </a>
+                                        </a>
                                     </li>
                                 <?php endforeach ?>
                             </ul>
@@ -573,15 +573,15 @@
             })
         });
 
-        $(".trigger-modal-detail").click(function(){
+        $(".trigger-modal-detail").click(function() {
             var self = $(this);
             $("#pelayananModal").modal('hide');
-            setTimeout(function(){
+            setTimeout(function() {
                 $(self.attr('data-target')).modal('show');
             }, 500);
         });
 
-        $(".has-parent").click(function (e) {
+        $(".has-parent").click(function(e) {
             var target = $(this).attr('data-target');
             if (target) {
                 var parent = $(this).attr('data-parent');
@@ -589,9 +589,9 @@
             }
         });
 
-        $(".back").click(function(){
+        $(".back").click(function() {
             $($(this).closest('[role=dialog]')).modal('hide');
-            setTimeout(function(){
+            setTimeout(function() {
                 $("#pelayananModal").modal('show');
             }, 500);
         });
@@ -715,11 +715,18 @@
                             weight: 0.3,
                             opacity: 1.0,
                             color: '<?= $bk->geojson_color ?>',
-                            fillOpacity: 0.5,
+                            fillOpacity: 0.8,
                             fillColor: '<?= $bk->geojson_color ?>',
                         }
                     },
                 }).addTo(maps);
+                geoLayer.eachLayer(function(layer) {
+                    layer.bindTooltip("<?= $bk->kecamatan_name ?>", {
+                        permanent: true,
+                        direction: "center",
+                        className: "label-poligon"
+                    });
+                });
             });
         <?php } ?>
     </script>
