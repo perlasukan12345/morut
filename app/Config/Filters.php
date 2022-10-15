@@ -58,10 +58,8 @@ class Filters extends BaseConfig
                     'peoplesaid/create',
                     'agenda/kabupaten',
                     'agenda/masyarakat',
-                    'about/history',
-                    'about/geografi',
-                    'about/demografi',
-                    'goverment/visi_misi',
+                    'page/profile/*',
+                    'page/information/*',
                 ]
             ]
         ],

@@ -267,7 +267,11 @@
 		mediaPopup();
 
 		var path = location.pathname.split('/');
-		var url = location.origin + '/' + path[1] + '/' + path[2];
+		if (path.length > 3 ) {
+			var url = location.origin + '/' + path[1] + '/' + path[2] + '/' + path[3];
+		} else {
+			var url = location.origin + '/' + path[1] + '/' + path[2];
+		}
 
 		$('ul.navbar-nav li a').each(function(){
 			if($(this).attr('href').indexOf(url) !== -1){
@@ -283,6 +287,9 @@
 				.parent().parent('li').addClass('active');
 			}
 		});
+
+		console.log(path);
+		console.log(url);
 	});
 
 	$('.dropdown-menu a.dropdown-toggle').on('click', function (e) {

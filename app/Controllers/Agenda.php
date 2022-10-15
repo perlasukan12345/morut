@@ -4,16 +4,19 @@ namespace App\Controllers;
 
 use App\Models\AgendaModel;
 use App\Models\SettingModel;
+use App\Models\CategorymenuModel;
 
 class Agenda extends BaseController
 {
     public $agenda_model;
     public $setting_model;
+    public $category_menu;
 
     public function __construct()
     {
         $this->agenda_model = new AgendaModel();
         $this->setting_model = new SettingModel();
+        $this->category_menu = new CategorymenuModel();
     }
 
     public function kabupaten($slug = null)
@@ -37,6 +40,9 @@ class Agenda extends BaseController
             $data['view_agenda'] = $this->agenda_model->get_dataSlug($slug);
             $data['slug'] = $slug;
         }
+
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
 
         return view('home/agenda/kabupaten', $data);
     }
@@ -63,6 +69,9 @@ class Agenda extends BaseController
             $data['slug'] = $slug;
         }
 
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+        
         return view('home/agenda/masyarakat', $data);
     }
 
@@ -111,10 +120,10 @@ class Agenda extends BaseController
             //define validation
             $validation = [
                 'title' => [
-                    'rules' => 'required|min_length[8]|max_length[200]',
+                    'rules' => 'required|min_length[1]|max_length[200]',
                     'errors' => [
                         'required' => 'Title field is required',
-                        'min_length' => 'Title Minimum 8 Character',
+                        'min_length' => 'Title Minimum 1 Character',
                         'max_length' => 'Title Maximum 200 Character',
                     ]
                 ],
@@ -194,10 +203,10 @@ class Agenda extends BaseController
 
             $validation = [
                 'title' => [
-                    'rules' => 'required|min_length[8]|max_length[200]',
+                    'rules' => 'required|min_length[1]|max_length[200]',
                     'errors' => [
                         'required' => 'Title field is required',
-                        'min_length' => 'Title Minimum 8 Character',
+                        'min_length' => 'Title Minimum 1 Character',
                         'max_length' => 'Title Maximum 200 Character',
                     ]
                 ],
@@ -208,10 +217,10 @@ class Agenda extends BaseController
                     ]
                 ],
                 'agenda' => [
-                    'rules'  => 'required|min_length[8]',
+                    'rules'  => 'required|min_length[1]',
                     'errors' => [
                         'required' => 'Agenda field is required',
-                        'min_length' => 'Agenda Minimum 8 Character',
+                        'min_length' => 'Agenda Minimum 1 Character',
                     ]
                 ],
             ];

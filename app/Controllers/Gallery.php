@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-
 use App\Models\CategorygalleryModel;
 use App\Models\GalleryModel;
 

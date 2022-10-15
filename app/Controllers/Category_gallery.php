@@ -60,10 +60,10 @@ class Category_gallery extends BaseController
          //define validation
          $validation = [
             'category_name' => [
-               'rules'  => 'required|min_length[6]|max_length[100]|is_unique[category_gallery.category_name]',
+               'rules'  => 'required|min_length[1]|max_length[100]|is_unique[category_gallery.category_name]',
                'errors' => [
                   'required' => 'Category name field is required',
-                  'min_length' => 'Category name Minimum 6 Character',
+                  'min_length' => 'Category name Minimum 1 Character',
                   'max_length' => 'Category name Maximum 100 Character',
                   'is_unique' => 'Category name alread Exist'
                ]
@@ -126,10 +126,10 @@ class Category_gallery extends BaseController
          //define validation
          $validation = [
             'category_name' => [
-               'rules'  => 'required|min_length[6]|max_length[100]|is_unique[category_gallery.category_name]',
+               'rules'  => 'required|min_length[1]|max_length[100]|is_unique[category_gallery.category_name]',
                'errors' => [
                   'required' => 'Category name field is required',
-                  'min_length' => 'Category name Minimum 6 Character',
+                  'min_length' => 'Category name Minimum 1 Character',
                   'max_length' => 'Category name Maximum 100 Character',
                   'is_unique' => 'Category name alread Exist'
                ]

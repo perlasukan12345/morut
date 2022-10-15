@@ -96,7 +96,7 @@
     <!-- Content Row -->
     <div class="row">
     	<!-- Suara Rakyat -->
-        <div class="col-xl-8 col-lg-7">
+        <div class="col-xl-12 col-lg-7">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div
@@ -126,6 +126,31 @@
                 </div>
             </div>
         </div>
+
+         <div class="col-xl-12 col-lg-7">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Daftar Suara Rakyat</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                     <div class="table-responsive">
+                        <table class="table table-bordered" id="data-people-said" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Name</th>
+                                    <th>Message</th>
+                                    <th>Option</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- /.container-fluid -->
@@ -133,6 +158,8 @@
 <?php echo $this->section('script'); ?>
 <script type="text/javascript">
     $(document).ready(function() {
+        tampil_table_user();
+
         const swal = $('.swal').data('swal');
         if (swal) {
             Swal.fire({
@@ -141,6 +168,47 @@
             })
         }
     });
+
+      function tampil_table_user() {
+        $('#data-people-said').DataTable({
+            processing: true,
+            serverSide: true,
+            bDestroy: true,
+            responsive: true,
+            ajax: {
+                url: "<?php echo base_url('dashboard/dt_people_said'); ?>",
+                type: "POST",
+                data: {},
+                error:function(data){
+                    console.log(data);
+                }
+            },
+            columns: [
+                {"data": "no"},
+                {"data": "name"},
+                {"data": "message"},
+                {"data": "option"}
+            ],
+            columnDefs: [{
+                    targets: [0, -1],
+                    orderable: false,
+                },
+                {
+                    width: "1%",
+                    targets: [0, -1],
+                },
+                {
+                    className: "dt-nowrap",
+                    targets: [-1],
+                },
+                {
+                    orderable: false,
+                    targets: [0, 3],
+                }
+            ],
+
+        });
+    }
 </script>
 <!-- /.container-fluid -->
 <?php echo $this->endSection(); ?>

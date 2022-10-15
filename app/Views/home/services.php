@@ -29,7 +29,7 @@
               </div>
               <div class="ts-service-info">
                   <h3 class="service-box-title"><?= $op->opd ?></h3>
-                  <a class="learn-more d-inline-block" href="#" aria-label="service-details"><i class="fa fa-caret-right"></i> Kunjungi Website</a>
+                  <a class="learn-more d-inline-block" href="<?= $op->url ?>" aria-label="service-details" target="_blank"><i class="fa fa-caret-right"></i> Kunjungi Website</a>
               </div>
             </div>
         </div><!-- Service1 end -->

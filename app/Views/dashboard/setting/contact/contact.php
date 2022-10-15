@@ -77,6 +77,17 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="row">  
+                                 <div class="col-sm-12">
+                                    <label for="author">Author</label>
+                                    <input type="text" class="form-control <?= ($validation->hasError('author')) ? 'is-invalid' : ''; ?>" id="author" name="author" value="<?= $setting->author ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('author'); ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" name="edit_image" class="btn btn-success">Update</button>

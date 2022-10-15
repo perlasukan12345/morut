@@ -10,7 +10,7 @@ class OpdModel extends Model
     protected $table = "opd";
     protected $primaryKey = "opd_id";
     protected $returnType = "object";
-    protected $allowedFields = ['opd'];
+    protected $allowedFields = ['category_opd_id', 'opd', 'url'];
 
     public function __construct()
     {

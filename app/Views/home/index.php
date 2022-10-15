@@ -134,45 +134,21 @@
 
     <div class="row">
         <div class="col-lg-4">
-          <div class="ts-service-box d-flex">
+          <?php foreach ($left as $key): ?>
+            <div class="ts-service-box d-flex">
               <div class="ts-service-box-img">
-                <img loading="lazy" src="<?= base_url('img/icon-image/service-icon1.png') ?>" alt="service-icon">
+                <img loading="lazy" src="<?= base_url('img/icon-image/fact1.png') ?>" alt="service-icon">
               </div>
               <div class="ts-service-box-info">
                 <div class="ts-service-info">
-                  <h3 class="service-box-title">Pelayanan Daerah</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
-                  <a class="learn-more d-inline-block" href="<?= base_url('home/services') ?>" aria-label="service-details"><i class="fa fa-caret-right"></i> Lihat Layanan</a>
+                  <h3 class="service-box-title"><?= $key->category ?></h3>
+                  <p>
+                  <a class="learn-more d-inline-block" href="<?= base_url('home/services/'.$key->category_opd_id) ?>" aria-label="service-details"><i class="fa fa-caret-right"></i> Lihat Layanan</a>
+                  </p>
                 </div>
               </div>
           </div><!-- Service 1 end -->
-
-          <div class="ts-service-box d-flex">
-              <div class="ts-service-box-img">
-                <img loading="lazy" src="<?= base_url('img/icon-image/service-icon2.png') ?>" alt="service-icon">
-              </div>
-              <div class="ts-service-box-info">
-                  <div class="ts-service-info">
-                    <h3 class="service-box-title">LPSE</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
-                    <a class="learn-more d-inline-block" href="#" aria-label="service-details"><i class="fa fa-caret-right"></i> Kunjungi Website</a>
-                  </div>
-              </div>
-          </div><!-- Service 2 end -->
-
-          <div class="ts-service-box d-flex">
-              <div class="ts-service-box-img">
-                <img loading="lazy" src="<?= base_url('img/icon-image/service-icon2.png') ?>" alt="service-icon">
-              </div>
-              <div class="ts-service-box-info">
-                  <div class="ts-service-info">
-                    <h3 class="service-box-title">SIRUP</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
-                    <a class="learn-more d-inline-block" href="#" aria-label="service-details"><i class="fa fa-caret-right"></i> Kunjungi Website</a>
-                  </div>
-              </div>
-          </div><!-- Service 2 end -->
-
+          <?php endforeach ?>
         </div><!-- Col end -->
 
         <div class="col-lg-4 text-center">
@@ -180,44 +156,21 @@
         </div><!-- Col end -->
 
         <div class="col-lg-4 mt-5 mt-lg-0 mb-4 mb-lg-0">
+          <?php foreach ($right as $row): ?>
           <div class="ts-service-box d-flex">
               <div class="ts-service-box-img">
-                <img loading="lazy" src="<?= base_url('img/icon-image/service-icon2.png') ?>" alt="service-icon">
+                <img loading="lazy" src="<?= base_url('img/icon-image/fact1.png') ?>" alt="service-icon">
               </div>
               <div class="ts-service-box-info">
                   <div class="ts-service-info">
-                    <h3 class="service-box-title">SIPD</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
-                    <a class="learn-more d-inline-block" href="#" aria-label="service-details"><i class="fa fa-caret-right"></i> Kunjungi Website</a>
+                    <h3 class="service-box-title"><?= $row->category ?></h3>
+                    <p>
+                    <a class="learn-more d-inline-block" href="<?= base_url('home/services/'.$row->category_opd_id) ?>" aria-label="service-details"><i class="fa fa-caret-right"></i> Lihat Layanan</a>
+                    </p>
                   </div>
               </div>
           </div><!-- Service 2 end -->
-
-          <div class="ts-service-box d-flex">
-              <div class="ts-service-box-img">
-                <img loading="lazy" src="<?= base_url('img/icon-image/service-icon2.png') ?>" alt="service-icon">
-              </div>
-              <div class="ts-service-box-info">
-                  <div class="ts-service-info">
-                    <h3 class="service-box-title">JDIH Kabupaten Morowai Utara</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
-                    <a class="learn-more d-inline-block" href="#" aria-label="service-details"><i class="fa fa-caret-right"></i> Kunjungi Website</a>
-                  </div>
-              </div>
-          </div><!-- Service 2 end -->
-
-          <div class="ts-service-box d-flex">
-              <div class="ts-service-box-img">
-                <img loading="lazy" src="<?= base_url('img/icon-image/service-icon2.png') ?>" alt="service-icon">
-              </div>
-              <div class="ts-service-box-info">
-                  <div class="ts-service-info">
-                    <h3 class="service-box-title">JDIH DPRD Morowai Utara</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
-                    <a class="learn-more d-inline-block" href="#" aria-label="service-details"><i class="fa fa-caret-right"></i> Kunjungi Website</a>
-                  </div>
-              </div>
-          </div><!-- Service 2 end -->
+          <?php endforeach ?>
         </div><!-- Col end -->
     </div><!-- Content row end -->
 

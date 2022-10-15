@@ -4,17 +4,21 @@ namespace App\Controllers;
 
 use App\Models\SettingModel;
 use App\Models\PeoplesaidModel;
+use App\Models\CategorymenuModel;
 
 class PeopleSaid extends BaseController
 {
     public $setting_model;
     public $peoplesaid_model;
+    public $category_menu;
+
 
 
     public function __construct()
     {
         $this->setting_model = new SettingModel();
         $this->peoplesaid_model = new PeoplesaidModel();
+        $this->category_menu = new CategorymenuModel();
     }
 
     public function index()
@@ -26,6 +30,9 @@ class PeopleSaid extends BaseController
         $data['people_said'] = $this->peoplesaid_model->gt_findAll()->paginate(12, 'p_said');
         $data['pager'] = $this->peoplesaid_model->pager;
         $data['setting'] = $this->setting_model->first();
+
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
        
         return view('home/media/people_said', $data);
     }
@@ -48,26 +55,26 @@ class PeopleSaid extends BaseController
                     ],
                 ],
                 'name' => [
-                    'rules' => 'required|min_length[8]|max_length[100]',
+                    'rules' => 'required|min_length[1]|max_length[100]',
                     'errors' => [
                         'required' => 'Name field is required',
-                        'min_length' => 'Name Minimum 8 Character',
+                        'min_length' => 'Name Minimum 1 Character',
                         'max_length' => 'Name Maximum 100 Character',
                     ]
                 ],
                 'subject' => [
-                    'rules' => 'required|min_length[8]|max_length[100]',
+                    'rules' => 'required|min_length[1]|max_length[100]',
                     'errors' => [
                         'required' => 'Subject field is required',
-                        'min_length' => 'Subject Minimum 8 Character',
+                        'min_length' => 'Subject Minimum 1 Character',
                         'max_length' => 'Subject Maximum 100 Character',
                     ]
                 ],
                 'message' => [
-                    'rules' => 'required|min_length[8]|max_length[500]',
+                    'rules' => 'required|min_length[1]|max_length[500]',
                     'errors' => [
                         'required' => 'Message field is required',
-                        'min_length' => 'Message Minimum 8 Character',
+                        'min_length' => 'Message Minimum 1 Character',
                         'max_length' => 'Message Maximum 500 Character',
                     ]
                 ],

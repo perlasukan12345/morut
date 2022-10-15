@@ -76,10 +76,10 @@ class Gis_facilities extends BaseController
                ],
             ],
             'title' => [
-               'rules' => 'required|min_length[6]|max_length[100]',
+               'rules' => 'required|min_length[1]|max_length[100]',
                'errors' => [
                   'required' => 'Title field is required',
-                  'min_length' => 'Title Minimum 6 Character',
+                  'min_length' => 'Title Minimum 1 Character',
                   'max_length' => 'Title Maximum 100 Character',
                ]
             ],
@@ -102,10 +102,10 @@ class Gis_facilities extends BaseController
                ]
             ],
             'description' => [
-               'rules'  => 'required|min_length[8]',
+               'rules'  => 'required|min_length[1]',
                'errors' => [
                   'required' => 'Description field is required',
-                  'min_length' => 'Description Minimum 8 Character',
+                  'min_length' => 'Description Minimum 1 Character',
                ]
             ],
          ];
@@ -201,10 +201,10 @@ class Gis_facilities extends BaseController
                ],
             ],
             'title' => [
-               'rules' => 'required|min_length[8]|max_length[100]',
+               'rules' => 'required|min_length[1]|max_length[100]',
                'errors' => [
                   'required' => 'Title field is required',
-                  'min_length' => 'Title Minimum 6  Character',
+                  'min_length' => 'Title Minimum 1 Character',
                   'max_length' => 'Title Maximum 100 Character',
                ]
             ],
@@ -227,10 +227,10 @@ class Gis_facilities extends BaseController
                ]
             ],
             'description' => [
-               'rules'  => 'required|min_length[8]',
+               'rules'  => 'required|min_length[1]',
                'errors' => [
                   'required' => 'Description field is required',
-                  'min_length' => 'Description Minimum 8 Character',
+                  'min_length' => 'Description Minimum 1 Character',
                ]
             ],
          ];

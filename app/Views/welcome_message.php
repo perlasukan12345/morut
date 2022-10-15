@@ -457,66 +457,18 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
+                            <?php foreach ($category_opd as $row): ?>
                             <div class="col-lg-3 col-6 px-4">
-                                <a href="javascript:void(0);" data-target="#badanDetail" class="trigger-modal-detail">
+                                <a href="javascript:void(0);" data-target="#badanDetail" data-id="<?= $row->category_opd_id ?>" class="trigger-modal-detail">
                                     <div class="card-medium">
                                         <span class="fa fa-building"></span>
                                         <div class="card-medium-text">
-                                            PELAYANAN DAERAH
+                                            <?= $row->category?>
                                         </div>
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-3 col-6 px-4">
-                                <a href="#" target="_blank">
-                                    <div class="card-medium">
-                                        <span class="fa fa-window-maximize"></span>
-                                        <div class="card-medium-text small-text">
-                                            LPSE
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-6 px-4">
-                                <a href="#" target="_blank">
-                                    <div class="card-medium">
-                                        <span class="fa fa-window-maximize"></span>
-                                        <div class="card-medium-text small-text">
-                                            SIRUP
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-6 px-4">
-                                <a href="#" target="_blank">
-                                    <div class="card-medium">
-                                        <span class="fa fa-window-maximize"></span>
-                                        <div class="card-medium-text small-text">
-                                            SIPD
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-6 px-4">
-                                <a href="#" target="_blank">
-                                    <div class="card-medium">
-                                        <span class="fa fa-window-maximize"></span>
-                                        <div class="card-medium-text small-text">
-                                            JDIH KABUPATEN MOROWAI UTARA
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-6 px-4">
-                                <a href="#" target="_blank">
-                                    <div class="card-medium">
-                                        <span class="fa fa-window-maximize"></span>
-                                        <div class="card-medium-text small-text">
-                                            JDIH DPRD MOROWAI UTARA
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                            <?php endforeach ?>
                         </div>
                     </div>
                 </div>
@@ -535,28 +487,7 @@
                         <h2 class="modal-title" id="detailPemerintahanModalLabel">BADAN DAN INSPEKTORAT KABUPATEN MOROWALI UTARA</h2>
                     </div>
                 </div>
-                <div class="modal-body pt-0">
-                    <div class="row">
-                        <div class="col-12">
-                            <ul class="list-pemerintahan">
-                                <?php foreach ($opd as $op) : ?>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <div class="row">
-                                                <div class="col-lg-1 col-2 text-center">
-                                                    <span data-eva="arrow-right-outline"></span>
-                                                </div>
-                                                <div class="col-lg-9 col-10">
-                                                    <?= $op->opd ?>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                <?php endforeach ?>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <div class="modal-body pt-0" id="pelayanan_detail"></div>
             </div>
         </div>
     </div>
@@ -575,7 +506,19 @@
 
         $(".trigger-modal-detail").click(function() {
             var self = $(this);
+            var eid = self.attr("data-id");
+
             $("#pelayananModal").modal('hide');
+
+            $.ajax({
+                url : "<?= base_url('welcome/services') ?>",
+                data : {id : eid},
+                type : "POST",
+                success : function (data){
+                    $('#pelayanan_detail').html(data);
+                    eva.replace();
+                }
+            });
             setTimeout(function() {
                 $(self.attr('data-target')).modal('show');
             }, 500);

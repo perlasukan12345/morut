@@ -63,25 +63,18 @@
                        <li class="nav-item dropdown">
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profil <i class="fa fa-angle-down"></i></a>
                           <ul class="dropdown-menu" role="menu">
+                            <?php foreach ($profile as $key => $row): ?>
                             <li class="dropdown-submenu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tentang Kabupaten</a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $key ?></a>
+                                <?php if (!empty($row['sub_cat'])): ?>
                                 <ul class="dropdown-menu">
-                                  <li><a href="<?= base_url('about/history') ?>">Sejarah</a></li>
-                                  <li><a href="<?= base_url('about/geografi') ?>">Geografi</a></li>
-                                  <li><a href="<?= base_url('about/demografi') ?>">Demografi</a></li>
-                                  <li><a href="#">Sosial Ekonomi</a></li>
-                                  <li><a href="#">Prestasi / Penghargaan</a></li>
+                                  <?php foreach ($row['sub_cat'] as $sub): ?>
+                                     <li><a href="<?= base_url('page/profile/'.$sub->content_id) ?>"><?= $sub->title ?></a></li>
+                                  <?php endforeach ?>
                                 </ul>
-                            </li>
-                             <li class="dropdown-submenu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pemerintah Kabupaten</a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#">Kinerja Pemerintah</a></li>
-                                  <li><a href="<?= base_url('goverment/visi_misi') ?>">Visi dan Misi</a></li>
-                                  <li><a href="#">Legislatif</a></li>
-                                  <li><a href="#">Info Pejabat</a></li>
-                                </ul>
-                            </li>
+                                <?php endif ?>
+                             </li>     
+                            <?php endforeach ?>
                           </ul>
                       </li>
 
@@ -91,75 +84,16 @@
                             <li><a href="#">Program Prioritas</a></li>
                             <li><a href="#" target="_blank">PPID</a></li>
                             <li class="dropdown-submenu">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Perijinan</a>
+                              <?php foreach ($information as $key => $row): ?>
+                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown"><?= $key ?></a>
+                              <?php if (!empty($row['sub_cat'])): ?>
                                 <ul class="dropdown-menu">
-                                  <li><a href="#">Mall Pelayanan Publik</a></li>
-                                  <li><a href="#">Alur Perizinan</a></li>
-                                  <li><a href="#">Info Rekap Izin</a></li>
-                                  <li><a href="#">Panduan OSS</a></li>
-                                </ul>
-                            </li>
-                             <li class="dropdown-submenu">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Pariwisata</a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#">Tempat Rekreasi</a></li>
-                                  <li><a href="#">Tempat Sejarah dan Budaya</a></li>
-                                </ul>
-                            </li>
-                             <li class="dropdown-submenu">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Potensi Bisnis</a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#">Migas</a></li>
-                                  <li><a href="#">Pertanian</a></li>
-                                  <li><a href="#">Peternakan dan Perikanan</a></li>
-                                </ul>
-                            </li>
-                             <li class="dropdown-submenu">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Pengaduan / Keluhan Masyarakat</a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#">Layanan Jejaring Sosial</a></li>
-                                  <li><a href="#">Pengaduan SMS</a></li>
-                                  <li><a href="#">Pengaduan Email</a></li>
-                                  <li><a href="#">Pengaduan Telepon</a></li>
-                                </ul>
-                            </li>
-                             <li class="dropdown-submenu">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Fasilitas Umum</a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#">Bantuan Sosial</a></li>
-                                  <li><a href="#">Taman</a></li>
-                                  <li><a href="#">Hotspot</a></li>
-                                  <li><a href="#">Perbankan</a></li>
-                                  <li><a href="#">Fasilitas Pendidikan</a></li>
-                                  <li><a href="#">Tempat Ibadah</a></li>
-                                  <li><a href="#">Fasilitas Kesehatan</a></li>
-                                  <li><a href="#">Perpustakaan</a></li>
-                                </ul>
-                            </li>
-                             <li class="dropdown-submenu">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Lapangan Pekerjaan</a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#">Info Pekerjaan</a></li>
-                                </ul>
-                            </li>
-                             <li class="dropdown-submenu">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Organisasi dan Komunitas Masyarakat</a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#">Komunitas Masyarakat Kota</a></li>
-                                  <li><a href="#">Organisasi di Kota</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Informasi Daftar SKPD</a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#">RSUD</a></li>
-                                  <li><a href="#">Sekretariat DPRD</a></li>
-                                  <li><a href="#">Kecamatan</a></li>
-                                  <li><a href="#">BUMD</a></li>
-                                  <li><a href="#">Badan</a></li>
-                                  <li><a href="#">Dinas</a></li>
-                                  <li><a href="#">Sekretariat Daerah</a></li>
-                                </ul>
+                                  <?php foreach ($row['sub_cat'] as $sub): ?>
+                                     <li><a href="<?= $sub->content_id ?>"><?= $sub->title ?></a></li>
+                                  <?php endforeach ?>
+                                </ul>   
+                              <?php endif ?>
+                              <?php endforeach ?>
                             </li>
                             <li><a href="<?= base_url('info/rpjmd'); ?>" target="_blank">RPJMD</a></li>
                             <li><a href="<?= base_url('info/rpjpd'); ?>" target="_blank">RPJPD</a></li>

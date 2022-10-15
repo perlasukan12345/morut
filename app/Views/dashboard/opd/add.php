@@ -15,10 +15,29 @@
                     <input type="hidden" name="token" value="<?= generate_token('opd_add'); ?>">
                     <div class="card-body">
                         <div class="form-group">
+                            <label for="category">Category</label>
+                             <select class="form-control <?= ($validation->hasError('category')) ? 'is-invalid' : ''; ?>" name="category" id="category">
+                                <option value="">No Selected</option>
+                                <?php foreach ($category as $row) : ?>
+                                    <option value="<?php echo $row->category_opd_id; ?>"><?php echo $row->category; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('opd'); ?>
+                            </div>
+                        </div>
+                         <div class="form-group">
                             <label for="OPD">OPD</label>
                             <input type="text" class="form-control <?= ($validation->hasError('opd')) ? 'is-invalid' : ''; ?>" id="opd" name="opd">
                             <div class="invalid-feedback">
                                 <?= $validation->getError('opd'); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="OPD">URL</label>
+                            <input type="text" class="form-control <?= ($validation->hasError('url')) ? 'is-invalid' : ''; ?>" id="url" name="url">
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('url'); ?>
                             </div>
                         </div>
                     </div>

@@ -3,14 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\OpdModel;
+use App\Models\CategoryopdModel;
 
 class Opd extends BaseController
 {
 	public $opd;
+    public $cat_opd;
 
     public function __construct()
     {
         $this->opd = new OpdModel();
+        $this->cat_opd = new CategoryopdModel();
     }
 
     public function index()
@@ -40,6 +43,7 @@ class Opd extends BaseController
         $this->breadcrumb->add('Add', '/opd/add');
         $data['breadcrumbs'] = $this->breadcrumb->render();
 
+        $data['category'] = $this->cat_opd->findAll();
         $data['validation'] = \Config\Services::validation();
 
         return view('dashboard/opd/add',$data);
@@ -59,12 +63,27 @@ class Opd extends BaseController
             //define validation
             $validation = [
                 'opd' => [
-                    'rules'  => 'required|min_length[8]|max_length[100]|is_unique[opd.opd]',
+                    'rules'  => 'required|min_length[1]|max_length[100]|is_unique[opd.opd]',
                     'errors' => [
                         'required' => 'OPD field is required',
-                        'min_length' => 'OPD Minimum 8 Character',
+                        'min_length' => 'OPD Minimum 1 Character',
                         'max_length' => 'OPD Maximum 100 Character',
                         'is_unique' => 'OPD already Exist'
+                    ]
+                ],
+                'category' => [
+                    'rules'  => 'required',
+                    'errors' => [
+                        'required' => 'Category field is required',
+                    ]
+                ],
+                'url' => [
+                    'rules'  => 'required|valid_url|min_length[1]|max_length[300]',
+                    'errors' => [
+                        'required' => 'URL field is required',
+                        'valid_url' => 'URL is not valid',
+                        'min_length' => 'URL Minimum 1 Character',
+                        'max_length' => 'URL Maximum 300 Character'
                     ]
                 ],
             ];
@@ -75,6 +94,8 @@ class Opd extends BaseController
 
     	        $data = [
     	            'opd' => $this->request->getVar('opd'),
+                    'category_opd_id' => $this->request->getVar('category'),
+                    'url' => $this->request->getVar('url'),
     	        ];
 
     	        $simpan = $this->opd->insert($data);
@@ -107,6 +128,7 @@ class Opd extends BaseController
         $this->breadcrumb->add('Edit', '/opd/edit/');
         $data['breadcrumbs'] = $this->breadcrumb->render();
 
+        $data['category'] = $this->cat_opd->findAll();
         $data['validation'] = \Config\Services::validation();
 
         return view('dashboard/opd/edit', $data);
@@ -126,12 +148,26 @@ class Opd extends BaseController
             //define validation
             $validation = [
                'opd' => [
-                    'rules'  => 'required|min_length[8]|max_length[100]|is_unique[opd.opd]',
+                    'rules'  => 'required|min_length[1]|max_length[100]',
                     'errors' => [
                         'required' => 'OPD field is required',
-                        'min_length' => 'OPD Minimum 8 Character',
+                        'min_length' => 'OPD Minimum 1 Character',
                         'max_length' => 'OPD Maximum 100 Character',
-                        'is_unique' => 'OPD already Exist'
+                    ]
+                ],
+                'category' => [
+                    'rules'  => 'required',
+                    'errors' => [
+                        'required' => 'Category field is required',
+                    ]
+                ],
+                'url' => [
+                    'rules'  => 'required|valid_url|min_length[1]|max_length[300]',
+                    'errors' => [
+                        'required' => 'URL field is required',
+                        'valid_url' => 'URL is not valid',
+                        'min_length' => 'URL Minimum 1 Character',
+                        'max_length' => 'URL Maximum 300 Character'
                     ]
                 ],
             ];
@@ -142,8 +178,10 @@ class Opd extends BaseController
             } else {
 
         		$data = [
-		            'opd' => $this->request->getVar('opd')
-		        ];
+                    'opd' => $this->request->getVar('opd'),
+                    'category_opd_id' => $this->request->getVar('category'),
+                    'url' => $this->request->getVar('url'),
+                ];
 
     	        $simpan = $this->opd->update($id,$data);
 

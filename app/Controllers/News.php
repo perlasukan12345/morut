@@ -75,10 +75,10 @@ class News extends BaseController
                     ],
                 ],
                 'title' => [
-                    'rules' => 'required|min_length[8]|max_length[500]',
+                    'rules' => 'required|min_length[1]|max_length[500]',
                     'errors' => [
                         'required' => 'Title field is required',
-                        'min_length' => 'Title Minimum 8 Character',
+                        'min_length' => 'Title Minimum 1 Character',
                         'max_length' => 'Title Maximum 500 Character',
                     ]
                 ],
@@ -95,10 +95,10 @@ class News extends BaseController
                     ]
                 ],
                 'content' => [
-                    'rules'  => 'required|min_length[8]',
+                    'rules'  => 'required|min_length[1]',
                     'errors' => [
                         'required' => 'Content field is required',
-                        'min_length' => 'Content Minimum 8 Character',
+                        'min_length' => 'Content Minimum 1 Character',
                     ]
                 ],
             ];

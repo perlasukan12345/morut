@@ -29,6 +29,28 @@
          </li>
      <?php endif ?>
 
+     <!-- Nav Item - OPD Management -->
+     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOPD">
+            <i class="fas fa-info-circle"></i>
+            <span>OPD</span>
+        </a>
+        <div id="collapseOPD" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">OPD Components :</h6>
+                <?php if (user_can('view-category-opd')) : ?>
+                <a class="collapse-item" href="<?= base_url('category_opd') ?>">Category</a>
+                <?php endif ?>
+                <?php if (user_can('view-opd')) : ?>
+                    <a class="collapse-item" href="<?= base_url('opd') ?>">
+                        <span>OPD</span>
+                    </a>
+                <?php endif ?>
+            </div>
+        </div>
+     </li>
+
      <!-- Divider -->
      <hr class="sidebar-divider">
 
@@ -113,17 +135,47 @@
 
      <!-- Heading -->
      <div class="sidebar-heading">
-         Profile Management
+         Menu Management
      </div>
 
-     <!-- Nav Item - Category Galery -->
-     <?php if (user_can('view-about')) : ?>
-         <li class="nav-item">
-             <a class="nav-link" href="<?= base_url('about') ?>">
-                 <i class="fas fa-info-circle"></i>
-                 <span>About</span></a>
-         </li>
-     <?php endif ?>
+     <!-- Nav Item - Menu Management -->
+     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfile">
+            <i class="fas fa-info-circle"></i>
+            <span>Profile</span>
+        </a>
+        <div id="collapseProfile" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Profile Components :</h6>
+                <?php if (user_can('view-category-profile')) : ?>
+                <a class="collapse-item" href="<?= base_url('category_menu/list/profile') ?>">Category</a>
+                <?php endif ?>
+                 <?php if (user_can('view-category-profile')) : ?>
+                <a class="collapse-item" href="<?= base_url('content_menu/list/profile') ?>">Content</a>
+                <?php endif ?>
+            </div>
+        </div>
+     </li>
+
+     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInformation">
+            <i class="fas fa-info-circle"></i>
+            <span>Information</span>
+        </a>
+        <div id="collapseInformation" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Information Components :</h6>
+                <?php if (user_can('view-category-information')) : ?>
+                <a class="collapse-item" href="<?= base_url('category_menu/list/information') ?>">Category</a>
+                <?php endif ?>
+                 <?php if (user_can('view-category-information')) : ?>
+                <a class="collapse-item" href="<?= base_url('content_menu/list/information') ?>">Content</a>
+                <?php endif ?>
+            </div>
+        </div>
+     </li>
 
      <!-- Nav Item - Galery -->
      <?php if (user_can('view-goverment')) : ?>
@@ -163,16 +215,6 @@
      <div class="sidebar-heading">
          Info Management
      </div>
-
-     <!-- Nav Item - OPD -->
-     <?php if (user_can('view-opd')) : ?>
-         <li class="nav-item">
-             <a class="nav-link" href="<?= base_url('opd') ?>">
-                 <i class="fas fa-info-circle"></i>
-                 <span>OPD</span>
-             </a>
-         </li>
-     <?php endif ?>
 
      <!-- Nav Item - RPJMD -->
      <?php if (user_can('view-rpjmd')) : ?>
@@ -239,51 +281,48 @@
          Setting Management
      </div>
 
-     <!-- Nav Item - Splash Screen -->
-     <?php if (user_can('view-flash')) : ?>
-         <li class="nav-item">
-             <a class="nav-link" href="<?= base_url('flash/bupati') ?>">
-                 <i class="fas fa-cogs"></i>
-                 <span>Bupati</span>
-             </a>
-         </li>
-     <?php endif ?>
+    <!-- Nav Item - Splash Screen -->
+     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSplash">
+            <i class="fas fa-info-circle"></i>
+            <span>Splash Screen</span>
+        </a>
+        <div id="collapseSplash" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Splash Components :</h6>
+                <?php if (user_can('view-flash')) : ?>
+                <a class="collapse-item" href="<?= base_url('flash/bupati') ?>"><span>Bupati</span></a>
+                <?php endif ?>
+                <?php if (user_can('view-flash')) : ?>
+                <a class="collapse-item" href="<?= base_url('flash/wabup') ?>"><span>Wakil Bupati</span></a>
+                <?php endif ?>
+            </div>
+        </div>
+     </li>
 
-     <?php if (user_can('view-flash')) : ?>
-         <li class="nav-item">
-             <a class="nav-link" href="<?= base_url('flash/wabup') ?>">
-                 <i class="fas fa-cogs"></i>
-                 <span>Wakil Bupati</span>
-             </a>
-         </li>
-     <?php endif ?>
-
-     <?php if (user_can('view-setting')) : ?>
-         <li class="nav-item">
-             <a class="nav-link" href="<?= base_url('setting/image') ?>">
-                 <i class="fas fa-cogs"></i>
-                 <span>Image</span>
-             </a>
-         </li>
-     <?php endif ?>
-
-      <?php if (user_can('view-setting')) : ?>
-         <li class="nav-item">
-             <a class="nav-link" href="<?= base_url('setting/social_media') ?>">
-                 <i class="fas fa-cogs"></i>
-                 <span>Social Media</span>
-             </a>
-         </li>
-     <?php endif ?>
-
-     <?php if (user_can('view-setting')) : ?>
-         <li class="nav-item">
-             <a class="nav-link" href="<?= base_url('setting/contact') ?>">
-                 <i class="fas fa-cogs"></i>
-                 <span>Contact</span>
-             </a>
-         </li>
-     <?php endif ?>
+     <!-- Nav Item - Web -->
+     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseWeb">
+            <i class="fas fa-info-circle"></i>
+            <span>Web Setting</span>
+        </a>
+        <div id="collapseWeb" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Web Components :</h6>
+                <?php if (user_can('view-setting')) : ?>
+                <a class="collapse-item" href="<?= base_url('setting/image') ?>"><span>Image</span></a>
+                <?php endif ?>
+                <?php if (user_can('view-setting')) : ?>
+                <a class="collapse-item" href="<?= base_url('setting/social_media') ?>"> <span>Social Media</span></a>
+                <?php endif ?>
+                <?php if (user_can('view-setting')) : ?>
+                <a class="collapse-item" href="<?= base_url('setting/contact') ?>"> <span>Contact</span></a>
+                <?php endif ?>
+            </div>
+        </div>
+     </li>
 
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">

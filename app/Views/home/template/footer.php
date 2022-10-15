@@ -60,7 +60,7 @@
           <div class="copyright-info">
             <span>Copyright &copy; <script>
                 document.write(new Date().getFullYear())
-              </script>, Designed &amp; Developed by <a href="">D&#39;Sleepless</a></span>
+              </script>, Designed &amp; Developed by <a href=""><?= $setting->author ?></a></span>
           </div>
         </div>
         

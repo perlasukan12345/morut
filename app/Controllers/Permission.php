@@ -63,18 +63,18 @@ class Permission extends BaseController
             //define validation
             $validation = [
                 'description' => [
-                    'rules'  => 'required|min_length[8]|max_length[50]',
+                    'rules'  => 'required|min_length[1]|max_length[50]',
                     'errors' => [
                         'required' => 'Description field is required',
-                        'min_length' => 'Description Minimum 8 Character',
+                        'min_length' => 'Description Minimum 1 Character',
                         'max_length' => 'Description Maximum 50 Character',
                     ]
                 ],
                 'category' => [
-                    'rules'  => 'required|min_length[4]|max_length[25]',
+                    'rules'  => 'required|min_length[1]|max_length[25]',
                     'errors' => [
                         'required' => 'Category field is required',
-                        'min_length' => 'Category Minimum 4 Character',
+                        'min_length' => 'Category Minimum 1 Character',
                         'max_length' => 'Category Maximum 25 Character',
                     ]
                 ],
@@ -153,18 +153,18 @@ class Permission extends BaseController
             //define validation
             $validation = [
                 'description' => [
-                    'rules'  => 'required|min_length[8]|max_length[50]',
+                    'rules'  => 'required|min_length[1]|max_length[50]',
                     'errors' => [
                         'required' => 'Description field is required',
-                        'min_length' => 'Description Minimum 8 Character',
+                        'min_length' => 'Description Minimum 1 Character',
                         'max_length' => 'Description Maximum 50 Character',
                     ]
                 ],
                 'category' => [
-                    'rules'  => 'required|min_length[4]|max_length[25]',
+                    'rules'  => 'required|min_length[1]|max_length[25]',
                     'errors' => [
                         'required' => 'Category field is required',
-                        'min_length' => 'Category Minimum 4 Character',
+                        'min_length' => 'Category Minimum 1 Character',
                         'max_length' => 'Category Maximum 25 Character',
                     ]
                 ],

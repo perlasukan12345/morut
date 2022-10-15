@@ -5,12 +5,14 @@ namespace App\Controllers;
 use App\Models\GisbataskecamatanModel;
 use App\Models\GisfacilitiesModel;
 use App\Models\SettingModel;
+use App\Models\CategorymenuModel;
 
 class WebGis extends BaseController
 {
     public $batas_kecamatan;
     public $facilities;
     public $setting_model;
+    public $category_menu;
 
 
     public function __construct()
@@ -18,6 +20,7 @@ class WebGis extends BaseController
         $this->batas_kecamatan = new GisbataskecamatanModel();
         $this->facilities = new GisfacilitiesModel();
         $this->setting_model = new SettingModel();
+        $this->category_menu = new CategorymenuModel();
     }
 
     public function GisMedicalFacility()
@@ -29,6 +32,9 @@ class WebGis extends BaseController
         $data['batas_kecamatan'] = $this->batas_kecamatan->findAll();
         $data['medical_facility'] = $this->facilities->gt_medical_facility();
         $data['setting'] = $this->setting_model->first();
+
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
 
         return view('home/gis/medical_facility', $data);
     }
@@ -43,6 +49,9 @@ class WebGis extends BaseController
         $data['educational_facilities'] = $this->facilities->gt_educational_facilities();
         $data['setting'] = $this->setting_model->first();
 
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
         return view('home/gis/educational_facilities', $data);
     }
 
@@ -56,6 +65,9 @@ class WebGis extends BaseController
         $data['hotel_facility'] = $this->facilities->gt_hotel_facility();
         $data['setting'] = $this->setting_model->first();
 
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
         return view('home/gis/hotel_facility', $data);
     }
     public function GisCulinaryFacilities()
@@ -68,6 +80,9 @@ class WebGis extends BaseController
         $data['culinary_facilities'] = $this->facilities->gt_culinary_facilities();
         $data['setting'] = $this->setting_model->first();
 
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
         return view('home/gis/culinary_facilities', $data);
     }
     public function GisWisata()
@@ -79,6 +94,9 @@ class WebGis extends BaseController
         $data['batas_kecamatan'] = $this->batas_kecamatan->findAll();
         $data['wisata'] = $this->facilities->gt_wisata();
         $data['setting'] = $this->setting_model->first();
+
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
 
         return view('home/gis/wisata', $data);
     }
@@ -93,6 +111,9 @@ class WebGis extends BaseController
         $data['public_service'] = $this->facilities->gt_public_service();
         $data['setting'] = $this->setting_model->first();
 
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
         return view('home/gis/public_service', $data);
     }
     public function GisMining()
@@ -104,6 +125,9 @@ class WebGis extends BaseController
         $data['batas_kecamatan'] = $this->batas_kecamatan->findAll();
         $data['mining'] = $this->facilities->gt_mining();
         $data['setting'] = $this->setting_model->first();
+
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
 
         return view('home/gis/mining', $data);
     }
@@ -117,6 +141,9 @@ class WebGis extends BaseController
         $data['industry'] = $this->facilities->gt_industry();
         $data['setting'] = $this->setting_model->first();
 
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
         return view('home/gis/industry', $data);
     }
 
@@ -128,6 +155,9 @@ class WebGis extends BaseController
 
         $data['batas_kecamatan'] = $this->batas_kecamatan->findAll();
         $data['setting'] = $this->setting_model->first();
+
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
 
         return view('home/gis/batas_kecamatan', $data);
     }

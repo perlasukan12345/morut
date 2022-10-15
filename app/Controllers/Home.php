@@ -13,6 +13,8 @@ use App\Models\SettingModel;
 use App\Models\PeoplesaidModel;
 use App\Models\OpdModel;
 use App\Models\AgendaModel;
+use App\Models\CategorymenuModel;
+use App\Models\CategoryopdModel;
 
 class Home extends BaseController
 {
@@ -27,6 +29,8 @@ class Home extends BaseController
     public $peoplesaid_model;
     public $opd_model;
     public $agenda_model;
+    public $category_menu;
+    public $category_opd;
 
 
     public function __construct()
@@ -42,6 +46,8 @@ class Home extends BaseController
         $this->peoplesaid_model = new PeoplesaidModel();
         $this->opd_model = new OpdModel();
         $this->agenda_model = new AgendaModel();
+        $this->category_menu = new CategorymenuModel();
+        $this->category_opd = new CategoryopdModel();
     }
 
     public function index()
@@ -54,6 +60,13 @@ class Home extends BaseController
         $data['agenda_kab'] = $this->agenda_model->gt_findLimit(3,'Kabupaten / Pemerintahan');
         $data['agenda_mas'] = $this->agenda_model->gt_findLimit(3,'Masyarakat');
         $data['setting'] = $this->setting_model->first();
+
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
+        $data['left'] = $this->category_opd->where('(category_opd_id % 2)',1)->find();
+        $data['right'] = $this->category_opd->where('(category_opd_id % 2)',0)->find();
+
         $data['validation'] = \Config\Services::validation();
         return view('home/index', $data);
     }
@@ -85,17 +98,26 @@ class Home extends BaseController
         $data['cat_news'] = $this->category_news->findAll();
         $data['archive'] = $this->news_model->dataArchive();
 
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
         return view('home/news', $data);
     }
 
-     public function services()
+    public function services($id)
     {
+        $opd = $this->opd_model->where('category_opd_id',$id)->find();
+        
         $this->breadcrumb->add('Beranda', '/home/index');
-        $this->breadcrumb->add('Badan Pelayanan Daerah', '/home/services');
+        $this->breadcrumb->add('Pelayanan Daerah', '/home/services/'.$id);
         $data['breadcrumbs'] = $this->breadcrumb->render();
 
         $data['setting'] = $this->setting_model->first();
-        $data['opd'] = $this->opd_model->findAll();
+        $data['opd'] = $opd;
+        $data['opd'] = $opd;
+
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
 
         return view('home/services', $data);
     }
@@ -113,6 +135,9 @@ class Home extends BaseController
         $data['cat_news'] = $this->category_news->findAll();
         $data['setting'] = $this->setting_model->first();
 
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
         return view('home/news', $data);
     }
 
@@ -129,6 +154,9 @@ class Home extends BaseController
         $data['cat_news'] = $this->category_news->findAll();
         $data['setting'] = $this->setting_model->first();
 
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
         return view('home/news', $data);
     }
 
@@ -142,6 +170,9 @@ class Home extends BaseController
         $data['category'] = $this->category_gallery->findAll();
         $data['setting'] = $this->setting_model->first();
 
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
         return view('home/media/galleryfoto', $data);
     }
 
@@ -153,6 +184,9 @@ class Home extends BaseController
 
         $data['gallery'] = $this->gallery_model->gt_dataVideo();
         $data['setting'] = $this->setting_model->first();
+
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
 
         return view('home/media/galleryvideo', $data);
     }

@@ -93,35 +93,35 @@ class Setting extends BaseController
                     ],
                 ],
                 'title1' => [
-                    'rules' => 'required|min_length[8]|max_length[50]',
+                    'rules' => 'required|min_length[1]|max_length[300]',
                     'errors' => [
                         'required' => 'Title field is required',
-                        'min_length' => 'Title Minimum 8 Character',
-                        'max_length' => 'Title Maximum 50 Character',
+                        'min_length' => 'Title Minimum 1 Character',
+                        'max_length' => 'Title Maximum 300 Character',
                     ]
                 ],
                 'description1' => [
-                    'rules' => 'required|min_length[8]|max_length[200]',
+                    'rules' => 'required|min_length[1]|max_length[200]',
                     'errors' => [
                         'required' => 'Description field is required',
-                        'min_length' => 'Description Minimum 8 Character',
+                        'min_length' => 'Description Minimum 1 Character',
                         'max_length' => 'Description Maximum 200 Character',
                     ]
                 ],
                 'url1' => [
-                    'rules' => 'required|valid_url|min_length[8]|max_length[50]',
+                    'rules' => 'required|valid_url|min_length[1]|max_length[300]',
                     'errors' => [
                         'required' => 'Url field is required',
                         'valid_url' => 'Url is not valid',
-                        'min_length' => 'Url Minimum 8 Character',
-                        'max_length' => 'Url Maximum 50 Character',
+                        'min_length' => 'Url Minimum 1 Character',
+                        'max_length' => 'Url Maximum 300 Character',
                     ]
                 ],
                 'url_tag1' => [
-                    'rules' => 'required|min_length[8]|max_length[50]',
+                    'rules' => 'required|min_length[1]|max_length[50]',
                     'errors' => [
                         'required' => 'Url Tag field is required',
-                        'min_length' => 'Url Tag Minimum 8 Character',
+                        'min_length' => 'Url Tag Minimum 1 Character',
                         'max_length' => 'Url Tag Maximum 50 Character',
                     ]
                 ],
@@ -134,35 +134,35 @@ class Setting extends BaseController
                     ],
                 ],
                 'title2' => [
-                    'rules' => 'required|min_length[8]|max_length[50]',
+                    'rules' => 'required|min_length[1]|max_length[300]',
                     'errors' => [
                         'required' => 'Title field is required',
-                        'min_length' => 'Title Minimum 8 Character',
-                        'max_length' => 'Title Maximum 50 Character',
+                        'min_length' => 'Title Minimum 1 Character',
+                        'max_length' => 'Title Maximum 300 Character',
                     ]
                 ],
                 'description2' => [
-                    'rules' => 'required|min_length[8]|max_length[200]',
+                    'rules' => 'required|min_length[1]|max_length[200]',
                     'errors' => [
                         'required' => 'Description field is required',
-                        'min_length' => 'Description Minimum 8 Character',
+                        'min_length' => 'Description Minimum 1 Character',
                         'max_length' => 'Description Maximum 200 Character',
                     ]
                 ],
                 'url2' => [
-                    'rules' => 'required|valid_url|min_length[8]|max_length[50]',
+                    'rules' => 'required|valid_url|min_length[1]|max_length[300]',
                     'errors' => [
                         'required' => 'Url field is required',
                         'valid_url' => 'Url is not valid',
-                        'min_length' => 'Url Minimum 8 Character',
-                        'max_length' => 'Url Maximum 50 Character',
+                        'min_length' => 'Url Minimum 1 Character',
+                        'max_length' => 'Url Maximum 300 Character',
                     ]
                 ],
                 'url_tag2' => [
-                    'rules' => 'required|min_length[8]|max_length[50]',
+                    'rules' => 'required|min_length[1]|max_length[50]',
                     'errors' => [
                         'required' => 'Url Tag field is required',
-                        'min_length' => 'Url Tag Minimum 8 Character',
+                        'min_length' => 'Url Tag Minimum 1 Character',
                         'max_length' => 'Url Tag Maximum 50 Character',
                     ]
                 ],
@@ -175,35 +175,35 @@ class Setting extends BaseController
                     ],
                 ],
                 'title3' => [
-                    'rules' => 'required|min_length[8]|max_length[50]',
+                    'rules' => 'required|min_length[1]|max_length[300]',
                     'errors' => [
                         'required' => 'Title field is required',
-                        'min_length' => 'Title Minimum 8 Character',
-                        'max_length' => 'Title Maximum 50 Character',
+                        'min_length' => 'Title Minimum 1 Character',
+                        'max_length' => 'Title Maximum 300 Character',
                     ]
                 ],
                 'description3' => [
-                    'rules' => 'required|min_length[8]|max_length[200]',
+                    'rules' => 'required|min_length[1]|max_length[200]',
                     'errors' => [
                         'required' => 'Description field is required',
-                        'min_length' => 'Description Minimum 8 Character',
+                        'min_length' => 'Description Minimum 1 Character',
                         'max_length' => 'Description Maximum 200 Character',
                     ]
                 ],
                 'url3' => [
-                    'rules' => 'required|valid_url|min_length[8]|max_length[50]',
+                    'rules' => 'required|valid_url|min_length[1]|max_length[300]',
                     'errors' => [
                         'required' => 'Url field is required',
                         'valid_url' => 'Url is not valid',
-                        'min_length' => 'Url Minimum 8 Character',
-                        'max_length' => 'Url Maximum 50 Character',
+                        'min_length' => 'Url Minimum 1 Character',
+                        'max_length' => 'Url Maximum 300 Character',
                     ]
                 ],
                 'url_tag3' => [
-                    'rules' => 'required|min_length[8]|max_length[50]',
+                    'rules' => 'required|min_length[1]|max_length[50]',
                     'errors' => [
                         'required' => 'Url Tag field is required',
-                        'min_length' => 'Url Tag Minimum 8 Character',
+                        'min_length' => 'Url Tag Minimum 1 Character',
                         'max_length' => 'Url Tag Maximum 50 Character',
                     ]
                 ],
@@ -423,18 +423,18 @@ class Setting extends BaseController
 
             $validation = [
                 'address' => [
-                    'rules' => 'required|min_length[8]|max_length[50]',
+                    'rules' => 'required|min_length[1]|max_length[50]',
                     'errors' => [
                         'required' => 'Address field is required',
-                        'min_length' => 'Address Minimum 8 Character',
+                        'min_length' => 'Address Minimum 1 Character',
                         'max_length' => 'Address Maximum 50 Character',
                     ]
                 ],
                 'contact' => [
-                    'rules' => 'required|min_length[8]|max_length[50]',
+                    'rules' => 'required|min_length[1]|max_length[50]',
                     'errors' => [
                         'required' => 'Contact field is required',
-                        'min_length' => 'Contact Minimum 8 Character',
+                        'min_length' => 'Contact Minimum 1 Character',
                         'max_length' => 'Contact Maximum 50 Character',
                     ]
                 ],
@@ -479,6 +479,14 @@ class Setting extends BaseController
                         'max_length' => 'Motto Maximum 50 Character',
                     ]
                 ],
+                'author' => [
+                    'rules' => 'required|min_length[1]|max_length[50]',
+                    'errors' => [
+                        'required' => 'Author field is required',
+                        'min_length' => 'Author Minimum 1 Character',
+                        'max_length' => 'Author Maximum 50 Character',
+                    ]
+                ],
             ];
 
             if (!$this->validate($validation)) {
@@ -492,6 +500,7 @@ class Setting extends BaseController
                 $hour = $this->request->getVar('hour');
                 $quotes = $this->request->getVar('quotes');
                 $motto = $this->request->getVar('motto');
+                $author = $this->request->getVar('author');
 
                 $data = [
                     'address' => $address,
@@ -501,6 +510,7 @@ class Setting extends BaseController
                     'hour' => $hour,
                     'quotes' => $quotes,
                     'motto' => $motto,
+                    'author' => $author,
                 ];
 
                 $edit = $this->setting_model->update($id, $data);

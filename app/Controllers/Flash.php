@@ -68,46 +68,46 @@ class Flash extends BaseController
                     ],
                 ],
                 'name' => [
-                    'rules' => 'required|min_length[8]|max_length[100]',
+                    'rules' => 'required|min_length[1]|max_length[100]',
                     'errors' => [
                         'required' => 'Name field is required',
-                        'min_length' => 'Name Minimum 8 Character',
+                        'min_length' => 'Name Minimum 1 Character',
                         'max_length' => 'Name Maximum 100 Character',
                     ]
                 ],
                 'job_history' => [
-                    'rules'  => 'required|min_length[8]',
+                    'rules'  => 'required|min_length[1]',
                     'errors' => [
                         'required' => 'Job History field is required',
-                        'min_length' => 'Job History Minimum 8 Character',
+                        'min_length' => 'Job History Minimum 1 Character',
                     ]
                 ],
                 'education_background' => [
-                    'rules'  => 'required|min_length[8]',
+                    'rules'  => 'required|min_length[1]',
                     'errors' => [
                         'required' => 'Education Background field is required',
-                        'min_length' => 'Education Background Minimum 8 Character',
+                        'min_length' => 'Education Background Minimum 1 Character',
                     ]
                 ],
                 'organization_history' => [
-                    'rules'  => 'required|min_length[8]',
+                    'rules'  => 'required|min_length[1]',
                     'errors' => [
                         'required' => 'Organization History field is required',
-                        'min_length' => 'Organization History Minimum 8 Character',
+                        'min_length' => 'Organization History Minimum 1 Character',
                     ]
                 ],
                 'address' => [
-                    'rules'  => 'required|min_length[8]',
+                    'rules'  => 'required|min_length[1]',
                     'errors' => [
                         'required' => 'Address History field is required',
-                        'min_length' => 'Address Minimum 8 Character',
+                        'min_length' => 'Address Minimum 1 Character',
                     ]
                 ],
                 'birth' => [
-                    'rules' => 'required|min_length[8]|max_length[100]',
+                    'rules' => 'required|min_length[1]|max_length[100]',
                     'errors' => [
                         'required' => 'Birthday field is required',
-                        'min_length' => 'Birthday Minimum 8 Character',
+                        'min_length' => 'Birthday Minimum 1 Character',
                         'max_length' => 'Birthday Maximum 100 Character',
                     ]
                 ],
@@ -179,46 +179,46 @@ class Flash extends BaseController
                     ],
                 ],
                 'name' => [
-                    'rules' => 'required|min_length[8]|max_length[100]',
+                    'rules' => 'required|min_length[1]|max_length[100]',
                     'errors' => [
                         'required' => 'Name field is required',
-                        'min_length' => 'Name Minimum 8 Character',
+                        'min_length' => 'Name Minimum 1 Character',
                         'max_length' => 'Name Maximum 100 Character',
                     ]
                 ],
                 'job_history' => [
-                    'rules'  => 'required|min_length[8]',
+                    'rules'  => 'required|min_length[1]',
                     'errors' => [
                         'required' => 'Job History field is required',
-                        'min_length' => 'Job History Minimum 8 Character',
+                        'min_length' => 'Job History Minimum 1 Character',
                     ]
                 ],
                 'education_background' => [
-                    'rules'  => 'required|min_length[8]',
+                    'rules'  => 'required|min_length[1]',
                     'errors' => [
                         'required' => 'Education Background field is required',
-                        'min_length' => 'Education Background Minimum 8 Character',
+                        'min_length' => 'Education Background Minimum 1 Character',
                     ]
                 ],
                 'organization_history' => [
-                    'rules'  => 'required|min_length[8]',
+                    'rules'  => 'required|min_length[1]',
                     'errors' => [
                         'required' => 'Organization History field is required',
-                        'min_length' => 'Organization History Minimum 8 Character',
+                        'min_length' => 'Organization History Minimum 1 Character',
                     ]
                 ],
                 'address' => [
-                    'rules'  => 'required|min_length[8]',
+                    'rules'  => 'required|min_length[1]',
                     'errors' => [
                         'required' => 'Address History field is required',
-                        'min_length' => 'Address Minimum 8 Character',
+                        'min_length' => 'Address Minimum 1 Character',
                     ]
                 ],
                 'birth' => [
-                    'rules' => 'required|min_length[8]|max_length[100]',
+                    'rules' => 'required|min_length[1]|max_length[100]',
                     'errors' => [
                         'required' => 'Birthday field is required',
-                        'min_length' => 'Birthday Minimum 8 Character',
+                        'min_length' => 'Birthday Minimum 1 Character',
                         'max_length' => 'Birthday Maximum 100 Character',
                     ]
                 ],

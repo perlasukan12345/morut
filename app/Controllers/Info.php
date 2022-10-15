@@ -9,6 +9,7 @@ use App\Models\LkpjModel;
 use App\Models\SakipModel;
 use App\Models\LppdModel;
 use App\Models\SettingModel;
+use App\Models\CategorymenuModel;
 
 class Info extends BaseController
 {
@@ -19,6 +20,7 @@ class Info extends BaseController
     public $sakip_model;
     public $lppd_model;
     public $setting_model;
+    public $category_menu;
 
 
     public function __construct()
@@ -30,6 +32,7 @@ class Info extends BaseController
         $this->sakip_model = new SakipModel();
         $this->lppd_model = new LppdModel();
         $this->setting_model = new SettingModel();
+        $this->category_menu = new CategorymenuModel();
     }
 
     public function rpjmd()
@@ -40,6 +43,9 @@ class Info extends BaseController
 
         $data['data'] = $this->rpjmd_model->gt_Alldata();
         $data['setting'] = $this->setting_model->first();
+
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
 
         return view('home/info/rpjmd',$data);
     }
@@ -59,6 +65,9 @@ class Info extends BaseController
         $data['data'] = $this->rpjpd_model->gt_Alldata();
         $data['setting'] = $this->setting_model->first();
 
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
         return view('home/info/rpjpd',$data);
     }
 
@@ -76,6 +85,10 @@ class Info extends BaseController
 
         $data['data'] = $this->rkpd_model->gt_Alldata();
         $data['setting'] = $this->setting_model->first();
+
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
         return view('home/info/rkpd',$data);
     }
 
@@ -93,6 +106,10 @@ class Info extends BaseController
 
         $data['data'] = $this->lkpj_model->gt_Alldata();
         $data['setting'] = $this->setting_model->first();
+
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
         return view('home/info/lkpj',$data);
     }
 
@@ -110,6 +127,10 @@ class Info extends BaseController
 
         $data['data'] = $this->sakip_model->gt_Alldata();
         $data['setting'] = $this->setting_model->first();
+
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
         return view('home/info/sakip',$data);
     }
 
@@ -127,6 +148,10 @@ class Info extends BaseController
 
         $data['data'] = $this->lppd_model->gt_Alldata();
         $data['setting'] = $this->setting_model->first();
+
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
         return view('home/info/lppd',$data);
     }
 
