@@ -7,6 +7,7 @@ use App\Models\FlashModel;
 use App\Models\SettingModel;
 use App\Models\OpdModel;
 use App\Models\CategoryopdModel;
+use App\Models\GiscategoryfacilitiesModel;
 
 class Welcome extends BaseController
 {
@@ -16,6 +17,7 @@ class Welcome extends BaseController
     public $setting_model;
     public $opd_model;
     public $cat_opd_model;
+    public $cat_facilities;
 
     public function __construct()
     {
@@ -25,12 +27,14 @@ class Welcome extends BaseController
         $this->setting_model = new SettingModel();
         $this->opd_model = new OpdModel();
         $this->cat_opd_model = new CategoryopdModel();
+        $this->cat_facilities = new GiscategoryfacilitiesModel();
     }
 
     public function index()
     {
         $data['batas_kecamatan'] = $this->batas_kecamatan->findAll();
         $data['gis'] = $this->facilities->gt_dataAll();
+        $data['cat_gis'] = $this->cat_facilities->findAll();
         $data['medical_facility'] = $this->facilities->gt_medical_facility();
         $data['bupati'] = $this->flash_model->gt_dataPosition('Bupati Morowali Utara');
         $data['wabup'] = $this->flash_model->gt_dataPosition('Wakil Bupati Morowali Utara');

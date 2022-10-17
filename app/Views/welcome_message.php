@@ -573,80 +573,27 @@
         maps.boxZoom.disable();
         maps.keyboard.disable();
 
-        let kesehatan = L.icon({
-            iconUrl: '<?= base_url('icon/gis/kesehatan.png') ?>',
-            iconSize: [15, 28], // size of the icon
-            iconAnchor: [8, 30],
-            popupAnchor: [-2, -21]
-        });
-        let pelayanan_public = L.icon({
-            iconUrl: '<?= base_url('icon/gis/pelayanan_public.png') ?>',
-            iconSize: [15, 28], // size of the icon
-            iconAnchor: [8, 30],
-            popupAnchor: [-2, -21]
-        });
-        let pendidikan = L.icon({
-            iconUrl: '<?= base_url('icon/gis/pendidikan.png') ?>',
-            iconSize: [15, 28], // size of the icon
-            iconAnchor: [8, 30],
-            popupAnchor: [-2, -21]
-        });
-        let hotel = L.icon({
-            iconUrl: '<?= base_url('icon/gis/hotel.png') ?>',
-            iconSize: [15, 28], // size of the icon
-            iconAnchor: [8, 30],
-            popupAnchor: [-2, -21]
-        });
-        let kuliner = L.icon({
-            iconUrl: '<?= base_url('icon/gis/kuliner.png') ?>',
-            iconSize: [15, 28], // size of the icon
-            iconAnchor: [8, 30],
-            popupAnchor: [-2, -21]
-        });
-        let wisata = L.icon({
-            iconUrl: '<?= base_url('icon/gis/wisata.png') ?>',
-            iconSize: [15, 28],
-            iconAnchor: [8, 30],
-            popupAnchor: [-2, -21]
-        });
-        let tambang = L.icon({
-            iconUrl: '<?= base_url('icon/gis/tambang.png') ?>',
-            iconSize: [15, 28],
-            iconAnchor: [8, 30],
-            popupAnchor: [-2, -21]
-        });
-        let pabrik = L.icon({
-            iconUrl: '<?= base_url('icon/gis/pabrik.png') ?>',
-            iconSize: [15, 28],
-            iconAnchor: [8, 30],
-            popupAnchor: [-2, -21]
-        });
 
-        <?php foreach ($gis as $row) : ?>
-            var icons;
-            <?php if ($row->category_name === "kesehatan") : ?>
-                icons = kesehatan
-            <?php elseif ($row->category_name === "hotel") : ?>
-                icons = hotel
-            <?php elseif ($row->category_name === "wisata") : ?>
-                icons = wisata
-            <?php elseif ($row->category_name === "pelayanan-publik") : ?>
-                icons = pelayanan_public
-            <?php elseif ($row->category_name === "pendidikan") : ?>
-                icons = pendidikan
-            <?php elseif ($row->category_name === "kuliner") : ?>
-                icons = kuliner
-            <?php elseif ($row->category_name === "tambang") : ?>
-                icons = tambang
-            <?php elseif ($row->category_name === "pabrik") : ?>
-                icons = pabrik
-            <?php endif; ?>
-            L.marker([<?= $row->latitude ?>, <?= $row->longitude ?>], {
-                    icon: icons
+        <?php foreach ($cat_gis as $row) :
+        $cat_name = str_replace(" ", "", $row->category_name) 
+        ?>  
+        let icon<?= $cat_name ?> = L.icon({
+            iconUrl: "<?= base_url('icon/gis/'.$cat_name.'.png') ?>",
+            iconSize: [15, 28], // size of the icon
+            iconAnchor: [8, 30],
+            popupAnchor: [-2, -21]
+        });
+        <?php endforeach ?>
+        
+        <?php foreach ($gis as $rows) : 
+            $cat_name = str_replace(" ", "", $rows->category_name)
+            ?>
+            L.marker([<?= $rows->latitude ?>, <?= $rows->longitude ?>], {
+                    icon: icon<?= $cat_name ?>
                 })
-                .bindPopup('<p class="h4 mt-0 mb-0"><?= $row->title ?><p>' +
-                    "<img src='<?= base_url('/img/gis/facilities/' . $row->image_name) ?>'width='100%'><br>" +
-                    '<p><?= $row->description ?><p>'
+                .bindPopup('<p class="h4 mt-0 mb-0"><?= $rows->title ?><p>' +
+                    "<img src='<?= base_url('/img/gis/facilities/' . $rows->image_name) ?>'width='100%'><br>" +
+                    '<p><?= $rows->description ?><p>'
                 ).addTo(maps);
         <?php endforeach ?>
 
