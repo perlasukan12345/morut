@@ -11,7 +11,7 @@ class GiscategoryfacilitiesModel extends Model
     protected $table = "gis_category_facilities";
     protected $primaryKey = "category_facilities_id";
     protected $returnType = "object";
-    protected $allowedFields = ['category_name'];
+    protected $allowedFields = ['category_name', 'category_icon'];
 
     public function __construct()
     {

@@ -93,9 +93,9 @@ class GalleryModel extends Model
         $this->builder->select('g.gallery_id AS gallery_id, g.content AS content, cg.category_name AS category_name');
         $this->builder->where('option', 'image');
         $this->builder->join('category_gallery AS cg', 'cg.category_gallery_id = g.category_gallery_id', 'left');
-        $this->builder->orderBy('gallery_id','DESC');
+        $this->builder->orderBy('gallery_id', 'DESC');
         $this->builder->limit($limit);
-        
+
         $query = $this->builder->get();
         return $query->getResult();
     }

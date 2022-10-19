@@ -457,17 +457,17 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <?php foreach ($category_opd as $row): ?>
-                            <div class="col-lg-3 col-6 px-4">
-                                <a href="javascript:void(0);" data-target="#badanDetail" data-id="<?= $row->category_opd_id ?>" class="trigger-modal-detail">
-                                    <div class="card-medium">
-                                        <span class="fa fa-building"></span>
-                                        <div class="card-medium-text">
-                                            <?= $row->category?>
+                            <?php foreach ($category_opd as $row) : ?>
+                                <div class="col-lg-3 col-6 px-4">
+                                    <a href="javascript:void(0);" data-target="#badanDetail" data-id="<?= $row->category_opd_id ?>" class="trigger-modal-detail">
+                                        <div class="card-medium">
+                                            <span class="fa fa-building"></span>
+                                            <div class="card-medium-text">
+                                                <?= $row->category ?>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                            </div>
+                                    </a>
+                                </div>
                             <?php endforeach ?>
                         </div>
                     </div>
@@ -511,10 +511,12 @@
             $("#pelayananModal").modal('hide');
 
             $.ajax({
-                url : "<?= base_url('welcome/services') ?>",
-                data : {id : eid},
-                type : "POST",
-                success : function (data){
+                url: "<?= base_url('welcome/services') ?>",
+                data: {
+                    id: eid
+                },
+                type: "POST",
+                success: function(data) {
                     $('#pelayanan_detail').html(data);
                     eva.replace();
                 }
@@ -538,6 +540,7 @@
                 $("#pelayananModal").modal('show');
             }, 500);
         });
+
 
 
         var bupati = ['<?= $bupati->name ?>'];
@@ -575,25 +578,25 @@
 
 
         <?php foreach ($cat_gis as $row) :
-        $cat_name = str_replace(" ", "", $row->category_name) 
-        ?>  
-        let icon<?= $cat_name ?> = L.icon({
-            iconUrl: "<?= base_url('icon/gis/'.$cat_name.'.png') ?>",
-            iconSize: [15, 28], // size of the icon
-            iconAnchor: [8, 30],
-            popupAnchor: [-2, -21]
-        });
+            $cat_name = str_replace(" ", "", $row->category_name)
+        ?>
+            let icon<?= $cat_name ?> = L.icon({
+                iconUrl: "<?= base_url('icon/gis/' . $row->category_icon) ?>",
+                iconSize: [15, 28], // size of the icon
+                iconAnchor: [8, 30],
+                popupAnchor: [-2, -21]
+            });
         <?php endforeach ?>
-        
-        <?php foreach ($gis as $rows) : 
+
+        <?php foreach ($gis as $rows) :
             $cat_name = str_replace(" ", "", $rows->category_name)
-            ?>
+        ?>
             L.marker([<?= $rows->latitude ?>, <?= $rows->longitude ?>], {
                     icon: icon<?= $cat_name ?>
                 })
                 .bindPopup('<p class="h4 mt-0 mb-0"><?= $rows->title ?><p>' +
                     "<img src='<?= base_url('/img/gis/facilities/' . $rows->image_name) ?>'width='100%'><br>" +
-                    '<p><?= $rows->description ?><p>'
+                    "<p><?= $rows->description ?><p>"
                 ).addTo(maps);
         <?php endforeach ?>
 

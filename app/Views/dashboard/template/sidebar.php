@@ -31,24 +31,23 @@
 
      <!-- Nav Item - OPD Management -->
      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOPD">
-            <i class="fas fa-info-circle"></i>
-            <span>OPD</span>
-        </a>
-        <div id="collapseOPD" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">OPD Components :</h6>
-                <?php if (user_can('view-category-opd')) : ?>
-                <a class="collapse-item" href="<?= base_url('category_opd') ?>">Category</a>
-                <?php endif ?>
-                <?php if (user_can('view-opd')) : ?>
-                    <a class="collapse-item" href="<?= base_url('opd') ?>">
-                        <span>OPD</span>
-                    </a>
-                <?php endif ?>
-            </div>
-        </div>
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOPD">
+             <i class="fas fa-info-circle"></i>
+             <span>OPD</span>
+         </a>
+         <div id="collapseOPD" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <h6 class="collapse-header">OPD Components :</h6>
+                 <?php if (user_can('view-category-opd')) : ?>
+                     <a class="collapse-item" href="<?= base_url('category_opd') ?>">Category</a>
+                 <?php endif ?>
+                 <?php if (user_can('view-opd')) : ?>
+                     <a class="collapse-item" href="<?= base_url('opd') ?>">
+                         <span>OPD</span>
+                     </a>
+                 <?php endif ?>
+             </div>
+         </div>
      </li>
 
      <!-- Divider -->
@@ -140,41 +139,39 @@
 
      <!-- Nav Item - Menu Management -->
      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfile">
-            <i class="fas fa-info-circle"></i>
-            <span>Profile</span>
-        </a>
-        <div id="collapseProfile" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Profile Components :</h6>
-                <?php if (user_can('view-category-profile')) : ?>
-                <a class="collapse-item" href="<?= base_url('category_menu/list/profile') ?>">Category</a>
-                <?php endif ?>
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfile">
+             <i class="fas fa-info-circle"></i>
+             <span>Profile</span>
+         </a>
+         <div id="collapseProfile" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <h6 class="collapse-header">Profile Components :</h6>
                  <?php if (user_can('view-category-profile')) : ?>
-                <a class="collapse-item" href="<?= base_url('content_menu/list/profile') ?>">Content</a>
-                <?php endif ?>
-            </div>
-        </div>
+                     <a class="collapse-item" href="<?= base_url('category_menu/list/profile') ?>">Category</a>
+                 <?php endif ?>
+                 <?php if (user_can('view-category-profile')) : ?>
+                     <a class="collapse-item" href="<?= base_url('content_menu/list/profile') ?>">Content</a>
+                 <?php endif ?>
+             </div>
+         </div>
      </li>
 
      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInformation">
-            <i class="fas fa-info-circle"></i>
-            <span>Information</span>
-        </a>
-        <div id="collapseInformation" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Information Components :</h6>
-                <?php if (user_can('view-category-information')) : ?>
-                <a class="collapse-item" href="<?= base_url('category_menu/list/information') ?>">Category</a>
-                <?php endif ?>
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInformation">
+             <i class="fas fa-info-circle"></i>
+             <span>Information</span>
+         </a>
+         <div id="collapseInformation" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <h6 class="collapse-header">Information Components :</h6>
                  <?php if (user_can('view-category-information')) : ?>
-                <a class="collapse-item" href="<?= base_url('content_menu/list/information') ?>">Content</a>
-                <?php endif ?>
-            </div>
-        </div>
+                     <a class="collapse-item" href="<?= base_url('category_menu/list/information') ?>">Category</a>
+                 <?php endif ?>
+                 <?php if (user_can('view-category-information')) : ?>
+                     <a class="collapse-item" href="<?= base_url('content_menu/list/information') ?>">Content</a>
+                 <?php endif ?>
+             </div>
+         </div>
      </li>
 
      <!-- Nav Item - Galery -->
@@ -188,8 +185,33 @@
 
      <!-- Heading -->
      <div class="sidebar-heading">
+         Priority Program Management
+     </div>
+
+     <!-- Nav Item -  Category facilities -->
+     <?php if (user_can('view-priority-program')) : ?>
+         <li class="nav-item">
+             <a class="nav-link" href="<?= base_url('priority_program') ?>">
+                 <i class="fas fa-info-circle"></i>
+                 <span>Priority Program</span>
+             </a>
+         </li>
+     <?php endif ?>
+
+     <!-- Heading -->
+     <div class="sidebar-heading">
          Gis Management
      </div>
+
+     <!-- Nav Item -  Category facilities -->
+     <?php if (user_can('view-category-facilities')) : ?>
+         <li class="nav-item">
+             <a class="nav-link" href="<?= base_url('gis_category_facilities') ?>">
+                 <i class="fas fa-home"></i>
+                 <span>Category Facilities</span>
+             </a>
+         </li>
+     <?php endif ?>
 
      <!-- Nav Item -  facilities -->
      <?php if (user_can('view-facilities')) : ?>
@@ -281,47 +303,45 @@
          Setting Management
      </div>
 
-    <!-- Nav Item - Splash Screen -->
+     <!-- Nav Item - Splash Screen -->
      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSplash">
-            <i class="fas fa-info-circle"></i>
-            <span>Splash Screen</span>
-        </a>
-        <div id="collapseSplash" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Splash Components :</h6>
-                <?php if (user_can('view-flash')) : ?>
-                <a class="collapse-item" href="<?= base_url('flash/bupati') ?>"><span>Bupati</span></a>
-                <?php endif ?>
-                <?php if (user_can('view-flash')) : ?>
-                <a class="collapse-item" href="<?= base_url('flash/wabup') ?>"><span>Wakil Bupati</span></a>
-                <?php endif ?>
-            </div>
-        </div>
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSplash">
+             <i class="fas fa-info-circle"></i>
+             <span>Splash Screen</span>
+         </a>
+         <div id="collapseSplash" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <h6 class="collapse-header">Splash Components :</h6>
+                 <?php if (user_can('view-flash')) : ?>
+                     <a class="collapse-item" href="<?= base_url('flash/bupati') ?>"><span>Bupati</span></a>
+                 <?php endif ?>
+                 <?php if (user_can('view-flash')) : ?>
+                     <a class="collapse-item" href="<?= base_url('flash/wabup') ?>"><span>Wakil Bupati</span></a>
+                 <?php endif ?>
+             </div>
+         </div>
      </li>
 
      <!-- Nav Item - Web -->
      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseWeb">
-            <i class="fas fa-info-circle"></i>
-            <span>Web Setting</span>
-        </a>
-        <div id="collapseWeb" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Web Components :</h6>
-                <?php if (user_can('view-setting')) : ?>
-                <a class="collapse-item" href="<?= base_url('setting/image') ?>"><span>Image</span></a>
-                <?php endif ?>
-                <?php if (user_can('view-setting')) : ?>
-                <a class="collapse-item" href="<?= base_url('setting/social_media') ?>"> <span>Social Media</span></a>
-                <?php endif ?>
-                <?php if (user_can('view-setting')) : ?>
-                <a class="collapse-item" href="<?= base_url('setting/contact') ?>"> <span>Contact</span></a>
-                <?php endif ?>
-            </div>
-        </div>
+         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseWeb">
+             <i class="fas fa-info-circle"></i>
+             <span>Web Setting</span>
+         </a>
+         <div id="collapseWeb" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+             <div class="bg-white py-2 collapse-inner rounded">
+                 <h6 class="collapse-header">Web Components :</h6>
+                 <?php if (user_can('view-setting')) : ?>
+                     <a class="collapse-item" href="<?= base_url('setting/image') ?>"><span>Image</span></a>
+                 <?php endif ?>
+                 <?php if (user_can('view-setting')) : ?>
+                     <a class="collapse-item" href="<?= base_url('setting/social_media') ?>"> <span>Social Media</span></a>
+                 <?php endif ?>
+                 <?php if (user_can('view-setting')) : ?>
+                     <a class="collapse-item" href="<?= base_url('setting/contact') ?>"> <span>Contact</span></a>
+                 <?php endif ?>
+             </div>
+         </div>
      </li>
 
      <!-- Divider -->

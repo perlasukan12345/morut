@@ -89,7 +89,7 @@ class GisfacilitiesModel extends Model
    public function gt_dataAll()
    {
       $this->builder = $this->db->table($this->table . ' AS f');
-      $this->builder->select('f.facilities_id  AS facilities_id , f.title AS title, f.image_name as image_name ,f.latitude AS latitude, f.longitude AS longitude, f.description as description, cf.category_name AS category_name, cf.category_facilities_id AS category_facilities_id ');
+      $this->builder->select('f.facilities_id  AS facilities_id , f.title AS title, f.image_name as image_name ,f.latitude AS latitude, f.longitude AS longitude, f.description as description, cf.category_name AS category_name, cf.category_facilities_id AS category_facilities_id, cf.category_icon AS category_icon');
       $this->builder->join('gis_category_facilities as cf', 'cf.category_facilities_id = f.category_facilities_id', 'left');
 
       $query = $this->builder->get();

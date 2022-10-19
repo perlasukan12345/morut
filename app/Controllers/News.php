@@ -112,7 +112,7 @@ class News extends BaseController
                 $content = $this->request->getVar('content');
 
                 $imgName = $imgPath->getRandomName();
-            
+
                 $user = $this->request->getVar('user');
                 $category = $this->request->getVar('category');
 
@@ -267,7 +267,7 @@ class News extends BaseController
                     'content' => $content,
                 ];
 
-                $this->news_model->update($id,$data);
+                $this->news_model->update($id, $data);
                 session()->setFlashdata('message', 'Edit data success');
                 return redirect()->to(base_url('/news'));
             }

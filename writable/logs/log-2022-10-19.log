@@ -1,0 +1,392 @@
+CRITICAL - 2022-10-19 06:12:23 --> mkdir(): Permission denied
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 176.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mkdir(): Permission denied', 'SYSTEMPATH\\HTTP\\Files\\UploadedFile.php', 176, [...])
+ 2 SYSTEMPATH\HTTP\Files\UploadedFile.php(176): mkdir('img/icon/gis/ /', 511, true)
+ 3 SYSTEMPATH\HTTP\Files\UploadedFile.php(130): CodeIgniter\HTTP\Files\UploadedFile->setPath('img/icon/gis/ /')
+ 4 APPPATH\Controllers\Gis_category_facilities.php(96): CodeIgniter\HTTP\Files\UploadedFile->move('img/icon/gis/ /')
+ 5 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Gis_category_facilities->create()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gis_category_facilities))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 06:13:32 --> mkdir(): Permission denied
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 176.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mkdir(): Permission denied', 'SYSTEMPATH\\HTTP\\Files\\UploadedFile.php', 176, [...])
+ 2 SYSTEMPATH\HTTP\Files\UploadedFile.php(176): mkdir('icon/gis/ /', 511, true)
+ 3 SYSTEMPATH\HTTP\Files\UploadedFile.php(130): CodeIgniter\HTTP\Files\UploadedFile->setPath('icon/gis/ /')
+ 4 APPPATH\Controllers\Gis_category_facilities.php(96): CodeIgniter\HTTP\Files\UploadedFile->move('icon/gis/ /')
+ 5 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Gis_category_facilities->create()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gis_category_facilities))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 06:47:28 --> Undefined property: App\Controllers\Gis_category_facilities::$facilities
+in APPPATH\Controllers\Gis_category_facilities.php on line 192.
+ 1 APPPATH\Controllers\Gis_category_facilities.php(192): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Gis_category_facilities::$facilities', 'APPPATH\\Controllers\\Gis_category_facilities.php', 192, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Gis_category_facilities->update('15')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gis_category_facilities))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 06:48:25 --> unlink(icon/gis/1666178502_ef28cab4ca7bef3fe07b.jpg): No such file or directory
+in APPPATH\Controllers\Gis_category_facilities.php on line 178.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(icon/gis/1666178502_ef28cab4ca7bef3fe07b.jpg): No such file or directory', 'APPPATH\\Controllers\\Gis_category_facilities.php', 178, [...])
+ 2 APPPATH\Controllers\Gis_category_facilities.php(178): unlink('icon/gis/1666178502_ef28cab4ca7bef3fe07b.jpg')
+ 3 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Gis_category_facilities->update('15')
+ 4 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gis_category_facilities))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 06:57:40 --> Undefined property: stdClass::$image_name
+in APPPATH\Controllers\Gis_category_facilities.php on line 214.
+ 1 APPPATH\Controllers\Gis_category_facilities.php(214): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$image_name', 'APPPATH\\Controllers\\Gis_category_facilities.php', 214, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Gis_category_facilities->delete('18')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gis_category_facilities))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 07:03:13 --> unlink(img/gis/facilities/1664809292_4830f044c934ae9a51c0.png): No such file or directory
+in APPPATH\Controllers\Gis_facilities.php on line 294.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(img/gis/facilities/1664809292_4830f044c934ae9a51c0.png): No such file or directory', 'APPPATH\\Controllers\\Gis_facilities.php', 294, [...])
+ 2 APPPATH\Controllers\Gis_facilities.php(294): unlink('img/gis/facilities/1664809292_4830f044c934ae9a51c0.png')
+ 3 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Gis_facilities->delete('12')
+ 4 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gis_facilities))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 07:30:24 --> Undefined property: stdClass::$category_icon
+in APPPATH\Views\welcome_message.php on line 595.
+ 1 APPPATH\Views\welcome_message.php(595): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$category_icon', 'APPPATH\\Views\\welcome_message.php', 595, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\welcome_message.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('welcome_message', [], true)
+ 5 APPPATH\Controllers\Welcome.php(45): view('welcome_message', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Welcome->index()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Welcome))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 08:59:05 --> Call to undefined function set_value()
+in APPPATH\Views\dashboard\priority_program\add.php on line 52.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('dashboard/priority_program/add', [], true)
+ 4 APPPATH\Controllers\Priority_program.php(47): view('dashboard/priority_program/add', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Priority_program->add()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Priority_program))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 09:24:24 --> Call to undefined function set_value()
+in APPPATH\Views\dashboard\priority_program\add.php on line 52.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('dashboard/priority_program/add', [], true)
+ 4 APPPATH\Controllers\Priority_program.php(47): view('dashboard/priority_program/add', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Priority_program->add()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Priority_program))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 09:30:34 --> Call to a member function getRandomName() on null
+in APPPATH\Controllers\Priority_program.php on line 97.
+ 1 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Priority_program->create()
+ 2 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Priority_program))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-10-19 10:38:14 --> mysqli_sql_exception: Table 'ci4_morut.title' doesn't exist in C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `pp`.`id...', 0)
+#1 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pp`.`id...')
+#2 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pp`.`id...')
+#3 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `pp`.`id...', Array, false)
+#4 C:\laragon\www\morut\app\Models\PriorityprogramModel.php(63): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\morut\app\Controllers\Priority_program.php(215): App\Models\PriorityprogramModel->get_datatables('title', Array, Array, Array, Array)
+#6 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(902): App\Controllers\Priority_program->dt_priority_program()
+#7 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Priority_program))
+#8 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\morut\public\index.php(55): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-10-19 10:38:14 --> Table 'ci4_morut.title' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `pp`.`id_priority` AS `id_priority`, `pp`.`title` AS `title`, `pp`.`description` AS `description`, `pp`.`content` AS `content`
+FROM `title` AS `pp`
+WHERE `id_priority` != 0
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pp`.`id_priority` AS `id_priority`, `pp`.`title` AS `title`, `pp`.`description` AS `description`, `pp`.`content` AS `content`
+FROM `title` AS `pp`
+WHERE `id_priority` != 0
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pp`.`id_priority` AS `id_priority`, `pp`.`title` AS `title`, `pp`.`description` AS `description`, `pp`.`content` AS `content`
+FROM `title` AS `pp`
+WHERE `id_priority` != 0
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `pp`.`id_priority` AS `id_priority`, `pp`.`title` AS `title`, `pp`.`description` AS `description`, `pp`.`content` AS `content`
+FROM `title` AS `pp`
+WHERE `id_priority` != :id_priority:
+ LIMIT 10', [...], false)
+ 5 APPPATH\Models\PriorityprogramModel.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Priority_program.php(215): App\Models\PriorityprogramModel->get_datatables('title', [...], [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Priority_program->dt_priority_program()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Priority_program))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-10-19 10:38:51 --> mysqli_sql_exception: Table 'ci4_morut.title' doesn't exist in C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `pp`.`id...', 0)
+#1 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pp`.`id...')
+#2 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pp`.`id...')
+#3 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `pp`.`id...', Array, false)
+#4 C:\laragon\www\morut\app\Models\PriorityprogramModel.php(63): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\morut\app\Controllers\Priority_program.php(215): App\Models\PriorityprogramModel->get_datatables('title', Array, Array, Array, Array)
+#6 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(902): App\Controllers\Priority_program->dt_priority_program()
+#7 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Priority_program))
+#8 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\morut\public\index.php(55): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-10-19 10:38:51 --> Table 'ci4_morut.title' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `pp`.`id_priority` AS `id_priority`, `pp`.`title` AS `title`, `pp`.`description` AS `description`, `pp`.`content` AS `content`
+FROM `title` AS `pp`
+WHERE `id_priority` != 0
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pp`.`id_priority` AS `id_priority`, `pp`.`title` AS `title`, `pp`.`description` AS `description`, `pp`.`content` AS `content`
+FROM `title` AS `pp`
+WHERE `id_priority` != 0
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pp`.`id_priority` AS `id_priority`, `pp`.`title` AS `title`, `pp`.`description` AS `description`, `pp`.`content` AS `content`
+FROM `title` AS `pp`
+WHERE `id_priority` != 0
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `pp`.`id_priority` AS `id_priority`, `pp`.`title` AS `title`, `pp`.`description` AS `description`, `pp`.`content` AS `content`
+FROM `title` AS `pp`
+WHERE `id_priority` != :id_priority:
+ LIMIT 10', [...], false)
+ 5 APPPATH\Models\PriorityprogramModel.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Priority_program.php(215): App\Models\PriorityprogramModel->get_datatables('title', [...], [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Priority_program->dt_priority_program()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Priority_program))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-10-19 10:45:01 --> mysqli_sql_exception: Table 'ci4_morut.title' doesn't exist in C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `pp`.`id...', 0)
+#1 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pp`.`id...')
+#2 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pp`.`id...')
+#3 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `pp`.`id...', Array, false)
+#4 C:\laragon\www\morut\app\Models\PriorityprogramModel.php(63): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\morut\app\Controllers\Priority_program.php(215): App\Models\PriorityprogramModel->get_datatables('title', Array, Array, Array, Array)
+#6 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(902): App\Controllers\Priority_program->dt_priority_program()
+#7 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Priority_program))
+#8 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\morut\public\index.php(55): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-10-19 10:45:01 --> Table 'ci4_morut.title' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `pp`.`id_priority` AS `id_priority`, `pp`.`title` AS `title`, `pp`.`description` AS `description`, `pp`.`content` AS `content`
+FROM `title` AS `pp`
+WHERE `id_priority` != 0
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pp`.`id_priority` AS `id_priority`, `pp`.`title` AS `title`, `pp`.`description` AS `description`, `pp`.`content` AS `content`
+FROM `title` AS `pp`
+WHERE `id_priority` != 0
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pp`.`id_priority` AS `id_priority`, `pp`.`title` AS `title`, `pp`.`description` AS `description`, `pp`.`content` AS `content`
+FROM `title` AS `pp`
+WHERE `id_priority` != 0
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `pp`.`id_priority` AS `id_priority`, `pp`.`title` AS `title`, `pp`.`description` AS `description`, `pp`.`content` AS `content`
+FROM `title` AS `pp`
+WHERE `id_priority` != :id_priority:
+ LIMIT 10', [...], false)
+ 5 APPPATH\Models\PriorityprogramModel.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Priority_program.php(215): App\Models\PriorityprogramModel->get_datatables('title', [...], [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Priority_program->dt_priority_program()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Priority_program))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 10:56:06 --> Call to undefined function set_value()
+in APPPATH\Views\dashboard\priority_program\edit.php on line 53.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('dashboard/priority_program/edit', [], true)
+ 4 APPPATH\Controllers\Priority_program.php(142): view('dashboard/priority_program/edit', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Priority_program->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Priority_program))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 11:07:15 --> Trying to get property 'id_priority' of non-object
+in APPPATH\Views\dashboard\priority_program\edit.php on line 19.
+ 1 APPPATH\Views\dashboard\priority_program\edit.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get property \'id_priority\' of non-object', 'APPPATH\\Views\\dashboard\\priority_program\\edit.php', 19, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\dashboard\\priority_program\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('dashboard/priority_program/edit', [], true)
+ 5 APPPATH\Controllers\Priority_program.php(145): view('dashboard/priority_program/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Priority_program->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Priority_program))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 11:53:36 --> Undefined variable: people_said
+in APPPATH\Views\home\info\p_prioritas.php on line 29.
+ 1 APPPATH\Views\home\info\p_prioritas.php(29): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: people_said', 'APPPATH\\Views\\home\\info\\p_prioritas.php', 29, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\info\\p_prioritas.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/info/p_prioritas', [], true)
+ 5 APPPATH\Controllers\Home.php(211): view('home/info/p_prioritas', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Home->program()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 11:55:03 --> Undefined variable: pager
+in APPPATH\Views\home\info\p_prioritas.php on line 49.
+ 1 APPPATH\Views\home\info\p_prioritas.php(49): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: pager', 'APPPATH\\Views\\home\\info\\p_prioritas.php', 49, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\info\\p_prioritas.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/info/p_prioritas', [], true)
+ 5 APPPATH\Controllers\Home.php(211): view('home/info/p_prioritas', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Home->program()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 11:55:19 --> Undefined variable: pager
+in APPPATH\Views\home\info\p_prioritas.php on line 49.
+ 1 APPPATH\Views\home\info\p_prioritas.php(49): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: pager', 'APPPATH\\Views\\home\\info\\p_prioritas.php', 49, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\info\\p_prioritas.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/info/p_prioritas', [], true)
+ 5 APPPATH\Controllers\Home.php(211): view('home/info/p_prioritas', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Home->program()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 12:07:11 --> Undefined property: stdClass::$descriptopn
+in APPPATH\Views\home\info\p_prioritas.php on line 37.
+ 1 APPPATH\Views\home\info\p_prioritas.php(37): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$descriptopn', 'APPPATH\\Views\\home\\info\\p_prioritas.php', 37, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\info\\p_prioritas.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/info/p_prioritas', [], true)
+ 5 APPPATH\Controllers\Home.php(211): view('home/info/p_prioritas', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Home->program()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 13:21:05 --> Undefined variable: setting
+in APPPATH\Views\home\info\p_prioritas.php on line 4.
+ 1 APPPATH\Views\home\info\p_prioritas.php(4): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: setting', 'APPPATH\\Views\\home\\info\\p_prioritas.php', 4, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\info\\p_prioritas.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/info/p_prioritas', [], true)
+ 5 APPPATH\Controllers\Home.php(219): view('home/info/p_prioritas', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Home->program()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 13:21:48 --> Undefined variable: profile
+in APPPATH\Views\home\template\navigation.php on line 67.
+ 1 APPPATH\Views\home\template\navigation.php(67): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: profile', 'APPPATH\\Views\\home\\template\\navigation.php', 67, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\template\\navigation.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(429): CodeIgniter\View\View->render('home/template/navigation', null, true)
+ 5 APPPATH\Views\home\template\index.php(49): CodeIgniter\View\View->include('home/template/navigation')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\template\\index.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('home/template/index', [], true)
+ 9 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/info/p_prioritas', [], true)
+10 APPPATH\Controllers\Home.php(222): view('home/info/p_prioritas', [...])
+11 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Home->program()
+12 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+13 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 13:23:25 --> Undefined variable: profile
+in APPPATH\Views\home\template\navigation.php on line 67.
+ 1 APPPATH\Views\home\template\navigation.php(67): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: profile', 'APPPATH\\Views\\home\\template\\navigation.php', 67, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\template\\navigation.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(429): CodeIgniter\View\View->render('home/template/navigation', null, true)
+ 5 APPPATH\Views\home\template\index.php(49): CodeIgniter\View\View->include('home/template/navigation')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\template\\index.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('home/template/index', [], true)
+ 9 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/info/p_prioritas', [], true)
+10 APPPATH\Controllers\Home.php(222): view('home/info/p_prioritas', [...])
+11 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Home->program()
+12 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+13 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-10-19 13:24:25 --> mysqli_sql_exception: Unknown column 'p.user_id' in 'field list' in C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `p`.`tit...', 0)
+#1 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`tit...')
+#2 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`tit...')
+#3 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`tit...', Array, false)
+#4 C:\laragon\www\morut\app\Models\PriorityprogramModel.php(93): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\morut\app\Controllers\Home.php(218): App\Models\PriorityprogramModel->get_dataSlug('bantuan-beras')
+#6 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(902): App\Controllers\Home->program('bantuan-beras')
+#7 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\morut\public\index.php(55): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-10-19 13:24:25 --> Unknown column 'p.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `p`.`title` AS `title`, `p`.`id_priority` AS `id_priority`, `p`.`user_id` AS `user_id`, `n`.`image_name` AS `image_name`, `n`.`content` AS `content`, `u`.`slug` AS `slug`, `p`.`description` AS `description`
+FROM `priority_program` AS `p`
+WHERE `slug` = \'bantuan-beras\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`title` AS `title`, `p`.`id_priority` AS `id_priority`, `p`.`user_id` AS `user_id`, `n`.`image_name` AS `image_name`, `n`.`content` AS `content`, `u`.`slug` AS `slug`, `p`.`description` AS `description`
+FROM `priority_program` AS `p`
+WHERE `slug` = \'bantuan-beras\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`title` AS `title`, `p`.`id_priority` AS `id_priority`, `p`.`user_id` AS `user_id`, `n`.`image_name` AS `image_name`, `n`.`content` AS `content`, `u`.`slug` AS `slug`, `p`.`description` AS `description`
+FROM `priority_program` AS `p`
+WHERE `slug` = \'bantuan-beras\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`title` AS `title`, `p`.`id_priority` AS `id_priority`, `p`.`user_id` AS `user_id`, `n`.`image_name` AS `image_name`, `n`.`content` AS `content`, `u`.`slug` AS `slug`, `p`.`description` AS `description`
+FROM `priority_program` AS `p`
+WHERE `slug` = :slug:', [...], false)
+ 5 APPPATH\Models\PriorityprogramModel.php(93): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Home.php(218): App\Models\PriorityprogramModel->get_dataSlug('bantuan-beras')
+ 7 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Home->program('bantuan-beras')
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 13:25:18 --> Undefined property: stdClass::$content
+in APPPATH\Views\home\info\p_prioritas.php on line 59.
+ 1 APPPATH\Views\home\info\p_prioritas.php(59): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$content', 'APPPATH\\Views\\home\\info\\p_prioritas.php', 59, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\info\\p_prioritas.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/info/p_prioritas', [], true)
+ 5 APPPATH\Controllers\Home.php(223): view('home/info/p_prioritas', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Home->program('bantuan-beras')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 13:25:52 --> Undefined property: stdClass::$content
+in APPPATH\Views\home\info\p_prioritas.php on line 59.
+ 1 APPPATH\Views\home\info\p_prioritas.php(59): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$content', 'APPPATH\\Views\\home\\info\\p_prioritas.php', 59, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\info\\p_prioritas.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/info/p_prioritas', [], true)
+ 5 APPPATH\Controllers\Home.php(223): view('home/info/p_prioritas', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Home->program('bantuan-beras')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 13:25:54 --> Undefined property: stdClass::$content
+in APPPATH\Views\home\info\p_prioritas.php on line 59.
+ 1 APPPATH\Views\home\info\p_prioritas.php(59): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: stdClass::$content', 'APPPATH\\Views\\home\\info\\p_prioritas.php', 59, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\info\\p_prioritas.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/info/p_prioritas', [], true)
+ 5 APPPATH\Controllers\Home.php(223): view('home/info/p_prioritas', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Home->program('bantuan-beras')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 13:51:56 --> syntax error, unexpected end of file
+in APPPATH\Views\home\info\p_prioritas.php on line 76.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/info/p_prioritas', [], true)
+ 3 APPPATH\Controllers\Home.php(223): view('home/info/p_prioritas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Home->program()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-19 13:57:12 --> Undefined variable: p_program
+in APPPATH\Views\home\info\p_prioritas.php on line 66.
+ 1 APPPATH\Views\home\info\p_prioritas.php(66): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: p_program', 'APPPATH\\Views\\home\\info\\p_prioritas.php', 66, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\info\\p_prioritas.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/info/p_prioritas', [], true)
+ 5 APPPATH\Controllers\Home.php(223): view('home/info/p_prioritas', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Home->program('bantuan-beras')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()

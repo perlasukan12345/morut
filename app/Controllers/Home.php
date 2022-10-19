@@ -15,6 +15,7 @@ use App\Models\OpdModel;
 use App\Models\AgendaModel;
 use App\Models\CategorymenuModel;
 use App\Models\CategoryopdModel;
+use App\Models\PriorityprogramModel;
 
 class Home extends BaseController
 {
@@ -31,6 +32,7 @@ class Home extends BaseController
     public $agenda_model;
     public $category_menu;
     public $category_opd;
+    public $priority_program;
 
 
     public function __construct()
@@ -48,6 +50,7 @@ class Home extends BaseController
         $this->agenda_model = new AgendaModel();
         $this->category_menu = new CategorymenuModel();
         $this->category_opd = new CategoryopdModel();
+        $this->priority_program = new PriorityprogramModel();
     }
 
     public function index()
@@ -57,15 +60,15 @@ class Home extends BaseController
         $data['category'] = $this->category_gallery->findAll();
         $data['data_gallery_video'] = $this->gallery_model->gt_dataLimitVideo(6);
         $data['people_said'] = $this->peoplesaid_model->gt_findLimit(12);
-        $data['agenda_kab'] = $this->agenda_model->gt_findLimit(3,'Kabupaten / Pemerintahan');
-        $data['agenda_mas'] = $this->agenda_model->gt_findLimit(3,'Masyarakat');
+        $data['agenda_kab'] = $this->agenda_model->gt_findLimit(3, 'Kabupaten / Pemerintahan');
+        $data['agenda_mas'] = $this->agenda_model->gt_findLimit(3, 'Masyarakat');
         $data['setting'] = $this->setting_model->first();
 
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 
-        $data['left'] = $this->category_opd->where('(category_opd_id % 2)',1)->find();
-        $data['right'] = $this->category_opd->where('(category_opd_id % 2)',0)->find();
+        $data['left'] = $this->category_opd->where('(category_opd_id % 2)', 1)->find();
+        $data['right'] = $this->category_opd->where('(category_opd_id % 2)', 0)->find();
 
         $data['validation'] = \Config\Services::validation();
         return view('home/index', $data);
@@ -106,10 +109,10 @@ class Home extends BaseController
 
     public function services($id)
     {
-        $opd = $this->opd_model->where('category_opd_id',$id)->find();
-        
+        $opd = $this->opd_model->where('category_opd_id', $id)->find();
+
         $this->breadcrumb->add('Beranda', '/home/index');
-        $this->breadcrumb->add('Pelayanan Daerah', '/home/services/'.$id);
+        $this->breadcrumb->add('Pelayanan Daerah', '/home/services/' . $id);
         $data['breadcrumbs'] = $this->breadcrumb->render();
 
         $data['setting'] = $this->setting_model->first();
@@ -122,7 +125,8 @@ class Home extends BaseController
         return view('home/services', $data);
     }
 
-    public function category($cat){
+    public function category($cat)
+    {
         $this->breadcrumb->add('Beranda', '/home/index');
         $this->breadcrumb->add('Berita', '/home/news');
         $data['breadcrumbs'] = $this->breadcrumb->render();
@@ -141,7 +145,8 @@ class Home extends BaseController
         return view('home/news', $data);
     }
 
-     public function archive($arc){
+    public function archive($arc)
+    {
         $this->breadcrumb->add('Beranda', '/home/index');
         $this->breadcrumb->add('Berita', '/home/news');
         $data['breadcrumbs'] = $this->breadcrumb->render();
@@ -189,6 +194,33 @@ class Home extends BaseController
         $data['information'] = $this->category_menu->get_category_menu('information');
 
         return view('home/media/galleryvideo', $data);
+    }
+
+    public function program($slug = null)
+    {
+        if (empty($slug)) {
+            $this->breadcrumb->add('Beranda', '/home/index');
+            $this->breadcrumb->add('Priority Program', '/home/program');
+            $data['breadcrumbs'] = $this->breadcrumb->render();
+            $data['setting'] = $this->setting_model->first();
+            $data['profile'] = $this->category_menu->get_category_menu('profile');
+            $data['information'] = $this->category_menu->get_category_menu('information');
+            $data['program'] = $this->priority_program->findAll();
+
+            $data['slug'] = null;
+        } else {
+            $this->breadcrumb->add('Beranda', '/home/index');
+            $this->breadcrumb->add('Priority Program', '/home/program');
+            $data['breadcrumbs'] = $this->breadcrumb->render();
+            $data['setting'] = $this->setting_model->first();
+            $data['profile'] = $this->category_menu->get_category_menu('profile');
+            $data['information'] = $this->category_menu->get_category_menu('information');
+            $data['vprogram'] = $this->priority_program->get_dataSlug($slug);
+            $data['slug'] = $slug;
+        }
+
+
+        return view('home/info/p_prioritas', $data);
     }
 
     public function login()

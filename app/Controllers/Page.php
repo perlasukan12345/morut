@@ -25,29 +25,8 @@ class Page extends BaseController
       $data['title'] = "Profile";
 
       $data_page = $this->content_menu->find($id);
-      
-      $this->breadcrumb->add('Profile', '/page/profile/'.$id);
-      $this->breadcrumb->add($data_page->title,'#');
-      $data['breadcrumbs'] = $this->breadcrumb->render();
 
-      $data['profile'] = $this->category_menu->get_category_menu('profile');
-      $data['information'] = $this->category_menu->get_category_menu('information');
-
-      $data['content_profile'] = $data_page;
-
-      $data['setting'] = $this->setting_model->first();
-
-      return view('home/page/content',$data);
-   }
-
-   public function information($id)
-   {
-
-      $data['title'] = "Profile";
-      
-      $data_page = $this->content_menu->find($id);
-
-      $this->breadcrumb->add('Profile', '/page/profile/'.$id);
+      $this->breadcrumb->add('Profile', '/page/profile/' . $id);
       $this->breadcrumb->add($data_page->title, '#');
       $data['breadcrumbs'] = $this->breadcrumb->render();
 
@@ -58,6 +37,27 @@ class Page extends BaseController
 
       $data['setting'] = $this->setting_model->first();
 
-      return view('home/page/content',$data);
+      return view('home/page/content', $data);
+   }
+
+   public function information($id)
+   {
+
+      $data['title'] = "Profile";
+
+      $data_page = $this->content_menu->find($id);
+
+      $this->breadcrumb->add('Profile', '/page/profile/' . $id);
+      $this->breadcrumb->add($data_page->title, '#');
+      $data['breadcrumbs'] = $this->breadcrumb->render();
+
+      $data['profile'] = $this->category_menu->get_category_menu('profile');
+      $data['information'] = $this->category_menu->get_category_menu('information');
+
+      $data['content_profile'] = $data_page;
+
+      $data['setting'] = $this->setting_model->first();
+
+      return view('home/page/content', $data);
    }
 }

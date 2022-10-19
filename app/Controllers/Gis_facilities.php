@@ -124,9 +124,9 @@ class Gis_facilities extends BaseController
 
             $data = [
                'category_facilities_id' => $category,
-               'title' => $title,
+               'title' => trim($title),
                'image_name' => $imgName,
-               'description' => $description,
+               'description' => trim($description),
                'latitude' => $latitude,
                'longitude' => $longitude,
             ];
@@ -137,14 +137,6 @@ class Gis_facilities extends BaseController
                $image = \Config\Services::image()
                   ->withFile($imgPath)
                   ->resize(600, 450, true, 'height')
-                  ->text('Copyright PEMKAB Morowali Utara', [
-                     'color'      => '#fff',
-                     'opacity'    => 0.5,
-                     'withShadow' => true,
-                     'hAlign'     => 'center',
-                     'vAlign'     => 'bottom',
-                     'fontSize'   => 20,
-                  ])
                   ->save(FCPATH . '/img/gis/facilities/' . $imgName);
                session()->setFlashdata('message', 'Save data success');
             }
@@ -272,9 +264,9 @@ class Gis_facilities extends BaseController
 
             $data = [
                'category_facilities_id' => $category,
-               'title' => $title,
+               'title' => trim($title),
                'image_name' => $imgName,
-               'description' => $description,
+               'description' => trim($description),
                'latitude' => $latitude,
                'longitude' => $longitude,
             ];
