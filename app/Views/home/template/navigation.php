@@ -82,20 +82,20 @@
                      <li class="nav-item dropdown">
                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Informasi <i class="fa fa-angle-down"></i></a>
                        <ul class="dropdown-menu" role="menu">
-                         <li><a href="<?= base_url('home/program'); ?>">Program Prioritas</a></li>
+                         <li><a href="<?= base_url('info/program'); ?>">Program Prioritas</a></li>
                          <li><a href="#" target="_blank">PPID</a></li>
+                          <?php foreach ($information as $keys => $rows) : ?>
                          <li class="dropdown-submenu">
-                           <?php foreach ($information as $key => $row) : ?>
-                             <a href="#!" class="dropdown-toggle" data-toggle="dropdown"><?= $key ?></a>
-                             <?php if (!empty($row['sub_cat'])) : ?>
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $keys ?></a>
+                              <?php if (!empty($rows['sub_cat'])) : ?>
                                <ul class="dropdown-menu">
-                                 <?php foreach ($row['sub_cat'] as $sub) : ?>
-                                   <li><a href="<?= $sub->content_id ?>"><?= $sub->title ?></a></li>
+                                 <?php foreach ($rows['sub_cat'] as $subs) : ?>
+                                   <li><a href="<?= base_url('page/information/' . $subs->content_id) ?>"><?= $subs->title ?></a></li>
                                  <?php endforeach ?>
                                </ul>
-                             <?php endif ?>
-                           <?php endforeach ?>
+                              <?php endif ?>
                          </li>
+                         <?php endforeach ?>
                          <li><a href="<?= base_url('info/rpjmd'); ?>" target="_blank">RPJMD</a></li>
                          <li><a href="<?= base_url('info/rpjpd'); ?>" target="_blank">RPJPD</a></li>
                          <li><a href="<?= base_url('info/rkpd'); ?>" target="_blank">RKPD</a></li>
@@ -132,14 +132,9 @@
                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Web GIS City <i class="fa fa-angle-down"></i></a>
                        <ul class="dropdown-menu" role="menu">
                          <li><a href="<?= base_url('WebGis/GisBatasKecamatan'); ?>">Batas Kecamatan</a></li>
-                         <li><a href="<?= base_url('WebGis/GisHotel'); ?>">Fasilitas Hotel</a></li>
-                         <li><a href="<?= base_url('WebGis/GisMedicalFacility'); ?>">Fasilitas Kesehatan</a></li>
-                         <li><a href="<?= base_url('WebGis/GisCulinaryFacilities'); ?>">Fasilitas Kuliner</a></li>
-                         <li><a href="<?= base_url('WebGis/GisEducationalFacilities'); ?>">Fasilitas Pendidikan</a></li>
-                         <li><a href="<?= base_url('WebGis/GisPublicService'); ?>">Persebaran Kantor Pelayanan Publik</a></li>
-                         <li><a href="<?= base_url('WebGis/GisWisata'); ?>">Tempat-tempat Wisata</a></li>
-                         <li><a href="<?= base_url('WebGis/GisMining'); ?>">Persebaran Tambang</a></li>
-                         <li><a href="<?= base_url('WebGis/GisIndustry'); ?>">Persebaran Pabrik</a></li>
+                         <?php foreach ($cat_facilities as $cat_f) : ?>
+                              <li><a href="<?= base_url('WebGis/Gis/'.$cat_f->category_name); ?>"><?= $cat_f->category_name ?></a></li>
+                         <?php endforeach ?>
                        </ul>
                      </li>
                      <li class="header-get-a-quote">

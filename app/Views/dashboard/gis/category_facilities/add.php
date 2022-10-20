@@ -22,15 +22,23 @@
                      </div>
                   </div>
                   <div class="form-group">
-                     <div class="row" id="rowbody">
-                        <div id="bodyContent">
+                     <label for="On Menu">On Menu</label>
+                     <select name="on_menu" class="form-control">
+                        <option value="">-- Selected --</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                     </select>
+                  </div>
+                  <div class="form-group">
+                     <div class="row">
+                        <div class="col-sm-6">
                            <label for="content" id="labelcontent">Icon Category</label>
                            <input id="category_icon" type="file" class="form-control-file <?= ($validation->hasError('category_icon')) ? 'is-invalid' : ''; ?>" id="category_icon" name="category_icon" onchange="changeImage(this)">
                            <div class="invalid-feedback">
                               <?= $validation->getError('category_icon'); ?>
                            </div>
                         </div>
-                        <div class="col-sm-6" id="contentimage">
+                        <div class="col-sm-6">
                            <img src="<?= base_url('/img/morut.png') ?>" alt="img-preview" class="img-thumbnail" width="100px" heigth="100px" id="img-preview">
                         </div>
                      </div>

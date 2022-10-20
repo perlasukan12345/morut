@@ -7,7 +7,7 @@
         <div class="row">
           <div class="col-lg-12">
               <div class="banner-heading">
-                <h1 class="banner-title">Persebaran Kantor pelayanan publik</h1>
+                <h1 class="banner-title">Fasilitas kesehatan</h1>
                 <?= $breadcrumbs; ?>
               </div>
           </div><!-- Col end -->
@@ -62,30 +62,31 @@
       });
 
       let maps = L.map('map', {
-         center: [-1.8647779909219413, 121.53014072928303],
-         zoom: 10,
-         layers: [peta1],
-         zoomControl: false,
+        center: [-1.8647779909219413, 121.53014072928303],
+        zoom: 10,
+        layers: [peta1],
+        zoomControl: false,
         dragging: false,
         attributionControl: false
       });
 
-     maps.touchZoom.disable();
+      maps.touchZoom.disable();
         maps.doubleClickZoom.disable();
         maps.scrollWheelZoom.disable();
         maps.boxZoom.disable();
         maps.keyboard.disable();
 
-      let pelayanan_publik = L.icon({
-         iconUrl: '<?= base_url('icon/gis/pelayanan_public.png') ?>',
+      let icons = L.icon({
+         iconUrl: '<?= base_url('icon/gis/'.$icon) ?>',
          iconSize: [20, 40], // size of the icon
          iconAnchor: [11, 48],
          popupAnchor: [2, -20]
       });
 
-      <?php foreach ($public_service as $row) : ?>
+
+      <?php foreach ($data_gis as $row) : ?>
          L.marker([<?= $row->latitude ?>, <?= $row->longitude ?>], {
-               icon: pelayanan_publik
+               icon: icons
             })
             .bindPopup('<p class="h4 mt-0 mb-0"><?= $row->title ?><p>' +
                "<img src='<?= base_url('/img/gis/facilities/' . $row->image_name) ?>'width='100%'><br>" +

@@ -24,7 +24,6 @@
          </div>
       </div>
       <!--/ Title row end -->
-
     <div class="row">
         <div class="col-lg-12 col-md-6 mb-5">
           <div class="ts-service-box">

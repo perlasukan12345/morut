@@ -32,6 +32,14 @@
                                         id="password" placeholder="Password" name="password">
                                 </div>
                                 <div class="form-group">
+                                    <div class="boxed">
+                                        <label><?= $captcha ?></label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control form-control-user" name="code" value="" placeholder="Code captcha" maxlength="5"/>
+                                </div>
+                                <div class="form-group">
                                     <button class="btn btn-primary btn-user btn-block" type="submit">Login</button>
                                 </div>
                             </form>

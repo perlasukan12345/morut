@@ -107,85 +107,11 @@ class GisfacilitiesModel extends Model
       return $query->getRow();
    }
 
-   public function gt_medical_facility()
+   public function gt_data_gis($category_name)
    {
       $this->builder = $this->db->table($this->table . ' AS f');
-      $this->builder->select('f.facilities_id  AS facilities_id , f.title AS title, f.image_name as image_name ,f.latitude AS latitude, f.longitude AS longitude, f.description as description, cf.category_name AS category_name, cf.category_facilities_id AS category_facilities_id ');
-      $this->builder->where('category_name ', 'kesehatan');
-      $this->builder->join('gis_category_facilities as cf', 'cf.category_facilities_id = f.category_facilities_id', 'left');
-
-      $query = $this->builder->get();
-      return $query->getResult();
-   }
-
-   public function gt_educational_facilities()
-   {
-      $this->builder = $this->db->table($this->table . ' AS f');
-      $this->builder->select('f.facilities_id  AS facilities_id , f.title AS title, f.image_name as image_name ,f.latitude AS latitude, f.longitude AS longitude, f.description as description, cf.category_name AS category_name, cf.category_facilities_id AS category_facilities_id ');
-      $this->builder->where('category_name ', 'pendidikan');
-      $this->builder->join('gis_category_facilities as cf', 'cf.category_facilities_id = f.category_facilities_id', 'left');
-
-      $query = $this->builder->get();
-      return $query->getResult();
-   }
-   public function gt_hotel_facility()
-   {
-      $this->builder = $this->db->table($this->table . ' AS f');
-      $this->builder->select('f.facilities_id  AS facilities_id , f.title AS title, f.image_name as image_name ,f.latitude AS latitude, f.longitude AS longitude, f.description as description, cf.category_name AS category_name, cf.category_facilities_id AS category_facilities_id ');
-      $this->builder->where('category_name ', 'hotel');
-      $this->builder->join('gis_category_facilities as cf', 'cf.category_facilities_id = f.category_facilities_id', 'left');
-
-      $query = $this->builder->get();
-      return $query->getResult();
-   }
-
-   public function gt_culinary_facilities()
-   {
-      $this->builder = $this->db->table($this->table . ' AS f');
-      $this->builder->select('f.facilities_id  AS facilities_id , f.title AS title, f.image_name as image_name ,f.latitude AS latitude, f.longitude AS longitude, f.description as description, cf.category_name AS category_name, cf.category_facilities_id AS category_facilities_id ');
-      $this->builder->where('category_name ', 'kuliner');
-      $this->builder->join('gis_category_facilities as cf', 'cf.category_facilities_id = f.category_facilities_id', 'left');
-
-      $query = $this->builder->get();
-      return $query->getResult();
-   }
-
-   public function gt_wisata()
-   {
-      $this->builder = $this->db->table($this->table . ' AS f');
-      $this->builder->select('f.facilities_id  AS facilities_id , f.title AS title, f.image_name as image_name ,f.latitude AS latitude, f.longitude AS longitude, f.description as description, cf.category_name AS category_name, cf.category_facilities_id AS category_facilities_id ');
-      $this->builder->where('category_name ', 'wisata');
-      $this->builder->join('gis_category_facilities as cf', 'cf.category_facilities_id = f.category_facilities_id', 'left');
-
-      $query = $this->builder->get();
-      return $query->getResult();
-   }
-   public function gt_mining()
-   {
-      $this->builder = $this->db->table($this->table . ' AS f');
-      $this->builder->select('f.facilities_id  AS facilities_id , f.title AS title, f.image_name as image_name ,f.latitude AS latitude, f.longitude AS longitude, f.description as description, cf.category_name AS category_name, cf.category_facilities_id AS category_facilities_id ');
-      $this->builder->where('category_name ', 'tambang');
-      $this->builder->join('gis_category_facilities as cf', 'cf.category_facilities_id = f.category_facilities_id', 'left');
-
-      $query = $this->builder->get();
-      return $query->getResult();
-   }
-   public function gt_industry()
-   {
-      $this->builder = $this->db->table($this->table . ' AS f');
-      $this->builder->select('f.facilities_id  AS facilities_id , f.title AS title, f.image_name as image_name ,f.latitude AS latitude, f.longitude AS longitude, f.description as description, cf.category_name AS category_name, cf.category_facilities_id AS category_facilities_id ');
-      $this->builder->where('category_name ', 'pabrik');
-      $this->builder->join('gis_category_facilities as cf', 'cf.category_facilities_id = f.category_facilities_id', 'left');
-
-      $query = $this->builder->get();
-      return $query->getResult();
-   }
-
-   public function gt_public_service()
-   {
-      $this->builder = $this->db->table($this->table . ' AS f');
-      $this->builder->select('f.facilities_id  AS facilities_id , f.title AS title, f.image_name as image_name ,f.latitude AS latitude, f.longitude AS longitude, f.description as description, cf.category_name AS category_name, cf.category_facilities_id AS category_facilities_id ');
-      $this->builder->where('category_name ', 'pelayanan-publik');
+      $this->builder->select('f.facilities_id  AS facilities_id , f.title AS title, f.image_name as image_name ,f.latitude AS latitude, f.longitude AS longitude, f.description as description, cf.category_name AS category_name, cf.category_facilities_id AS category_facilities_id, cf.category_icon AS category_icon ');
+      $this->builder->where('category_name ', $category_name);
       $this->builder->join('gis_category_facilities as cf', 'cf.category_facilities_id = f.category_facilities_id', 'left');
 
       $query = $this->builder->get();

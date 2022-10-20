@@ -5,12 +5,14 @@ namespace App\Controllers;
 use App\Models\SettingModel;
 use App\Models\PeoplesaidModel;
 use App\Models\CategorymenuModel;
+use App\Models\GiscategoryfacilitiesModel;
 
 class PeopleSaid extends BaseController
 {
     public $setting_model;
     public $peoplesaid_model;
     public $category_menu;
+    public $cat_facilities;
 
 
 
@@ -19,6 +21,7 @@ class PeopleSaid extends BaseController
         $this->setting_model = new SettingModel();
         $this->peoplesaid_model = new PeoplesaidModel();
         $this->category_menu = new CategorymenuModel();
+        $this->cat_facilities = new GiscategoryfacilitiesModel();
     }
 
     public function index()
@@ -31,6 +34,7 @@ class PeopleSaid extends BaseController
         $data['pager'] = $this->peoplesaid_model->pager;
         $data['setting'] = $this->setting_model->first();
 
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
        

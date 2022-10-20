@@ -35,7 +35,7 @@ class Welcome extends BaseController
         $data['batas_kecamatan'] = $this->batas_kecamatan->findAll();
         $data['gis'] = $this->facilities->gt_dataAll();
         $data['cat_gis'] = $this->cat_facilities->findAll();
-        $data['medical_facility'] = $this->facilities->gt_medical_facility();
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['bupati'] = $this->flash_model->gt_dataPosition('Bupati Morowali Utara');
         $data['wabup'] = $this->flash_model->gt_dataPosition('Wakil Bupati Morowali Utara');
         $data['category_opd'] = $this->cat_opd_model->findAll();

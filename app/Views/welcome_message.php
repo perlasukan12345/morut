@@ -109,7 +109,7 @@
             <nav class="navbar fixed-bottom navbar-light nav-footer">
                 <div class="toolbar mx-lg-auto">
                     <div class="toolbar-grid">
-                        <a href="javascript:void(0);" data-toggle="modal" data-target="#pemerintahanModal">
+                        <a href="<?= base_url('home/news') ?>">
                             <div class="toolbar-icon">
                                 <span data-eva="layers-outline"></span>
                             </div>
@@ -125,7 +125,7 @@
                         </a>
                     </div>
                     <div class="toolbar-grid">
-                        <a href="javascript:void(0);" data-toggle="modal" data-target="#programunggulan">
+                        <a href="<?= base_url('info/program') ?>">
                             <div class="toolbar-icon">
                                 <span data-eva="grid-outline"></span>
                             </div>
@@ -297,86 +297,18 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-lg-3 col-6 px-4">
-                                <a target="_blank" href="<?= base_url('WebGis/GisHotel'); ?>">
-                                    <div class="card-medium">
-                                        <span class="fa fa-h-square"></span>
-                                        <div class="card-medium-text small-text">
-                                            FASILITAS HOTEL
+                            <?php foreach ($cat_facilities as $cat_f): ?>
+                                <div class="col-lg-3 col-6 px-4">
+                                    <a target="_blank" href="<?= base_url('WebGis/Gis/'.$cat_f->category_name); ?>">
+                                        <div class="card-medium">
+                                            <span class="fa fa-map-marked-alt"></span>
+                                            <div class="card-medium-text small-text" style="text-transform: uppercase;">
+                                                <?= $cat_f->category_name; ?>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-6 px-4">
-                                <a target="_blank" href="<?= base_url('WebGis/GisMedicalFacility'); ?>">
-                                    <div class="card-medium">
-                                        <span class="fa fa-heartbeat"></span>
-                                        <div class="card-medium-text small-text">
-                                            FASILITAS KESEHATAN
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-6 px-4">
-                                <a target="_blank" href="<?= base_url('WebGis/GisCulinaryFacilities'); ?>">
-                                    <div class="card-medium">
-                                        <span class="fa fa-utensils"></span>
-                                        <div class="card-medium-text small-text">
-                                            FASILITAS KULINER
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-6 px-4">
-                                <a target="_blank" href="<?= base_url('WebGis/GisEducationalFacilities'); ?>">
-                                    <div class="card-medium">
-                                        <span class="fa fa-graduation-cap"></span>
-                                        <div class="card-medium-text small-text">
-                                            FASILITAS PENDIDIKAN
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-6 px-4">
-                                <a target="_blank" href="<?= base_url('WebGis/GisPublicService'); ?>">
-                                    <div class="card-medium">
-                                        <span class="fa fa-laptop-house"></span>
-                                        <div class="card-medium-text small-text">
-                                            PERSEBARAN KANTOR PELAYANAN PUBLIK
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-6 px-4">
-                                <a target="_blank" href="<?= base_url('WebGis/GisMining'); ?>">
-                                    <div class="card-medium">
-                                        <span class="fas fa-dolly-flatbed"></span>
-                                        <div class="card-medium-text small-text">
-                                            PERSEBARAN TAMBANG
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-6 px-4">
-                                <a target="_blank" href="<?= base_url('WebGis/GisWisata'); ?>">
-                                    <div class="card-medium">
-                                        <span class="fa fa-image"></span>
-                                        <div class="card-medium-text small-text">
-                                            TEMPAT-TEMPAT WISATA
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-6 px-4">
-                                <a target="_blank" href="<?= base_url('WebGis/GisIndustry'); ?>">
-                                    <div class="card-medium">
-                                        <span class="fas fa-industry"></span>
-                                        <div class="card-medium-text small-text">
-                                            PERSEBARAN PABRIK INDUSTRI
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                                    </a>
+                                </div>
+                            <?php endforeach ?>
                         </div>
                     </div>
                 </div>

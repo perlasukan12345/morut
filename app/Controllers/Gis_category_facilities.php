@@ -85,10 +85,12 @@ class Gis_category_facilities extends BaseController
 
 
             $categoryName =  $this->request->getVar('category_name');
+            $on_menu =  $this->request->getVar('on_menu');
             $imgPath = $this->request->getFile('category_icon');
             $imgName = $imgPath->getRandomName();
             $data = [
                'category_name' => strtolower($categoryName),
+               'on_menu' => $on_menu,
                'category_icon' => $imgName,
             ];
             $simpan = $this->category_facilities->insert($data);
@@ -165,6 +167,7 @@ class Gis_category_facilities extends BaseController
             return redirect()->back()->withInput();
          } else {
             $newImg = $this->request->getFile('category_icon');
+            $on_menu =  $this->request->getVar('on_menu');
             $oldImg = $this->request->getVar('imgOld');
             $categoryName =  $this->request->getVar('category_name');
             $imgName = $newImg->getRandomName();
@@ -184,6 +187,7 @@ class Gis_category_facilities extends BaseController
 
             $data = [
                'category_name' => strtolower($categoryName),
+                'on_menu' => $on_menu,
                'category_icon' => $imgName,
             ];
 
@@ -238,6 +242,7 @@ class Gis_category_facilities extends BaseController
 
          $row['no']  = $no;
          $row['category_name']  = $lists->category_name;
+         $row['on_menu']  = $lists->on_menu;
          $row['option']  = '<div class="btn-group">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action
                       <span class="caret"></span>

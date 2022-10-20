@@ -5,18 +5,21 @@ namespace App\Controllers;
 use App\Models\AgendaModel;
 use App\Models\SettingModel;
 use App\Models\CategorymenuModel;
+use App\Models\GiscategoryfacilitiesModel;
 
 class Agenda extends BaseController
 {
     public $agenda_model;
     public $setting_model;
     public $category_menu;
+    public $cat_facilities;
 
     public function __construct()
     {
         $this->agenda_model = new AgendaModel();
         $this->setting_model = new SettingModel();
         $this->category_menu = new CategorymenuModel();
+        $this->cat_facilities = new GiscategoryfacilitiesModel();
     }
 
     public function kabupaten($slug = null)
@@ -26,7 +29,6 @@ class Agenda extends BaseController
             $this->breadcrumb->add('Agenda', '/agenda/kabupaten');
             $data['breadcrumbs'] = $this->breadcrumb->render();
 
-            $data['setting'] = $this->setting_model->first();
             $data['agenda_kab'] = $this->agenda_model->gt_findAll('Kabupaten / Pemerintahan')->paginate(12, 'agenda');
             $data['pager'] = $this->agenda_model->pager;
             $data['slug'] = null;
@@ -36,11 +38,12 @@ class Agenda extends BaseController
             $this->breadcrumb->add($slug, '/agenda/kabupaten/'.$slug);
             $data['breadcrumbs'] = $this->breadcrumb->render();
 
-            $data['setting'] = $this->setting_model->first();
             $data['view_agenda'] = $this->agenda_model->get_dataSlug($slug);
             $data['slug'] = $slug;
         }
 
+        $data['setting'] = $this->setting_model->first();
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 
@@ -54,7 +57,6 @@ class Agenda extends BaseController
             $this->breadcrumb->add('Agenda', '/agenda/masyarakat');
             $data['breadcrumbs'] = $this->breadcrumb->render();
 
-            $data['setting'] = $this->setting_model->first();
             $data['agenda_mas'] = $this->agenda_model->gt_findAll('Masyarakat')->paginate(12, 'agenda');
             $data['pager'] = $this->agenda_model->pager;
             $data['slug'] = null;
@@ -64,11 +66,12 @@ class Agenda extends BaseController
             $this->breadcrumb->add($slug, '/agenda/masyarakat/'.$slug);
             $data['breadcrumbs'] = $this->breadcrumb->render();
 
-            $data['setting'] = $this->setting_model->first();
             $data['view_agenda'] = $this->agenda_model->get_dataSlug($slug);
             $data['slug'] = $slug;
         }
 
+        $data['setting'] = $this->setting_model->first();
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
         

@@ -24,6 +24,14 @@
                      </div>
                   </div>
                   <div class="form-group">
+                     <label for="On Menu">On Menu</label>
+                     <select name="on_menu" class="form-control">
+                        <option value="">-- Selected --</option>
+                        <option value="Yes" <?= ($post->on_menu === 'Yes') ? 'selected' : '';?>>Yes</option>
+                        <option value="No" <?= ($post->on_menu === 'No') ? 'selected' : '';?>>No</option>
+                     </select>
+                  </div>
+                  <div class="form-group">
                      <div class="row">
                         <div class="col-sm-6">
                            <label for="Image">Image</label>

@@ -10,6 +10,8 @@ use App\Models\SakipModel;
 use App\Models\LppdModel;
 use App\Models\SettingModel;
 use App\Models\CategorymenuModel;
+use App\Models\GiscategoryfacilitiesModel;
+use App\Models\PriorityprogramModel;
 
 class Info extends BaseController
 {
@@ -21,7 +23,8 @@ class Info extends BaseController
     public $lppd_model;
     public $setting_model;
     public $category_menu;
-
+    public $cat_facilities;
+    public $priority_program;
 
     public function __construct()
     {
@@ -33,8 +36,36 @@ class Info extends BaseController
         $this->lppd_model = new LppdModel();
         $this->setting_model = new SettingModel();
         $this->category_menu = new CategorymenuModel();
+        $this->cat_facilities = new GiscategoryfacilitiesModel();
+        $this->priority_program = new PriorityprogramModel();
     }
 
+    public function program($slug = null)
+    {
+        if (empty($slug)) {
+            $this->breadcrumb->add('Beranda', '/home/index');
+            $this->breadcrumb->add('Priority Program', '/home/program');
+            $data['breadcrumbs'] = $this->breadcrumb->render();
+            $data['program'] = $this->priority_program->findAll();
+
+            $data['slug'] = null;
+        } else {
+            $this->breadcrumb->add('Beranda', '/home/index');
+            $this->breadcrumb->add('Priority Program', '/home/program');
+            $data['breadcrumbs'] = $this->breadcrumb->render();
+            $data['vprogram'] = $this->priority_program->get_dataSlug($slug);
+            $data['slug'] = $slug;
+        }
+
+        $data['setting'] = $this->setting_model->first();
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
+        $data['profile'] = $this->category_menu->get_category_menu('profile');
+        $data['information'] = $this->category_menu->get_category_menu('information');
+
+
+        return view('home/info/p_prioritas', $data);
+    }
+    
     public function rpjmd()
     {
         $this->breadcrumb->add('Beranda', '/home/index');
@@ -44,6 +75,7 @@ class Info extends BaseController
         $data['data'] = $this->rpjmd_model->gt_Alldata();
         $data['setting'] = $this->setting_model->first();
 
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 
@@ -62,6 +94,7 @@ class Info extends BaseController
         $this->breadcrumb->add('Rpjpd', '/info/rpjpd/');
         $data['breadcrumbs'] = $this->breadcrumb->render();
 
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['data'] = $this->rpjpd_model->gt_Alldata();
         $data['setting'] = $this->setting_model->first();
 
@@ -86,6 +119,7 @@ class Info extends BaseController
         $data['data'] = $this->rkpd_model->gt_Alldata();
         $data['setting'] = $this->setting_model->first();
 
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 
@@ -107,6 +141,7 @@ class Info extends BaseController
         $data['data'] = $this->lkpj_model->gt_Alldata();
         $data['setting'] = $this->setting_model->first();
 
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 
@@ -128,6 +163,7 @@ class Info extends BaseController
         $data['data'] = $this->sakip_model->gt_Alldata();
         $data['setting'] = $this->setting_model->first();
 
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 
@@ -149,6 +185,7 @@ class Info extends BaseController
         $data['data'] = $this->lppd_model->gt_Alldata();
         $data['setting'] = $this->setting_model->first();
 
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 

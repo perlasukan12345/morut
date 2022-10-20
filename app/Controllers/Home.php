@@ -9,13 +9,13 @@ use App\Models\CategorygalleryModel;
 use App\Models\CategorynewsModel;
 use App\Models\GisbataskecamatanModel;
 use App\Models\GisfacilitiesModel;
+use App\Models\GiscategoryfacilitiesModel;
 use App\Models\SettingModel;
 use App\Models\PeoplesaidModel;
 use App\Models\OpdModel;
 use App\Models\AgendaModel;
 use App\Models\CategorymenuModel;
 use App\Models\CategoryopdModel;
-use App\Models\PriorityprogramModel;
 
 class Home extends BaseController
 {
@@ -26,14 +26,13 @@ class Home extends BaseController
     public $category_news;
     public $batas_kecamatan;
     public $facilities;
+    public $cat_facilities;
     public $setting_model;
     public $peoplesaid_model;
     public $opd_model;
     public $agenda_model;
     public $category_menu;
     public $category_opd;
-    public $priority_program;
-
 
     public function __construct()
     {
@@ -44,13 +43,13 @@ class Home extends BaseController
         $this->gallery_model = new GalleryModel();
         $this->batas_kecamatan = new GisbataskecamatanModel();
         $this->facilities = new GisfacilitiesModel();
+        $this->cat_facilities = new GiscategoryfacilitiesModel();
         $this->setting_model = new SettingModel();
         $this->peoplesaid_model = new PeoplesaidModel();
         $this->opd_model = new OpdModel();
         $this->agenda_model = new AgendaModel();
         $this->category_menu = new CategorymenuModel();
         $this->category_opd = new CategoryopdModel();
-        $this->priority_program = new PriorityprogramModel();
     }
 
     public function index()
@@ -64,6 +63,7 @@ class Home extends BaseController
         $data['agenda_mas'] = $this->agenda_model->gt_findLimit(3, 'Masyarakat');
         $data['setting'] = $this->setting_model->first();
 
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 
@@ -101,6 +101,7 @@ class Home extends BaseController
         $data['cat_news'] = $this->category_news->findAll();
         $data['archive'] = $this->news_model->dataArchive();
 
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 
@@ -119,6 +120,7 @@ class Home extends BaseController
         $data['opd'] = $opd;
         $data['opd'] = $opd;
 
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 
@@ -139,6 +141,7 @@ class Home extends BaseController
         $data['cat_news'] = $this->category_news->findAll();
         $data['setting'] = $this->setting_model->first();
 
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 
@@ -159,6 +162,7 @@ class Home extends BaseController
         $data['cat_news'] = $this->category_news->findAll();
         $data['setting'] = $this->setting_model->first();
 
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 
@@ -175,6 +179,7 @@ class Home extends BaseController
         $data['category'] = $this->category_gallery->findAll();
         $data['setting'] = $this->setting_model->first();
 
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 
@@ -190,73 +195,72 @@ class Home extends BaseController
         $data['gallery'] = $this->gallery_model->gt_dataVideo();
         $data['setting'] = $this->setting_model->first();
 
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 
         return view('home/media/galleryvideo', $data);
     }
 
-    public function program($slug = null)
-    {
-        if (empty($slug)) {
-            $this->breadcrumb->add('Beranda', '/home/index');
-            $this->breadcrumb->add('Priority Program', '/home/program');
-            $data['breadcrumbs'] = $this->breadcrumb->render();
-            $data['setting'] = $this->setting_model->first();
-            $data['profile'] = $this->category_menu->get_category_menu('profile');
-            $data['information'] = $this->category_menu->get_category_menu('information');
-            $data['program'] = $this->priority_program->findAll();
-
-            $data['slug'] = null;
-        } else {
-            $this->breadcrumb->add('Beranda', '/home/index');
-            $this->breadcrumb->add('Priority Program', '/home/program');
-            $data['breadcrumbs'] = $this->breadcrumb->render();
-            $data['setting'] = $this->setting_model->first();
-            $data['profile'] = $this->category_menu->get_category_menu('profile');
-            $data['information'] = $this->category_menu->get_category_menu('information');
-            $data['vprogram'] = $this->priority_program->get_dataSlug($slug);
-            $data['slug'] = $slug;
-        }
-
-
-        return view('home/info/p_prioritas', $data);
-    }
-
     public function login()
     {
-        return view('auth/login');
+        $code = $this->acakCaptcha();
+        session()->set([
+                        'code' => $code,
+                    ]);
+
+        $data['captcha'] = $code;
+        return view('auth/login',$data);
     }
 
     public function signup()
-    {
-        if (check_token('login', $this->request->getVar('token'))) {
-            $username = $this->request->getVar('username');
-            $password = $this->request->getVar('password');
+    {  
+        if (session()->get('code') == $this->request->getVar('code')) {
+            if (check_token('login', $this->request->getVar('token'))) {
+                $username = $this->request->getVar('username');
+                $password = $this->request->getVar('password');
 
-            $dataUser = $this->user_model->where('username', $username)->first();
+                $dataUser = $this->user_model->where('username', $username)->first();
 
-            if ($dataUser) {
-                if (password_verify($password, $dataUser->password)) {
-                    session()->set([
-                        'username' => $dataUser->username,
-                        'name' => $dataUser->name,
-                        'logged_in' => TRUE,
-                    ]);
+                if ($dataUser) {
+                    if (password_verify($password, $dataUser->password)) {
+                        session()->set([
+                            'username' => $dataUser->username,
+                            'name' => $dataUser->name,
+                            'logged_in' => TRUE,
+                        ]);
 
-                    return redirect()->to(base_url('/dashboard'));
+                        return redirect()->to(base_url('/dashboard'));
+                    } else {
+                        session()->setFlashdata('error', 'Password not corect');
+                        return redirect()->to(base_url('/home/login'));
+                    }
                 } else {
-                    session()->setFlashdata('error', 'Password not corect');
+                    session()->setFlashdata('error', 'Username not corect');
                     return redirect()->to(base_url('/home/login'));
                 }
             } else {
-                session()->setFlashdata('error', 'Username not corect');
+                session()->setFlashdata('error', 'Ooops, You can not login');
                 return redirect()->to(base_url('/home/login'));
             }
-        } else {
-            session()->setFlashdata('error', 'Ooops, You can not login');
+        }else{
+            session()->setFlashdata('error', 'Ooops, Your captcha not correct');
             return redirect()->to(base_url('/home/login'));
         }
+    }
+
+    public function acakCaptcha() {
+        $kode = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+    
+        $pass = array(); 
+
+        $panjangkode = strlen($kode) - 2; 
+        for ($i = 0; $i < 5; $i++) {
+            $n = rand(0, $panjangkode);
+            $pass[] = $kode[$n];
+        }
+    
+        return implode($pass); 
     }
 
     public function logout()

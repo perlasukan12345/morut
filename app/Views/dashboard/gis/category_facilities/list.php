@@ -16,6 +16,7 @@
                   <tr>
                      <th>No</th>
                      <th>Category Name</th>
+                     <th>On Menu</th>
                      <th>Option</th>
                   </tr>
                </thead>
@@ -79,6 +80,9 @@
                "data": "category_name"
             },
             {
+               "data": "on_menu"
+            },
+            {
                "data": "option"
             }
          ],
@@ -96,7 +100,7 @@
             },
             {
                orderable: false,
-               targets: [0, 2],
+               targets: [0, 3],
             }
          ],
 

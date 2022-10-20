@@ -45,7 +45,7 @@
         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
           <h3 class="widget-title">Waktu Kerja</h3>
           <div class="working-hours">
-            Waktu kerja 6 hari dalam seminggu, tidak termasuk hari Sabtu, Minggu dan Hari Libur Nasional. 
+            Waktu kerja 5 hari dalam seminggu, tidak termasuk hari Sabtu, Minggu dan Hari Libur Nasional. 
             <br><br> <?= $setting->work_day ?>: <span class="text-right"><?= $setting->hour ?> </span>
           </div>
         </div><!-- Col end -->

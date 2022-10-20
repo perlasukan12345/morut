@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 15, 2022 at 08:34 AM
+-- Generation Time: Oct 20, 2022 at 02:17 PM
 -- Server version: 8.0.12
 -- PHP Version: 7.4.23
 
@@ -32,7 +32,7 @@ CREATE TABLE `agenda` (
   `title` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `slug` varchar(400) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `category` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `agenda` text COLLATE utf8_unicode_ci NOT NULL
+  `agenda` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -74,7 +74,7 @@ INSERT INTO `category_gallery` (`category_gallery_id`, `category_name`) VALUES
 
 CREATE TABLE `category_menu` (
   `category_menu_id` int(5) UNSIGNED NOT NULL,
-  `menu` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `menu` varchar(11) NOT NULL,
   `category` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -115,7 +115,7 @@ INSERT INTO `category_news` (`category_news_id`, `category_name`) VALUES
 
 CREATE TABLE `category_opd` (
   `category_opd_id` int(11) NOT NULL,
-  `category` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+  `category` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -136,8 +136,8 @@ INSERT INTO `category_opd` (`category_opd_id`, `category`) VALUES
 CREATE TABLE `content_menu` (
   `menu_id` int(11) NOT NULL,
   `category_menu_id` int(11) NOT NULL,
-  `menu` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `menu` varchar(11) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -149,7 +149,9 @@ INSERT INTO `content_menu` (`menu_id`, `category_menu_id`, `menu`, `title`, `con
 (1, 1, 'profile', 'Sejarah Kabupaten', '<div class=\"col-12\">\r\n<div class=\"col-12\">\r\n<p>Secara geografis, Kabupaten Morowali Utara terletak pada 1&deg;31&prime; &ndash; 3&deg;04&prime; Lintang Selatan dan 121&deg;02&prime; &ndash; 123&deg;15&prime; Bujur Timur.</p>\r\n<p>Kabupaten Morowali Utara (bahasa Inggris: North Morowali Regency), adalah sebuah kabupaten di provinsi Sulawesi Tengah, Indonesia. Ibu kota kabupaten sekaligus pusat administrasi terletak di kota Kolonodale. Morowali Utara merupakan hasil pemekaran dari Kabupaten Morowali yang disahkan dalam sidang paripurna DPR RI pada 12 April 2013 di gedung DPR RI tentang Rancangan UU Daerah Otonomi Baru (DOB). Kabupaten Morowali Utara mempunyai batas-batas wilayah: Sebelah utara berbatasan dengan Desa Buyuntaripa, Desa Korondoda, Desa Bugi Kecamatan Tojo dan Desa Rompi Kecamatan Ulubongka Kabupaten Tojo Una-Una.</p>\r\n<p>Sebelah timur berbatasan dengan Desa Rata, Desa Gunung Kramat, Desa Matawa, Desa Mangkapa Kecamatan Toili Barat Kabupaten Banggai, dan Laut Banda; Sebelah selatan berbatasan dengan Desa Solonsa Kecamatan Wita Ponda Kabupaten Morowali dan Desa Nuha, Desa Matano, dan Desa Sorowako Kecamatan Nuha Kabupaten Luwu Timur Provinsi Sulawesi Selatan; dan Sebelah barat berbatasan dengan Desa Uelene, Desa Mayasari Kecamatan Pamona Selatan dan Desa Pancasila, Desa Kamba, Desa Matialemba, Desa Kancu&rsquo;u dan Desa Masewe Kecamatan Pamona Timur Kabupaten Poso.</p>\r\n<p>&nbsp;</p>\r\n</div>\r\n</div>'),
 (2, 1, 'profile', 'Geografi Kabupaten', '<div class=\"col-12\">\r\n<p>Secara geografis, Kabupaten Morowali Utara terletak pada 1&deg;31&prime; &ndash; 3&deg;04&prime; Lintang Selatan dan 121&deg;02&prime; &ndash; 123&deg;15&prime; Bujur Timur.</p>\r\n</div>'),
 (3, 1, 'profile', 'Demografi Kabupaten', '<div class=\"col-12\">\r\n<p>Kabupaten Morowali Utara (bahasa Inggris: North Morowali Regency), adalah sebuah kabupaten di provinsi Sulawesi Tengah, Indonesia. Ibu kota kabupaten sekaligus pusat administrasi terletak di kota Kolonodale. Morowali Utara merupakan hasil pemekaran dari Kabupaten Morowali yang disahkan dalam sidang paripurna DPR RI pada 12 April 2013 di gedung DPR RI tentang Rancangan UU Daerah Otonomi Baru (DOB). Kabupaten Morowali Utara mempunyai batas-batas wilayah: Sebelah utara berbatasan dengan Desa Buyuntaripa, Desa Korondoda, Desa Bugi Kecamatan Tojo dan Desa Rompi Kecamatan Ulubongka Kabupaten Tojo Una-Una.</p>\r\n<p>Sebelah timur berbatasan dengan Desa Rata, Desa Gunung Kramat, Desa Matawa, Desa Mangkapa Kecamatan Toili Barat Kabupaten Banggai, dan Laut Banda; Sebelah selatan berbatasan dengan Desa Solonsa Kecamatan Wita Ponda Kabupaten Morowali dan Desa Nuha, Desa Matano, dan Desa Sorowako Kecamatan Nuha Kabupaten Luwu Timur Provinsi Sulawesi Selatan; dan Sebelah barat berbatasan dengan Desa Uelene, Desa Mayasari Kecamatan Pamona Selatan dan Desa Pancasila, Desa Kamba, Desa Matialemba, Desa Kancu&rsquo;u dan Desa Masewe Kecamatan Pamona Timur Kabupaten Poso.</p>\r\n</div>'),
-(4, 2, 'profile', 'Visi & Misi', '<p style=\"text-align: center;\"><span style=\"font-family: \'times new roman\', times, serif;\"><strong><span style=\"font-size: 18pt;\">Visi</span></strong></span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-size: 14pt; font-family: \'times new roman\', times, serif;\">Terwujudnya Masyarakat Morowali Utara</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-size: 14pt; font-family: \'times new roman\', times, serif;\">Yang Sehat, Cerdas, Sejahtera</span></p>\r\n<p>&nbsp;</p>\r\n<p style=\"text-align: center;\"><strong><span style=\"font-family: \'times new roman\', times, serif; font-size: 18pt;\">Misi</span></strong></p>\r\n<p style=\"text-align: center;\"><span style=\"font-family: \'times new roman\', times, serif; font-size: 14pt;\">Meningkatkan Aksesibilitas dan Mutu Pelayanan Kesehatan;</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-family: \'times new roman\', times, serif; font-size: 14pt;\">Meningkatkan Aksesibilitas dan Mutu Pendidikan Untuk Menghasilkan Sumber Daya Yang Unggul dan Berdaya Saing;</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-family: \'times new roman\', times, serif; font-size: 14pt;\">Meningkatkan Kesejahteraan Masyarakat Berbasis Potensi Wilayah;</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-family: \'times new roman\', times, serif; font-size: 14pt;\">Meningkatkan Infrastruktur dan Sarana Untuk Menunjang Konektivitas dan Penataan Wilayah;</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-family: \'times new roman\', times, serif; font-size: 14pt;\">Meningkatkan Profesionalisme dan Kinerja Penyelenggaraan Pemerintah Daerah Dalam Rangka Tata Kelola Pemerintahan yang Baik;</span></p>');
+(4, 2, 'profile', 'Visi & Misi', '<p style=\"text-align: center;\"><span style=\"font-family: \'times new roman\', times, serif;\"><strong><span style=\"font-size: 18pt;\">Visi</span></strong></span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-size: 14pt; font-family: \'times new roman\', times, serif;\">Terwujudnya Masyarakat Morowali Utara</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-size: 14pt; font-family: \'times new roman\', times, serif;\">Yang Sehat, Cerdas, Sejahtera</span></p>\r\n<p>&nbsp;</p>\r\n<p style=\"text-align: center;\"><strong><span style=\"font-family: \'times new roman\', times, serif; font-size: 18pt;\">Misi</span></strong></p>\r\n<p style=\"text-align: center;\"><span style=\"font-family: \'times new roman\', times, serif; font-size: 14pt;\">Meningkatkan Aksesibilitas dan Mutu Pelayanan Kesehatan;</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-family: \'times new roman\', times, serif; font-size: 14pt;\">Meningkatkan Aksesibilitas dan Mutu Pendidikan Untuk Menghasilkan Sumber Daya Yang Unggul dan Berdaya Saing;</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-family: \'times new roman\', times, serif; font-size: 14pt;\">Meningkatkan Kesejahteraan Masyarakat Berbasis Potensi Wilayah;</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-family: \'times new roman\', times, serif; font-size: 14pt;\">Meningkatkan Infrastruktur dan Sarana Untuk Menunjang Konektivitas dan Penataan Wilayah;</span></p>\r\n<p style=\"text-align: center;\"><span style=\"font-family: \'times new roman\', times, serif; font-size: 14pt;\">Meningkatkan Profesionalisme dan Kinerja Penyelenggaraan Pemerintah Daerah Dalam Rangka Tata Kelola Pemerintahan yang Baik;</span></p>'),
+(5, 4, 'information', 'Tempat Wisata', '<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, eligendi voluptatibus beatae impedit fugiat illo. Eligendi earum beatae corporis, accusamus hic, assumenda architecto molestiae dignissimos corrupti quas, atque adipisci Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim dignissimos aut aperiam ea? Aut labore itaque magnam obcaecati corrupti rerum sequi dignissimos, officiis enim id. Quod architecto dignissimos unde consequatur?</p>'),
+(6, 3, 'information', 'Perijinan percobaan', '<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, eligendi voluptatibus beatae impedit fugiat illo. Eligendi earum beatae corporis, accusamus hic, assumenda architecto molestiae dignissimos corrupti quas, atque adipisci Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim dignissimos aut aperiam ea? Aut labore itaque magnam obcaecati corrupti rerum sequi dignissimos, officiis enim id. Quod architecto dignissimos unde consequatur?</p>');
 
 -- --------------------------------------------------------
 
@@ -159,14 +161,14 @@ INSERT INTO `content_menu` (`menu_id`, `category_menu_id`, `menu`, `title`, `con
 
 CREATE TABLE `flash_screen` (
   `flash_id` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `position` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `job_history` text COLLATE utf8_unicode_ci NOT NULL,
-  `education_background` text COLLATE utf8_unicode_ci NOT NULL,
-  `organization_history` text COLLATE utf8_unicode_ci NOT NULL,
-  `address` text COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `position` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `job_history` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `education_background` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `organization_history` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `address` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `birth` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `img` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+  `img` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -237,22 +239,18 @@ INSERT INTO `gis_batas_kecamatan` (`id`, `kecamatan_name`, `geojson_file`, `geoj
 
 CREATE TABLE `gis_category_facilities` (
   `category_facilities_id` int(11) NOT NULL,
-  `category_name` varchar(100) NOT NULL
+  `category_name` varchar(100) NOT NULL,
+  `on_menu` varchar(3) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'No',
+  `category_icon` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `gis_category_facilities`
 --
 
-INSERT INTO `gis_category_facilities` (`category_facilities_id`, `category_name`) VALUES
-(1, 'kesehatan'),
-(4, 'pendidikan'),
-(5, 'hotel'),
-(6, 'kuliner'),
-(7, 'wisata'),
-(9, 'pelayanan-publik'),
-(10, 'tambang'),
-(11, 'pabrik');
+INSERT INTO `gis_category_facilities` (`category_facilities_id`, `category_name`, `on_menu`, `category_icon`) VALUES
+(1, 'kesehatan', 'Yes', 'kes.png'),
+(2, 'pelayanan publik', 'Yes', '1666184182_a3233b1346d61bb51588.png');
 
 -- --------------------------------------------------------
 
@@ -275,14 +273,8 @@ CREATE TABLE `gis_facilities` (
 --
 
 INSERT INTO `gis_facilities` (`facilities_id`, `category_facilities_id`, `title`, `image_name`, `description`, `latitude`, `longitude`) VALUES
-(3, 1, 'RSUD Beteleme ', '1660463130_b3743e95ecf2fb5a8616.jpg', 'Alamat Desa Beteleme', '-2.149874877392877', '121.27536482849807'),
-(4, 1, 'RSUD Kolonodale', '1660463258_bed0e3ce6c6c8de496b4.jpg', 'Alamat Kolonodale', '-1.9721454584389468', '121.33625566913092'),
-(7, 4, 'SMA 1 Lembo', '1660474812_cfb91e0d264f45d39ef6.jpg', 'Sma 1 lembo berada di desa beteleme', '-2.1360811987314934', '121.28460126903246'),
-(8, 5, 'Hotel Bogenfil', '1660476058_71788eb8c2cb3bd45f16.jpg', 'Hotel ini berada di kolonodale', '-1.991272543376517', '121.33176141033658'),
-(9, 6, 'Rumah makan enak', '1660476184_261ba8f856bad6d7bc28.jpg', 'warung makan yang menjual ayam', '-1.9842179596643876', '121.33676109118991'),
-(10, 7, 'Wisata Teluk Tomori', '1660477362_f9cc4f7785e2305a7b46.jpg', 'loremloreloremloremlorem', '-1.9446055624022933', '121.36106872737022'),
-(11, 9, 'Polres Morowalli', '1660478837_c14a42b688db7a5e8cac.jpg', 'loremloremlorem', '-2.099805390757554', '121.35277223050504'),
-(12, 11, 'gnidfdfdfdfdf', '1664809292_4830f044c934ae9a51c0.png', 'dfdfdsafffffff', '-1.7331259180039522', '121.03864193607032');
+(1, 1, 'RSUD Kolonodale', '1666181344_6e4d7d88b01c16c8779a.jpg', 'lorem lorem lorem', '-1.985209815625593', '121.30612525411044'),
+(2, 2, 'Rumah Makan Lamongan', '1666182269_9c717e132c06e548c2df.jpg', 'nama saya andrew', '-1.9866680609252385', '121.3471775616889');
 
 -- --------------------------------------------------------
 
@@ -293,10 +285,10 @@ INSERT INTO `gis_facilities` (`facilities_id`, `category_facilities_id`, `title`
 CREATE TABLE `lkpj` (
   `lkpj_id` int(11) NOT NULL,
   `opd_id` int(11) NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `file_name` text COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `file_name` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `year` year(4) NOT NULL,
-  `description` text COLLATE utf8_unicode_ci NOT NULL
+  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -315,10 +307,10 @@ INSERT INTO `lkpj` (`lkpj_id`, `opd_id`, `title`, `file_name`, `year`, `descript
 CREATE TABLE `lppd` (
   `lppd_id` int(11) NOT NULL,
   `opd_id` int(11) NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `file_name` text COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `file_name` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `year` year(4) NOT NULL,
-  `description` text COLLATE utf8_unicode_ci NOT NULL
+  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -366,7 +358,7 @@ CREATE TABLE `news` (
   `category_news_id` int(11) NOT NULL,
   `image_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `slug` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `slug` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -393,8 +385,8 @@ INSERT INTO `news` (`news_id`, `user_id`, `category_news_id`, `image_name`, `tit
 CREATE TABLE `opd` (
   `opd_id` int(11) NOT NULL,
   `category_opd_id` int(11) NOT NULL,
-  `opd` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `url` varchar(300) COLLATE utf8_unicode_ci NOT NULL
+  `opd` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `url` varchar(300) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -457,10 +449,10 @@ INSERT INTO `opd` (`opd_id`, `category_opd_id`, `opd`, `url`) VALUES
 
 CREATE TABLE `people_said` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `subject` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `message` text COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `subject` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `message` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `active` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -469,10 +461,10 @@ CREATE TABLE `people_said` (
 --
 
 INSERT INTO `people_said` (`id`, `name`, `image`, `subject`, `message`, `active`) VALUES
-(1, 'Minter Puchan', '1664647585_a116f477a2170dd95c37.png', 'Percobaan saja', 'Pemerintah seharusnya dapat mencari sebuah solusi untuk mengendalikan harga BBM yang terus menerus naik.', 1),
-(2, 'Weldon Cash', '1664647718_c43b26408dfa95f748d6.jpg', 'Percobaan saja 2', 'SIM seharusnya diberlakukan seumur hidup agar masyarakat tidak lagi perlu untuk direpotkan dengan urusan mengenai perpanjangan SIM setiap lima tahun sekali.', 1),
-(3, 'Gabriel Denis', '1664647804_fcda625b3f7f85b3e9db.jpg', 'Percobaan saja 3', 'Pemerintah seharusnya memberikan jaminan sosial yang adil kepada setiap masyarakatnya karena itu merupakan hak setiap orang.', 1),
-(4, 'Peterson Smith', '1664648472_046eefd4cc60f3b97a28.jpg', 'Percobaan saja 4', 'Pemerintah seharusnya memikirkan keadaan masyarakat dengan menaikkan tarif iuran BPJS yang berpeluang besar diberatkan dengan keputusan tersebut.', 1);
+(1, 'Ayu', '1664647585_a116f477a2170dd95c37.png', 'Harga BBM', 'Pemerintah seharusnya dapat mencari sebuah solusi untuk mengendalikan harga BBM yang terus menerus naik.', 1),
+(2, 'Adrian', '1664647718_c43b26408dfa95f748d6.jpg', 'Masa Berlaku SIM', 'SIM seharusnya diberlakukan seumur hidup agar masyarakat tidak lagi perlu untuk direpotkan dengan urusan mengenai perpanjangan SIM setiap lima tahun sekali.', 1),
+(3, 'Gabriel', '1664647804_fcda625b3f7f85b3e9db.jpg', 'Jaminan Sosial', 'Pemerintah seharusnya memberikan jaminan sosial yang adil kepada setiap masyarakatnya karena itu merupakan hak setiap orang.', 1),
+(4, 'Denis', '1664648472_046eefd4cc60f3b97a28.jpg', 'Iuran BPJS', 'Pemerintah seharusnya memikirkan keadaan masyarakat dengan menaikkan tarif iuran BPJS yang berpeluang besar diberatkan dengan keputusan tersebut.', 1);
 
 -- --------------------------------------------------------
 
@@ -482,7 +474,7 @@ INSERT INTO `people_said` (`id`, `name`, `image`, `subject`, `message`, `active`
 
 CREATE TABLE `permission` (
   `permission_id` int(11) NOT NULL,
-  `permission_description` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `permission_description` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `permission_category` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -585,7 +577,34 @@ INSERT INTO `permission` (`permission_id`, `permission_description`, `permission
 (92, 'View Category OPD', 'Category OPD'),
 (93, 'Create Category OPD', 'Category OPD'),
 (94, 'Delete Category OPD', 'Category OPD'),
-(95, 'Edit Category OPD', 'Category OPD');
+(95, 'Edit Category OPD', 'Category OPD'),
+(96, 'View Priority Program', 'Priority Program'),
+(97, 'Create Priority Program', 'Priority Program'),
+(98, 'Edit Priority Program', 'Priority Program'),
+(99, 'Delete Priority Program', 'Priority Program');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `priority_program`
+--
+
+CREATE TABLE `priority_program` (
+  `id_priority` int(11) NOT NULL,
+  `slug` text NOT NULL,
+  `title` varchar(150) NOT NULL,
+  `description` text NOT NULL,
+  `content` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `priority_program`
+--
+
+INSERT INTO `priority_program` (`id_priority`, `slug`, `title`, `description`, `content`) VALUES
+(3, 'pemodalan-umkm-1', 'Pemodalan UMKM 1', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, eligendi voluptatibus beatae impedit fugiat illo. Eligendi earum beatae corporis, accusamus hic, assumenda architecto molestiae dignissimos corrupti quas, atque adipisci\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Enim dignissimos aut aperiam ea? Aut labore itaque magnam obcaecati corrupti rerum sequi dignissimos, officiis enim id. Quod architecto dignissimos unde consequatur?', '1666197077_03acfaa8c290e6059181.jpg'),
+(4, 'bantuan-21-juta', 'Bantuan 2.1 juta', 'LOREM, IPSUM DOLOR SIT AMET CONSECTETUR ADIPISICING ELIT. MAGNAM, ELIGENDI VOLUPTATIBUS BEATAE IMPEDIT FUGIAT ILLO. ELIGENDI EARUM BEATAE CORPORIS, ACCUSAMUS HIC, ASSUMENDA ARCHITECTO MOLESTIAE DIGNISSIMOS CORRUPTI QUAS, ATQUE ADIPISCI LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT. ENIM DIGNISSIMOS AUT APERIAM EA? AUT LABORE ITAQUE MAGNAM OBCAECATI CORRUPTI RERUM SEQUI DIGNISSIMOS, OFFICIIS ENIM ID. QUOD ARCHITECTO DIGNISSIMOS UNDE CONSEQUATUR?\r\nLOREM, IPSUM DOLOR SIT AMET CONSECTETUR ADIPISICING ELIT. MAGNAM, ELIGENDI VOLUPTATIBUS BEATAE IMPEDIT FUGIAT ILLO. ELIGENDI EARUM BEATAE CORPORIS, ACCUSAMUS HIC, ASSUMENDA ARCHITECTO MOLESTIAE DIGNISSIMOS CORRUPTI QUAS, ATQUE ADIPISCI LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT. ENIM DIGNISSIMOS AUT APERIAM EA? AUT LABORE ITAQUE MAGNAM OBCAECATI CORRUPTI RERUM SEQUI DIGNISSIMOS, OFFICIIS ENIM ID. QUOD ARCHITECTO DIGNISSIMOS UNDE CONSEQUATUR?', '1666199656_58c27313d2b93416b4d2.jpg'),
+(5, 'bantuan-beras', 'bantuan beras', 'LOREM, IPSUM DOLOR SIT AMET CONSECTETUR ADIPISICING ELIT. MAGNAM, ELIGENDI VOLUPTATIBUS BEATAE IMPEDIT FUGIAT ILLO. ELIGENDI EARUM BEATAE CORPORIS, ACCUSAMUS HIC, ASSUMENDA ARCHITECTO MOLESTIAE DIGNISSIMOS CORRUPTI QUAS, ATQUE ADIPISCI LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT. ENIM DIGNISSIMOS AUT APERIAM EA? AUT LABORE ITAQUE MAGNAM OBCAECATI CORRUPTI RERUM SEQUI DIGNISSIMOS, OFFI\r\nLOREM, IPSUM DOLOR SIT AMET CONSECTETUR ADIPISICING ELIT. MAGNAM, ELIGENDI VOLUPTATIBUS BEATAE IMPEDIT FUGIAT ILLO. ELIGENDI EARUM BEATAE CORPORIS, ACCUSAMUS HIC, ASSUMENDA ARCHITECTO MOLESTIAE DIGNISSIMOS CORRUPTI QUAS, ATQUE ADIPISCI LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT. ENIM DIGNISSIMOS AUT APERIAM EA? AUT LABORE ITAQUE MAGNAM OBCAECATI CORRUPTI RERUM SEQUI DIGNISSIMOS, OFFI\r\nLOREM, IPSUM DOLOR SIT AMET CONSECTETUR ADIPISICING ELIT. MAGNAM, ELIGENDI VOLUPTATIBUS BEATAE IMPEDIT FUGIAT ILLO. ELIGENDI EARUM BEATAE CORPORIS, ACCUSAMUS HIC, ASSUMENDA ARCHITECTO MOLESTIAE DIGNISSIMOS CORRUPTI QUAS, ATQUE ADIPISCI LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT. ENIM DIGNISSIMOS AUT APERIAM EA? AUT LABORE ITAQUE MAGNAM OBCAECATI CORRUPTI RERUM SEQUI DIGNISSIMOS, OFFI', '1666200443_49c7273563bb2c669d26.jpg');
 
 -- --------------------------------------------------------
 
@@ -596,10 +615,10 @@ INSERT INTO `permission` (`permission_id`, `permission_description`, `permission
 CREATE TABLE `rkpd` (
   `rkpd_id` int(11) NOT NULL,
   `opd_id` int(11) NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `file_name` text COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `file_name` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `year` year(4) NOT NULL,
-  `description` text COLLATE utf8_unicode_ci NOT NULL
+  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -617,7 +636,7 @@ INSERT INTO `rkpd` (`rkpd_id`, `opd_id`, `title`, `file_name`, `year`, `descript
 
 CREATE TABLE `role` (
   `role_id` int(11) NOT NULL,
-  `role_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `role_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `is_hidden` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -834,7 +853,15 @@ INSERT INTO `role_permission` (`id`, `role_id`, `permission_id`) VALUES
 (269, 1, 94),
 (270, 2, 94),
 (271, 1, 95),
-(272, 2, 95);
+(272, 2, 95),
+(273, 1, 96),
+(274, 2, 96),
+(275, 1, 97),
+(276, 2, 97),
+(277, 1, 98),
+(278, 2, 98),
+(279, 1, 99),
+(280, 2, 99);
 
 -- --------------------------------------------------------
 
@@ -845,10 +872,10 @@ INSERT INTO `role_permission` (`id`, `role_id`, `permission_id`) VALUES
 CREATE TABLE `rpjmd` (
   `rpjmd_id` int(11) NOT NULL,
   `opd_id` int(11) NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `file_name` text COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `file_name` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `year` year(4) NOT NULL,
-  `description` text COLLATE utf8_unicode_ci NOT NULL
+  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -867,10 +894,10 @@ INSERT INTO `rpjmd` (`rpjmd_id`, `opd_id`, `title`, `file_name`, `year`, `descri
 CREATE TABLE `rpjpd` (
   `rpjpd_id` int(11) NOT NULL,
   `opd_id` int(11) NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `file_name` text COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `file_name` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `year` year(4) NOT NULL,
-  `description` text COLLATE utf8_unicode_ci NOT NULL
+  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -889,10 +916,10 @@ INSERT INTO `rpjpd` (`rpjpd_id`, `opd_id`, `title`, `file_name`, `year`, `descri
 CREATE TABLE `sakip` (
   `sakip_id` int(11) NOT NULL,
   `opd_id` int(11) NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `file_name` text COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `file_name` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `year` year(4) NOT NULL,
-  `description` text COLLATE utf8_unicode_ci NOT NULL
+  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -910,35 +937,35 @@ INSERT INTO `sakip` (`sakip_id`, `opd_id`, `title`, `file_name`, `year`, `descri
 
 CREATE TABLE `setting` (
   `setting_id` int(11) NOT NULL,
-  `background` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `banner1` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `title1` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
-  `description1` text COLLATE utf8_unicode_ci NOT NULL,
-  `url1` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
-  `url_tag1` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `banner2` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `title2` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
-  `description2` text COLLATE utf8_unicode_ci NOT NULL,
-  `url2` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
-  `url_tag2` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `banner3` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `title3` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
-  `description3` text COLLATE utf8_unicode_ci NOT NULL,
-  `url3` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
-  `url_tag3` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `logo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `facebook` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `twitter` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `instagram` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `youtube` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `contact` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `work_day` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `hour` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `quotes` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `motto` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `author` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `background` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `banner1` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `title1` varchar(300) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description1` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `url1` varchar(300) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `url_tag1` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `banner2` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `title2` varchar(300) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description2` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `url2` varchar(300) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `url_tag2` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `banner3` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `title3` varchar(300) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description3` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `url3` varchar(300) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `url_tag3` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `logo` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `facebook` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `twitter` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `instagram` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `youtube` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `contact` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `work_day` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `hour` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `quotes` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `motto` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `author` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -971,7 +998,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `name`, `password`, `is_hidden`, `is_active`, `role_id`, `created_at`, `updated_at`) VALUES
-(1, 'administrator', 'System Administrator', '$2y$10$U68eg.BfjpmPFZzxXDJUouR2SYFweu.UG1smgfTG9KhaSYWU2pJpu', 0, 0, 1, '2022-07-31 07:26:48', '2022-10-15 03:34:24'),
+(1, 'administrator', 'System Administrator', '$2y$10$U68eg.BfjpmPFZzxXDJUouR2SYFweu.UG1smgfTG9KhaSYWU2pJpu', 0, 0, 1, '2022-07-31 07:26:48', '2022-10-20 08:51:25'),
 (2, 'admin', 'Administrator', '$2y$10$XmFxndYxmf6YryNQFj1Qg.wMicapebf/U8Ffj4jXLSVKU9YSB.XFa', 0, 0, 2, '2022-08-02 10:05:30', '2022-08-07 13:35:28'),
 (4, 'user', 'User', '$2y$10$8qq5mruZe78skOPJAKoNQeO.phgoxyGd152JzIxb7zMU5lJ0bZ1Wa', 0, 0, 6, '2022-08-07 12:58:33', '2022-10-01 11:32:03');
 
@@ -1092,6 +1119,12 @@ ALTER TABLE `permission`
   ADD PRIMARY KEY (`permission_id`);
 
 --
+-- Indexes for table `priority_program`
+--
+ALTER TABLE `priority_program`
+  ADD PRIMARY KEY (`id_priority`);
+
+--
 -- Indexes for table `rkpd`
 --
 ALTER TABLE `rkpd`
@@ -1155,7 +1188,7 @@ ALTER TABLE `agenda`
 -- AUTO_INCREMENT for table `category_gallery`
 --
 ALTER TABLE `category_gallery`
-  MODIFY `category_gallery_id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `category_gallery_id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `category_menu`
@@ -1179,7 +1212,7 @@ ALTER TABLE `category_opd`
 -- AUTO_INCREMENT for table `content_menu`
 --
 ALTER TABLE `content_menu`
-  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `flash_screen`
@@ -1197,19 +1230,19 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `gis_batas_kecamatan`
 --
 ALTER TABLE `gis_batas_kecamatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `gis_category_facilities`
 --
 ALTER TABLE `gis_category_facilities`
-  MODIFY `category_facilities_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `category_facilities_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `gis_facilities`
 --
 ALTER TABLE `gis_facilities`
-  MODIFY `facilities_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `facilities_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `lkpj`
@@ -1239,19 +1272,25 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `opd`
 --
 ALTER TABLE `opd`
-  MODIFY `opd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `opd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `people_said`
 --
 ALTER TABLE `people_said`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `permission`
 --
 ALTER TABLE `permission`
-  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+
+--
+-- AUTO_INCREMENT for table `priority_program`
+--
+ALTER TABLE `priority_program`
+  MODIFY `id_priority` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `rkpd`
@@ -1269,7 +1308,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `role_permission`
 --
 ALTER TABLE `role_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=273;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=281;
 
 --
 -- AUTO_INCREMENT for table `rpjmd`

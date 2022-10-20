@@ -40,7 +40,7 @@
                         </div>
                      </div>
                      <div class="post-footer">
-                        <a href="/home/program/<?= $p_program->slug ?>" class="btn btn-primary">Baca Selengkapnya</a>
+                        <a href="/info/program/<?= $p_program->slug ?>" class="btn btn-primary">Baca Selengkapnya</a>
                      </div>
                   </div><!-- Latest post end -->
                </div><!-- 1st post col end -->
@@ -51,6 +51,11 @@
             <?php
             foreach ($vprogram as $vp) {
             ?>
+            <div class="row text-center">
+               <div class="col-12">
+                  <h3 class="section-sub-title mb-4"><?= $vp->title ?></h3>
+               </div>
+            </div>
                <div class="row">
                   <div class="col-lg-6">
                      <div class="posts-thumb">
