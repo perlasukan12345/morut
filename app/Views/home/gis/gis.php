@@ -1,34 +1,36 @@
 <?php echo $this->extend('home/template/index'); ?>
 <?php echo $this->section('home-content'); ?>
 
-<div id="banner-area" class="banner-area" style="background-image:url(<?= base_url('/img/setting/'.$setting->background) ?>)">
-  <div class="banner-text">
-    <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-              <div class="banner-heading">
-                <h1 class="banner-title">Fasilitas kesehatan</h1>
-                <?= $breadcrumbs; ?>
-              </div>
-          </div><!-- Col end -->
-        </div><!-- Row end -->
-    </div><!-- Container end -->
-  </div><!-- Banner text end -->
-</div><!-- Banner area end --> 
+<div id="banner-area" class="banner-area" style="background-image:url(<?= base_url('/img/setting/' . $setting->background) ?>)">
+   <div class="banner-text">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="banner-heading">
+                  <?php foreach ($data_gis as $dt) : ?>
+                     <h1 class="banner-title"><?= $dt->category_name; ?></h1>
+                  <?php endforeach; ?>
+                  <?= $breadcrumbs; ?>
+               </div>
+            </div><!-- Col end -->
+         </div><!-- Row end -->
+      </div><!-- Container end -->
+   </div><!-- Banner text end -->
+</div><!-- Banner area end -->
 
 <section id="main-container" class="main-container pb-2">
-  <div class="container">
-    <div class="row">
-        <div class="col-lg-12 col-md-6 mb-5">
-          <div class="ts-service-box">
-             <div class="col-12">
-               <div id="map" style="height: 900px; background-color:white;"></div>
-              </div>
-          </div><!-- Service2 end -->
-        </div><!-- Col 2 end -->
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12 col-md-6 mb-5">
+            <div class="ts-service-box">
+               <div class="col-12">
+                  <div id="map" style="height: 900px; background-color:white;"></div>
+               </div>
+            </div><!-- Service2 end -->
+         </div><!-- Col 2 end -->
 
-    </div><!-- Main row end -->
-  </div><!-- Conatiner end -->
+      </div><!-- Main row end -->
+   </div><!-- Conatiner end -->
 </section><!-- Main container end -->
 
 <?php echo $this->endSection(); ?>
@@ -62,22 +64,22 @@
       });
 
       let maps = L.map('map', {
-        center: [-1.8647779909219413, 121.53014072928303],
-        zoom: 10,
-        layers: [peta1],
-        zoomControl: false,
-        dragging: false,
-        attributionControl: false
+         center: [-1.8647779909219413, 121.53014072928303],
+         zoom: 10,
+         layers: [peta1],
+         zoomControl: false,
+         dragging: false,
+         attributionControl: false
       });
 
       maps.touchZoom.disable();
-        maps.doubleClickZoom.disable();
-        maps.scrollWheelZoom.disable();
-        maps.boxZoom.disable();
-        maps.keyboard.disable();
+      maps.doubleClickZoom.disable();
+      maps.scrollWheelZoom.disable();
+      maps.boxZoom.disable();
+      maps.keyboard.disable();
 
       let icons = L.icon({
-         iconUrl: '<?= base_url('icon/gis/'.$icon) ?>',
+         iconUrl: '<?= base_url('icon/gis/' . $icon) ?>',
          iconSize: [20, 40], // size of the icon
          iconAnchor: [11, 48],
          popupAnchor: [2, -20]

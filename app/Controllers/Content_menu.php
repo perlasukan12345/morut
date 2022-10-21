@@ -7,7 +7,7 @@ use App\Models\CategorymenuModel;
 
 class Content_menu extends BaseController
 {
-	public $content_menu;
+    public $content_menu;
     public $category_menu;
 
     public function __construct()
@@ -18,65 +18,64 @@ class Content_menu extends BaseController
 
     public function list($menu)
     {
-        if (!user_can('view-category-profile') AND !user_can('view-category-information')) {
+        if (!user_can('view-category-profile') and !user_can('view-category-information')) {
             return redirect()->to(base_url('/dashboard/invalid'));
         }
 
-        if ($menu != 'profile' AND $menu != 'information') {
+        if ($menu != 'profile' and $menu != 'information') {
             return redirect()->to(base_url('/dashboard/invalid'));
         }
 
         $data['title'] = "Content";
         $this->breadcrumb->add('Dashboard', '/dashboard');
-        $this->breadcrumb->add('Content', '/content_menu/list/'.$menu);
+        $this->breadcrumb->add('Content', '/content_menu/list/' . $menu);
         $data['breadcrumbs'] = $this->breadcrumb->render();
 
         $data['menu'] = $menu;
 
-        return view('dashboard/content_menu/list',$data);
+        return view('dashboard/content_menu/list', $data);
     }
 
     public function add($menu)
     {
-        if (!user_can('create-category-profile') AND !user_can('create-category-information')) {
+        if (!user_can('create-category-profile') and !user_can('create-category-information')) {
             return redirect()->to(base_url('/dashboard/invalid'));
         }
 
-        if ($menu != 'profile' AND $menu != 'information') {
+        if ($menu != 'profile' and $menu != 'information') {
             return redirect()->to(base_url('/dashboard/invalid'));
         }
 
         $data['title'] = "Add Content";
 
         $this->breadcrumb->add('Dashboard', '/dashboard');
-        $this->breadcrumb->add('List Content', '/content_menu/list/'.$menu);
-        $this->breadcrumb->add('Add', '/content_menu/add'.$menu);
+        $this->breadcrumb->add('List Content', '/content_menu/list/' . $menu);
+        $this->breadcrumb->add('Add', '/content_menu/add' . $menu);
         $data['breadcrumbs'] = $this->breadcrumb->render();
 
-        $data['category'] = $this->category_menu->where('menu',$menu)->find();
+        $data['category'] = $this->category_menu->where('menu', $menu)->find();
 
         $data['validation'] = \Config\Services::validation();
 
         $data['menu'] = $menu;
 
-        return view('dashboard/content_menu/add',$data);
+        return view('dashboard/content_menu/add', $data);
     }
 
     public function create($menu)
     {
-        if (!user_can('create-category-profile') AND !user_can('create-category-information')) {
+        if (!user_can('create-category-profile') and !user_can('create-category-information')) {
             return redirect()->to(base_url('/dashboard/invalid'));
         }
 
-        if ($menu != 'profile' AND $menu != 'information') {
+        if ($menu != 'profile' and $menu != 'information') {
             return redirect()->to(base_url('/dashboard/invalid'));
         }
 
-    	//load helper form and URL
+        //load helper form and URL
         helper(['form', 'url']);
-        
-        if (check_token('content_menu_add',$this->request->getVar('token'))) 
-        {
+
+        if (check_token('content_menu_add', $this->request->getVar('token'))) {
             //define validation
             $validation = [
                 'category' => [
@@ -103,37 +102,36 @@ class Content_menu extends BaseController
                 ],
             ];
 
-            if(!$this->validate($validation)) {
+            if (!$this->validate($validation)) {
                 return redirect()->back()->withInput();
             } else {
 
-    	        $data = [
+                $data = [
                     'menu' => $menu,
-    	            'category_menu_id' => $this->request->getVar('category'),
+                    'category_menu_id' => $this->request->getVar('category'),
                     'title' => $this->request->getVar('title'),
                     'content' => $this->request->getVar('content'),
-    	        ];
+                ];
 
-    	        $simpan = $this->content_menu->insert($data);
-    	        if ($simpan) {
-    	            session()->setFlashdata('message', 'Save data success');
-    	        }
-        	}
+                $simpan = $this->content_menu->insert($data);
+                if ($simpan) {
+                    session()->setFlashdata('message', 'Save data success');
+                }
+            }
 
-            return redirect()->to(base_url('/content_menu/list/'.$menu));
-        }else{
+            return redirect()->to(base_url('/content_menu/list/' . $menu));
+        } else {
             return redirect()->to(base_url('/dashboard/err404'));
         }
-
     }
 
-    public function edit($menu,$id)
+    public function edit($menu, $id)
     {
-        if (!user_can('edit-category-profile') AND !user_can('edit-category-profile')) {
+        if (!user_can('edit-category-profile') and !user_can('edit-category-profile')) {
             return redirect()->to(base_url('/dashboard/invalid'));
         }
 
-        if ($menu != 'profile' AND $menu != 'information') {
+        if ($menu != 'profile' and $menu != 'information') {
             return redirect()->to(base_url('/dashboard/invalid'));
         }
 
@@ -144,37 +142,36 @@ class Content_menu extends BaseController
         $data['title'] = "Edit Content";
 
         $this->breadcrumb->add('Dashboard', '/dashboard');
-        $this->breadcrumb->add('List Content', '/content_menu/list/'.$menu);
-        $this->breadcrumb->add('Edit', '/content_menu/edit/'.$menu);
+        $this->breadcrumb->add('List Content', '/content_menu/list/' . $menu);
+        $this->breadcrumb->add('Edit', '/content_menu/edit/' . $menu);
         $data['breadcrumbs'] = $this->breadcrumb->render();
 
         $data['validation'] = \Config\Services::validation();
 
-        $data['category'] = $this->category_menu->where('menu',$menu)->find();
+        $data['category'] = $this->category_menu->where('menu', $menu)->find();
 
         $data['menu'] = $menu;
 
         return view('dashboard/content_menu/edit', $data);
     }
 
-    public function update($menu,$id)
+    public function update($menu, $id)
     {
-        if (!user_can('edit-category-profile') AND !user_can('edit-category-information')) {
+        if (!user_can('edit-category-profile') and !user_can('edit-category-information')) {
             return redirect()->to(base_url('/dashboard/invalid'));
         }
 
-        if ($menu != 'profile' AND $menu != 'information') {
+        if ($menu != 'profile' and $menu != 'information') {
             return redirect()->to(base_url('/dashboard/invalid'));
         }
 
-    	//load helper form and URL
+        //load helper form and URL
         helper(['form', 'url']);
 
-        if (check_token('content_menu_edit',$this->request->getVar('token'))) 
-        {	
+        if (check_token('content_menu_edit', $this->request->getVar('token'))) {
             //define validation
             $validation = [
-               'category' => [
+                'category' => [
                     'rules'  => 'required',
                     'errors' => [
                         'required' => 'Category name field is required',
@@ -197,53 +194,52 @@ class Content_menu extends BaseController
                     ]
                 ],
             ];
-            
 
-            if(!$this->validate($validation)) {
+
+            if (!$this->validate($validation)) {
                 return redirect()->back()->withInput();
             } else {
 
-        		$data = [
-		            'menu' => $menu,
+                $data = [
+                    'menu' => $menu,
                     'category_menu_id' => $this->request->getVar('category'),
                     'title' => $this->request->getVar('title'),
                     'content' => $this->request->getVar('content'),
-		        ];
+                ];
 
-    	        $simpan = $this->content_menu->update($id,$data);
+                $simpan = $this->content_menu->update($id, $data);
 
-    	        if ($simpan) {
-    	            session()->setFlashdata('message', 'Update data success');
-    	        }
-        	}
+                if ($simpan) {
+                    session()->setFlashdata('message', 'Update data success');
+                }
+            }
 
-            return redirect()->to(base_url('/content_menu/list/'.$menu));
-        }else{
+            return redirect()->to(base_url('/content_menu/list/' . $menu));
+        } else {
             return redirect()->to(base_url('/dashboard/err404'));
         }
     }
 
-    public function delete($menu,$id)
+    public function delete($menu, $id)
     {
-        if (!user_can('delete-category-profile') AND !user_can('delete-category-information')) {
+        if (!user_can('delete-category-profile') and !user_can('delete-category-information')) {
             return redirect()->to(base_url('/dashboard/invalid'));
         }
 
-        if ($menu != 'profile' AND $menu != 'information') {
+        if ($menu != 'profile' and $menu != 'information') {
             return redirect()->to(base_url('/dashboard/invalid'));
         }
 
         $post = $this->content_menu->find($id);
 
-        if($post) {
+        if ($post) {
             $this->content_menu->delete($id);
 
             //flash message
             session()->setFlashdata('message', 'Delete Data Success');
 
-            return redirect()->to(base_url('/content_menu/list/'.$menu));
+            return redirect()->to(base_url('/content_menu/list/' . $menu));
         }
-
     }
 
     public function dt_content_menu($menu)
@@ -258,8 +254,8 @@ class Content_menu extends BaseController
         foreach ($list as $lists) {
             $no++;
 
-            $edit = (user_can('edit-category-profile') OR user_can('edit-category-information')) ? '<a href="/content_menu/edit/'.$menu.'/'.$lists->menu_id.'" class="btn btn-link"><i class="fa fa-edit"></i> Edit</a>' : '';
-            $delete = (user_can('delete-category-profile') OR user_can('delete-category-information')) ? '<a href="/content_menu/delete/'.$menu.'/'.$lists->menu_id.'" class="btn btn-link btn-delete"><i class="fa fa-trash"></i> Delete</a>' : '';
+            $edit = (user_can('edit-category-profile') or user_can('edit-category-information')) ? '<a href="/content_menu/edit/' . $menu . '/' . $lists->menu_id . '" class="btn btn-link"><i class="fa fa-edit"></i> Edit</a>' : '';
+            $delete = (user_can('delete-category-profile') or user_can('delete-category-information')) ? '<a href="/content_menu/delete/' . $menu . '/' . $lists->menu_id . '" class="btn btn-link btn-delete"><i class="fa fa-trash"></i> Delete</a>' : '';
 
             $row    = array();
             $row['no']  = $no;
@@ -271,9 +267,9 @@ class Content_menu extends BaseController
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
-                    '.$edit.'
+                    ' . $edit . '
                 </li><li>
-                	'.$delete.'
+                	' . $delete . '
                     </li>
                 </ul>
             </div>';

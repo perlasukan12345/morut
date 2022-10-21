@@ -35,10 +35,10 @@ class WebGis extends BaseController
         $data['batas_kecamatan'] = $this->batas_kecamatan->findAll();
         $data['data_gis'] = $this->facilities->gt_data_gis($category_name);
         $data['setting'] = $this->setting_model->first();
-        $data_icon = $this->cat_facilities->where('category_name',$category_name)->first();
+        $data_icon = $this->cat_facilities->where('category_name', $category_name)->first();
         $data['icon'] = $data_icon->category_icon;
 
-        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu', 'Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 
@@ -54,7 +54,7 @@ class WebGis extends BaseController
         $data['batas_kecamatan'] = $this->batas_kecamatan->findAll();
         $data['setting'] = $this->setting_model->first();
 
-        $data['cat_facilities'] = $this->cat_facilities->where('on_menu','Yes')->find();
+        $data['cat_facilities'] = $this->cat_facilities->where('on_menu', 'Yes')->find();
         $data['profile'] = $this->category_menu->get_category_menu('profile');
         $data['information'] = $this->category_menu->get_category_menu('information');
 

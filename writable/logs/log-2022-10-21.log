@@ -1,0 +1,68 @@
+ERROR - 2022-10-21 08:13:45 --> mysqli_sql_exception: Unknown column 'on_menu' in 'where clause' in C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\morut\vendor\codeigniter4\framework\system\Model.php(185): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\morut\vendor\codeigniter4\framework\system\BaseModel.php(523): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\laragon\www\morut\app\Controllers\Welcome.php(38): CodeIgniter\BaseModel->find()
+#7 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(902): App\Controllers\Welcome->index()
+#8 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Welcome))
+#9 C:\laragon\www\morut\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\morut\public\index.php(55): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-10-21 08:13:45 --> Unknown column 'on_menu' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `gis_category_facilities`
+WHERE `on_menu` = \'Yes\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `gis_category_facilities`
+WHERE `on_menu` = \'Yes\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `gis_category_facilities`
+WHERE `on_menu` = \'Yes\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `gis_category_facilities`
+WHERE `on_menu` = :on_menu:', [...], false)
+ 5 SYSTEMPATH\Model.php(185): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(523): CodeIgniter\Model->doFind(false, null)
+ 7 APPPATH\Controllers\Welcome.php(38): CodeIgniter\BaseModel->find()
+ 8 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Welcome->index()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Welcome))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-21 08:27:57 --> Undefined variable: kategory_name
+in APPPATH\Views\home\gis\gis.php on line 11.
+ 1 APPPATH\Views\home\gis\gis.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: kategory_name', 'APPPATH\\Views\\home\\gis\\gis.php', 11, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\gis\\gis.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/gis/gis', [], true)
+ 5 APPPATH\Controllers\WebGis.php(45): view('home/gis/gis', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\WebGis->Gis('wisata')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WebGis))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-21 08:28:05 --> Undefined variable: category_name
+in APPPATH\Views\home\gis\gis.php on line 11.
+ 1 APPPATH\Views\home\gis\gis.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: category_name', 'APPPATH\\Views\\home\\gis\\gis.php', 11, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\gis\\gis.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/gis/gis', [], true)
+ 5 APPPATH\Controllers\WebGis.php(45): view('home/gis/gis', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\WebGis->Gis('wisata')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WebGis))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-21 08:28:07 --> Undefined variable: category_name
+in APPPATH\Views\home\gis\gis.php on line 11.
+ 1 APPPATH\Views\home\gis\gis.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: category_name', 'APPPATH\\Views\\home\\gis\\gis.php', 11, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\home\\gis\\gis.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('home/gis/gis', [], true)
+ 5 APPPATH\Controllers\WebGis.php(45): view('home/gis/gis', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\WebGis->Gis('wisata')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WebGis))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
