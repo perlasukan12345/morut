@@ -67,16 +67,10 @@
          center: [-1.8647779909219413, 121.53014072928303],
          zoom: 10,
          layers: [peta1],
-         zoomControl: false,
-         dragging: false,
          attributionControl: false
       });
 
-      maps.touchZoom.disable();
-      maps.doubleClickZoom.disable();
-      maps.scrollWheelZoom.disable();
-      maps.boxZoom.disable();
-      maps.keyboard.disable();
+     
 
       let icons = L.icon({
          iconUrl: '<?= base_url('icon/gis/' . $icon) ?>',
