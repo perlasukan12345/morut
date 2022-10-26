@@ -65,24 +65,8 @@
         center: [-1.8647779909219413, 121.53014072928303],
         zoom: 10,
         layers: [peta1],
-        zoomControl: false,
-        dragging: false,
         attributionControl: false
       });
-
-      maps.touchZoom.disable();
-        maps.doubleClickZoom.disable();
-        maps.scrollWheelZoom.disable();
-        maps.boxZoom.disable();
-        maps.keyboard.disable();
-
-      let kesehatan = L.icon({
-         iconUrl: '<?= base_url('icon/gis/kesehatan.png') ?>',
-         iconSize: [20, 40], // size of the icon
-         iconAnchor: [11, 48],
-         popupAnchor: [2, -20]
-      });
-
 
      <?php foreach ($batas_kecamatan as $bk) { ?>
          $.getJSON("<?= base_url('file/geojson_batas_kecamatan/' . $bk->geojson_file) ?>", function(data) {
